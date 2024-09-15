@@ -16,7 +16,7 @@
             android:name=".IniciSesionActivity"
             android:exported="false" />
         <activity
-            android:name=".IniciarSesionActivity"
+            android:name=".activity_registro"
             android:exported="false" />
         <activity
             android:name=".MainActivity"
