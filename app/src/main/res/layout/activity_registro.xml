@@ -45,7 +45,7 @@
                 android:layout_height="47dp"
                 android:layout_marginBottom="10sp"
                 android:height="60sp"
-                android:background="#494949"
+                android:background="#FFFFFF"
                 android:ems="10"
                 android:hint="Nombre"
                 android:inputType="text"
@@ -65,7 +65,7 @@
                 android:layout_height="47dp"
                 android:layout_marginBottom="10sp"
                 android:height="60sp"
-                android:background="#494949"
+                android:background="#FFFFFF"
                 android:ems="10"
                 android:hint="Apellido"
                 android:inputType="text"
@@ -85,7 +85,7 @@
                 android:layout_height="47dp"
                 android:layout_marginBottom="10sp"
                 android:height="60sp"
-                android:background="#494949"
+                android:background="#FFFFFF"
                 android:ems="10"
                 android:hint="Numero de Telefono"
                 android:inputType="phone"
@@ -106,7 +106,7 @@
                 android:layout_height="47dp"
                 android:layout_marginBottom="10sp"
                 android:height="60sp"
-                android:background="#494949"
+                android:background="#FFFFFF"
                 android:ems="10"
                 android:hint="Correo"
                 android:inputType="textEmailAddress"
@@ -123,14 +123,14 @@
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="47dp"
-                android:background="#494949"
+                android:background="#FFFFFF"
                 app:passwordToggleEnabled="true">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/logTxtclave"
                     android:layout_width="match_parent"
                     android:layout_height="47dp"
-                    android:background="#494949"
+                    android:background="#FFFFFF"
                     android:inputType="textPassword"
                     android:textColor="#DCDCDC" />
             </com.google.android.material.textfield.TextInputLayout>
@@ -151,7 +151,7 @@
                     android:id="@+id/txtConfirmarClave"
                     android:layout_width="match_parent"
                     android:layout_height="47dp"
-                    android:background="#494949"
+                    android:background="#FFFFFF"
                     android:inputType="textPassword"
                     android:textColor="#DCDCDC"
                     android:textColorHighlight="#D9D9D9" />
