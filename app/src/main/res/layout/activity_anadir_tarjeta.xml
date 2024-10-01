@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#4CAF50"
+    android:backgroundTint="#4CAF50"
+    tools:context=".AnadirTarjetaActivity">
+
+    <EditText
+
+        android:id="@+id/logFechaTajetaDeCaducidad"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="30dp"
+        android:layout_marginVertical="10dp"
+        android:background="#8BC34A"
+        android:hint="@string/logFechaTajetaDeCaducidad"
+        android:inputType="text"
+        android:maxLength="100"
+        tools:layout_editor_absoluteX="30dp"
+        tools:layout_editor_absoluteY="377dp" />
+
+    <EditText
+
+        android:id="@+id/logCVV"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="30dp"
+        android:layout_marginVertical="10dp"
+        android:background="#8BC34A"
+        android:hint="@string/logCvv"
+        android:inputType="text"
+        android:maxLength="100"
+        tools:layout_editor_absoluteX="30dp"
+        tools:layout_editor_absoluteY="453dp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#262323"
+        android:orientation="vertical"
+        tools:layout_editor_absoluteY="168dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="156dp"
+            android:background="#4CAF50"
+            android:orientation="vertical"
+            tools:layout_editor_absoluteX="-25dp"
+            tools:layout_editor_absoluteY="-15dp">
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="43dp" />
+
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="match_parent"
+                android:layout_height="76dp"
+                android:text="AutoNEX"
+                android:textAlignment="center"
+                android:textSize="60sp" />
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/logBtnRegresar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:backgroundTint="#673AB7"
+            android:onClick="irNuevaTarjeta"
+            android:text="@string/logBtnRegresar"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <EditText
+
+                android:id="@+id/logTxtNombre"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="30dp"
+                android:background="#8BC34A"
+                android:hint="@string/logTxtNombre"
+                android:inputType="text"
+                android:maxLength="100" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <EditText
+
+                android:id="@+id/logTxtCorreo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="30dp"
+                android:layout_marginVertical="10dp"
+                android:background="#8BC34A"
+                android:hint="@string/logTxtCorreo"
+                android:inputType="text"
+                android:maxLength="100" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <Button
+            android:id="@+id/logBtnRestrarTajerta"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="50dp"
+            android:background="#4CAF50"
+            android:backgroundTint="#4CAF50"
+            android:text="Registrar"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MetodosDePagoActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:layout_editor_absoluteY="168dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="156dp"
+            android:background="#DF3386"
+            android:orientation="vertical"
+            tools:layout_editor_absoluteX="-25dp"
+            tools:layout_editor_absoluteY="-15dp">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="119dp"
+                android:layout_marginVertical="30dp"
+                android:src="@drawable/logo" />
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="90dp"
+            android:layout_marginVertical="50dp"
+            android:fontFamily="sans-serif-black"
+            android:gravity="left"
+            android:text="Metodo de Pago:"
+            android:textColor="#5131AE"
+            android:textSize="30dp" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <EditText
+
+                android:id="@+id/Numerpo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="30dp"
+                android:background="#DF3386"
+                android:layout_marginVertical="10dp"
+                android:hint="@string/logNrTarjeta"
+                android:inputType="textEmailAddress"
+                android:maxLength="100" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="208dp"
+                android:layout_height="wrap_content">
+
+                <EditText
+
+                    android:id="@+id/logTxtCorreo"
+                    android:layout_width="171dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="30dp"
+                    android:layout_marginVertical="10dp"
+                    android:background="#DF3386"
+                    android:hint="MM/DD"
+                    android:inputType="textEmailAddress"
+                    android:maxLength="100" />
+
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="200dp"
+                android:layout_height="wrap_content">
+
+                <EditText
+
+                    android:layout_width="171dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="1dp"
+                    android:layout_marginVertical="10dp"
+                    android:background="#DF3386"
+                    android:hint="CVV"
+                    android:inputType="textEmailAddress"
+                    android:maxLength="100" />
+
+
+            </com.google.android.material.textfield.TextInputLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="208dp"
+                android:layout_height="wrap_content">
+
+                <EditText
+
+                    android:layout_width="171dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="30dp"
+                    android:layout_marginVertical="10dp"
+                    android:background="#DF3386"
+                    android:hint="name"
+                    android:inputType="textEmailAddress"
+                    android:maxLength="100" />
+
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="200dp"
+                android:layout_height="wrap_content">
+
+                <EditText
+
+                    android:layout_width="171dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="1dp"
+                    android:layout_marginVertical="10dp"
+                    android:background="#DF3386"
+                    android:hint="last name"
+                    android:inputType="textEmailAddress"
+                    android:maxLength="100" />
+
+
+            </com.google.android.material.textfield.TextInputLayout>
+        </LinearLayout>
+
+
+
+
+        <LinearLayout
+            android:layout_width="287dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="65dp"
+            android:layout_marginVertical="15dp"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/LogBtnIniciar"
+                android:layout_width="216dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:layout_weight="1"
+                android:background="#8540F4"
+                android:text="Realizar compra"
+                android:onClick="irCompraExitosa"
+                android:textAllCaps="false" />
+        </LinearLayout>
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center_horizontal|bottom"
+            android:textColor="#000AF3" />
+
+    </LinearLayout>
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="20dp" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="20dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/copyright_chamba_solution_2024"
+        android:layout_marginBottom="16dp"
+        android:textColor="#0000AF"
+        android:alpha="0.5"
+        android:layout_gravity="center_horizontal|bottom"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
