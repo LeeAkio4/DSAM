@@ -24,14 +24,15 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:layout_marginBottom="20dp"/>
+
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Cargando Detalles creativos"
+            android:layout_weight="15"
             android:gravity="center_horizontal"
+            android:text="Cargando Autonex"
             android:textSize="18sp"
-            android:textStyle="bold|italic"
-            android:layout_weight="15"/>
+            android:textStyle="bold|italic" />
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
