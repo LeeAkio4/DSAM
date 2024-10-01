@@ -4,114 +4,125 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/linearlayout"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="match_parent"
     android:layout_margin="20dp"
-    android:background="@drawable/layout_bg"
+    android:background="#808080"
     android:orientation="vertical"
     app:circularflow_radiusInDP="10dp"
 
     >
 
 
-
-    <LinearLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/main"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:padding="10dp">
+        android:background="#CCCCCC"
+        tools:context=".TerminosCondiciones">
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:orientation="vertical">
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="10dp">
 
-            <TextView
-                android:id="@+id/textview"
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Numero de Orden" />
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="vertical">
 
-            <TextView
-                android:id="@+id/tvNumeroOrden"
+                <TextView
+                    android:id="@+id/textview"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Numero de Orden"
+                    android:textColor="#494949" />
+
+                <TextView
+                    android:id="@+id/tvNumeroOrden"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="ss17294922amvd"
+                    android:textColor="#000000"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="ss17294922amvd"
-                android:textColor="#000000"
-                android:textStyle="bold" />
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/textView8"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Fecha de Pedido" />
+
+                <TextView
+                    android:id="@+id/tvFechaPedido"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="10 de Octubre 2024"
+                    android:textColor="#000000"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
+
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:orientation="vertical">
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="10dp"
+            tools:layout_editor_absoluteY="59dp">
 
-            <TextView
-                android:id="@+id/textView8"
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Fecha de Pedido" />
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="vertical">
 
-            <TextView
-                android:id="@+id/tvFechaPedido"
+                <TextView
+                    android:id="@+id/textView10"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Total Pagado"
+                    android:textColor="#494949" />
+
+                <TextView
+                    android:id="@+id/tvTotalPagado"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="S/. 29700.99"
+                    android:textColor="#494949"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="10 de Mayo 2024"
-                android:textColor="#000000"
-                android:textStyle="bold" />
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="vertical">
 
+                <TextView
+                    android:id="@+id/textView12"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Estado de Envío" />
+
+                <TextView
+                    android:id="@+id/tvEstadoEnvio"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Enviado"
+                    android:textColor="#000000"
+                    android:textStyle="bold" />
+            </LinearLayout>
         </LinearLayout>
 
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:padding="10dp">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:orientation="vertical">
-
-            <TextView
-                android:id="@+id/textView10"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Total Pagado" />
-
-            <TextView
-                android:id="@+id/tvTotalPagado"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="S/. 297.99"
-                android:textColor="#000000"
-                android:textStyle="bold" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:orientation="vertical">
-
-            <TextView
-                android:id="@+id/textView12"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Estado de Envío" />
-
-            <TextView
-                android:id="@+id/tvEstadoEnvio"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Enviado"
-                android:textColor="#000000"
-                android:textStyle="bold" />
-        </LinearLayout>
-    </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </LinearLayout>

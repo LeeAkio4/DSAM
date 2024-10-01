@@ -5,7 +5,9 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#2C2C2C"
     tools:context=".RecuperarContrActivity">
+
     <LinearLayout
         android:id="@+id/linearLayout"
         android:layout_width="match_parent"
@@ -16,39 +18,39 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="156dp"
-            android:background="#DF3386"
+            android:layout_height="100dp"
+            android:background="#1A1A1A"
             android:orientation="vertical"
             tools:layout_editor_absoluteX="-25dp"
             tools:layout_editor_absoluteY="-15dp">
 
             <ImageView
                 android:layout_width="match_parent"
-                android:layout_height="119dp"
-                android:layout_marginVertical="30dp"
+                android:layout_height="100dp"
+                android:layout_marginVertical="5dp"
                 android:src="@drawable/logo" />
-        </LinearLayout>
 
+        </LinearLayout>
 
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textSize="30dp"
             android:layout_marginHorizontal="30dp"
             android:layout_marginVertical="50dp"
             android:gravity="center"
             android:text="RECUPERAR CONTRASEÑA"
-            android:textStyle="bold"
-            android:textColor="#973FB2" />
+            android:textColor="#F2F2F2"
+            android:textSize="30dp"
+            android:textStyle="bold" />
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginVertical="10dp"
-            android:textSize="17dp"
             android:gravity="center"
-            android:text="Intoduzca su correo para buscar tu cuenta" />
+            android:text="Intoduzca su correo para buscar tu cuenta"
+            android:textSize="17dp" />
 
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
@@ -59,8 +61,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="30dp"
-                android:background="#DF3386"
-                android:hint="@string/logTxtCorreo"
+                android:background="#FFFFFF"
+                android:hint="Correo"
                 android:inputType="textEmailAddress"
                 android:maxLength="100" />
         </com.google.android.material.textfield.TextInputLayout>
@@ -77,6 +79,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:backgroundTint="#808080"
                 android:text="Buscar"
                 android:textAllCaps="false" />
 
@@ -86,10 +89,10 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="15dp"
                 android:layout_weight="1"
+                android:backgroundTint="#808080"
                 android:text="Cancelar"
                 android:textAllCaps="false" />
         </LinearLayout>
-
 
 
     </LinearLayout>
