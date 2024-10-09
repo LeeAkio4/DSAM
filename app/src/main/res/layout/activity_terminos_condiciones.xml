@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#2C2C2C"
+    tools:context=".TerminosCondiciones">
+
+    <TextView
+        android:id="@+id/textView15"
+        android:layout_width="251dp"
+        android:layout_height="84dp"
+        android:layout_marginEnd="16dp"
+        android:text="TERMINOS Y CONDICIONES"
+        android:textColor="#E7E7E7"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/scrollView3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.619" />
+
+    <ScrollView
+        android:id="@+id/scrollView3"
+        android:layout_width="0dp"
+        android:layout_height="605dp"
+        android:layout_marginStart="1dp"
+        android:layout_marginEnd="1dp"
+        android:layout_marginBottom="1dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/textView14"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Términos y Condiciones de Uso 1. Aceptación de los Términos Al descargar, acceder y utilizar la aplicación móvil &quot;Detalles Pedidos&quot; (en adelante, &quot;la App&quot;), usted acepta estar sujeto a los siguientes términos y condiciones de uso (en adelante, &quot;los Términos&quot;). Si no está de acuerdo con estos Términos, por favor no utilice la App.  2. Descripción del Servicio &quot;Detalles Pedidos&quot; es una aplicación de comercio electrónico que permite a los usuarios realizar compras de diversos productos a través de dispositivos móviles. La App proporciona una plataforma para explorar, seleccionar y comprar productos de manera conveniente y segura.  3. Registro de Cuenta Para utilizar ciertas funciones de la App, es posible que se le requiera registrarse y crear una cuenta. Usted se compromete a proporcionar información veraz, exacta, actual y completa durante el proceso de registro. Usted es responsable de mantener la confidencialidad de su cuenta y contraseña, así como de todas las actividades que ocurran bajo su cuenta.  4. Uso de la App Usted se compromete a utilizar la App de manera legal y respetuosa. Está prohibido:  Utilizar la App para actividades ilegales. Interferir con el funcionamiento de la App. Violar los derechos de propiedad intelectual de terceros. Publicar o transmitir contenido ofensivo, difamatorio o inapropiado. 5. Compras y Pagos Todas las compras realizadas a través de la App están sujetas a la disponibilidad de los productos y a la aceptación de su pedido. Nos reservamos el derecho de rechazar cualquier pedido. Los precios de los productos están sujetos a cambios sin previo aviso. Los pagos se realizarán a través de los métodos de pago disponibles en la App.  6. Política de Devoluciones y Reembolsos Ofrecemos una política de devoluciones y reembolsos según se describe en nuestra sección de &quot;Política de Devoluciones&quot; disponible en la App. Le recomendamos revisar esta política antes de realizar una compra.  7. Propiedad Intelectual Todos los derechos de propiedad intelectual sobre la App y su contenido son propiedad de &quot;Detalles Pedidos&quot; o de sus licenciantes. Usted no adquiere ningún derecho de propiedad sobre la App ni sobre su contenido al utilizarla.  8. Limitación de Responsabilidad En la medida permitida por la ley, &quot;Detalles Pedidos&quot; no será responsable por daños directos, indirectos, incidentales, especiales o consecuentes que resulten del uso o la imposibilidad de uso de la App.  9. Modificaciones a los Términos Nos reservamos el derecho de modificar estos Términos en cualquier momento. Las modificaciones serán efectivas a partir de su publicación en la App. Su uso continuado de la App después de la publicación de las modificaciones constituirá su aceptación de los Términos modificados.  10. Contacto Si tiene alguna pregunta o inquietud sobre estos Términos, puede ponerse en contacto con nosotros a través de [correo electrónico de contacto].  11. Ley Aplicable Estos Términos se regirán e interpretarán de acuerdo con las leyes del [país], sin perjuicio de las disposiciones sobre conflicto de leyes."
+                android:textColor="#D5D4D4" />
+
+        </LinearLayout>
+    </ScrollView>
+
+    <ImageView
+        android:id="@+id/imageView12"
+        android:layout_width="120dp"
+        android:layout_height="70dp"
+        android:src="@drawable/flecha_izquierda"
+        tools:layout_editor_absoluteX="1dp"
+        tools:layout_editor_absoluteY="26dp" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
