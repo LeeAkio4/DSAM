@@ -49,7 +49,7 @@
 
             <EditText
 
-                android:id="@+id/logTxtNumTarj"
+                android:id="@+id/Nombre"
                 android:layout_width="match_parent"
                 android:layout_height="55dp"
                 android:layout_marginHorizontal="30dp"
