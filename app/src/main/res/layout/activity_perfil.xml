@@ -135,7 +135,7 @@
                 android:id="@+id/textView15"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="dd/mm/aaaa"
+                android:text=" dd/mm/aaaa"
                 android:textSize="20sp" />
         </TableRow>
 
@@ -145,7 +145,7 @@
                 android:id="@+id/textView16"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Vivo en "
+                android:text="Direccion"
                 android:textSize="20sp" />
 
             <TextView
@@ -162,7 +162,7 @@
                 android:id="@+id/textView18"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Nro de Placa"
+                android:text="Nro de DNI"
                 android:textSize="20sp" />
 
             <TextView
@@ -180,6 +180,7 @@
         android:layout_height="39dp"
         android:layout_marginTop="20dp"
         android:backgroundTint="#808080"
+        android:onClick="Actualizar"
         android:text="Actualizar Datos"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -207,6 +208,7 @@
         android:layout_marginStart="16dp"
         android:layout_marginBottom="8dp"
         android:backgroundTint="#808080"
+        android:onClick="Regresar"
         android:text="Atras"
         app:layout_constraintBottom_toTopOf="@+id/imageView3"
         app:layout_constraintStart_toStartOf="parent"

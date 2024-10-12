@@ -1,8 +1,8 @@
 package com.app.proyectoFinal;
 
 import android.content.Intent;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
-import android.view.Menu;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
@@ -13,6 +13,7 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+import com.app.proyectoFinal.dao.conexion;
 import com.google.android.material.textfield.TextInputEditText;
 
 public class IniciarSesionActivity extends AppCompatActivity {
@@ -62,7 +63,7 @@ public class IniciarSesionActivity extends AppCompatActivity {
                 // Verificar si el correo y la contraseña son correctos (admin/admin)
                 if (correoIngresado.equals("admin") && contrasenaIngresada.equals("admin")) {
                     // Crear un intent para navegar al layout de Menu Marcas
-                    Intent intent = new Intent(IniciarSesionActivity.this, Menu_Marcas.class);
+                    Intent intent = new Intent(IniciarSesionActivity.this, OpcionesDeAplicacionActivity.class);
                     startActivity(intent);
                 } else {
                     // Mostrar un mensaje de error si el correo o la contraseña son incorrectos
@@ -70,5 +71,24 @@ public class IniciarSesionActivity extends AppCompatActivity {
                 }
             }
         });
+    }
+
+    public void IrRegistro(View view){
+        Intent x=new Intent(this, activity_registro.class);
+        startActivity(x);
+    }
+
+    public void CrearDB(View view){
+        conexion con= new conexion(this);
+        SQLiteDatabase database= con.getWritableDatabase();
+        if (database!=null){
+            Toast.makeText(this, "Conexion correcta", Toast.LENGTH_LONG).show();
+        }
+        else {
+            Toast.makeText(this, "Error de conexion", Toast.LENGTH_LONG).show();
+        }
+    }
+    public void envioInicio(View view){
+        finish();
     }
 }

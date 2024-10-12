@@ -159,32 +159,6 @@
                 android:layout_height="16dp"
                 android:layout_weight="1" />
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:background="#1A1919"
-                android:orientation="horizontal"
-                android:padding="5dp">
-
-                <CheckBox
-                    android:id="@+id/chbCondiciones"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="Acepto Terminos y Condiciones"
-                    android:textColor="#DEDEDE" />
-
-                <Button
-                    android:id="@+id/button2"
-                    android:layout_width="75dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:backgroundTint="#808080"
-                    android:onClick="verCondiciones"
-                    android:text="ver" />
-
-            </LinearLayout>
-
         </LinearLayout>
     </ScrollView>
 
@@ -206,14 +180,15 @@
         android:id="@+id/LogBtnRetroceder"
         android:layout_width="140dp"
         android:layout_height="50dp"
-        android:layout_marginEnd="32dp"
         android:layout_marginBottom="36dp"
         android:backgroundTint="#808080"
-        android:onClick="retroceder"
+        android:onClick="Regresar"
         android:text="Atras"
         android:textColorLink="#BFBFBF"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.852"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/scrollView2"
         app:layout_constraintVertical_bias="0.775" />
 

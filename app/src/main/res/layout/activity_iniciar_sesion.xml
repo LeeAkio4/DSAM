@@ -77,43 +77,54 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <!-- Botón Iniciar Sesión -->
+
+    <!-- Botón Salir -->
     <Button
         android:id="@+id/btniniciarsesion"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
         android:layout_marginTop="24dp"
+        android:layout_marginEnd="32dp"
         android:backgroundTint="#494949"
         android:text="Iniciar Sesión"
-        app:layout_constraintTop_toBottomOf="@+id/textInputLayout2"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginStart="32dp"
-        android:layout_marginEnd="32dp" />
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textInputLayout2"
+        app:layout_constraintVertical_bias="0.0" />
 
-    <!-- Botón Salir -->
+    <!-- Texto de registro -->
     <Button
         android:id="@+id/btnsalir"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
         android:layout_marginTop="8dp"
+        android:layout_marginEnd="32dp"
         android:backgroundTint="#494949"
         android:text="Salir"
-        app:layout_constraintTop_toBottomOf="@+id/btniniciarsesion"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginStart="32dp"
-        android:layout_marginEnd="32dp" />
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btniniciarsesion"
+        app:layout_constraintVertical_bias="0.0" />
 
-    <!-- Texto de registro -->
     <TextView
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
+        android:onClick="IrRegistro"
         android:text="¡Registrate aquí!"
         android:textColor="#000000"
-        app:layout_constraintTop_toBottomOf="@+id/btnsalir"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/btnsalir"
+        app:layout_constraintVertical_bias="0.0" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

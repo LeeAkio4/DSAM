@@ -66,7 +66,7 @@
         android:layout_width="128dp"
         android:layout_height="51dp"
         android:backgroundTint="#808080"
-        android:onClick="Volver"
+        android:onClick="Regresar"
         android:text="ATRAS"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

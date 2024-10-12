@@ -13,12 +13,14 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="10dp">
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="100dp"
+            android:layout_height="114dp"
             android:background="#1A1A1A"
             android:orientation="vertical">
 
@@ -38,7 +40,7 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="59dp"
             android:layout_marginStart="16dp"
             android:layout_marginTop="8dp"
             android:layout_marginEnd="16dp"
@@ -53,11 +55,12 @@
 
                 <TextView
                     android:id="@+id/miperfil"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="311dp"
+                    android:layout_height="48dp"
+                    android:onClick="IrPerfil"
                     android:text="Mi Perfil"
                     android:textColor="@color/white"
-                    android:textSize="16sp" />
+                    android:textSize="24sp" />
 
             </LinearLayout>
 
@@ -77,6 +80,10 @@
 
         </LinearLayout>
 
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
         <View
             android:layout_width="match_parent"
             android:layout_height="1dp"
@@ -87,28 +94,29 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="58dp"
             android:layout_marginStart="16dp"
             android:layout_marginTop="8dp"
             android:layout_marginEnd="16dp"
             android:orientation="horizontal">
 
+
             <LinearLayout
                 android:layout_width="308dp"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:orientation="horizontal">
 
                 <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:onClick="irMisTarjetas"
+                    android:layout_width="314dp"
+                    android:layout_height="48dp"
+                    android:onClick="IrTarjeta"
                     android:text="Mis Tarjetas"
                     android:textColor="@color/white"
-                    android:textSize="16sp" />
+                    android:textSize="24sp"
+                    app:autoSizeTextType="none" />
 
             </LinearLayout>
-
 
             <LinearLayout
                 android:layout_width="0dp"
@@ -136,7 +144,7 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="53dp"
             android:layout_marginStart="16dp"
             android:layout_marginTop="8dp"
             android:layout_marginEnd="16dp"
@@ -150,12 +158,12 @@
 
                 <TextView
                     android:id="@+id/txtTienda"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:onClick="NuestroMercadito"
+                    android:layout_width="317dp"
+                    android:layout_height="48dp"
+                    android:onClick="IrTienda"
                     android:text="Tienda"
                     android:textColor="@color/white"
-                    android:textSize="16sp" />
+                    android:textSize="24sp" />
 
             </LinearLayout>
 
@@ -185,7 +193,7 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="61dp"
             android:layout_marginStart="16dp"
             android:layout_marginTop="8dp"
             android:layout_marginEnd="16dp"
@@ -198,11 +206,12 @@
                 android:orientation="horizontal">
 
                 <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="326dp"
+                    android:layout_height="48dp"
+                    android:onClick="IrPedidos"
                     android:text="Mis Pedidos"
                     android:textColor="@color/white"
-                    android:textSize="16sp" />
+                    android:textSize="24sp" />
 
             </LinearLayout>
 
@@ -231,7 +240,7 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="58dp"
             android:layout_marginStart="16dp"
             android:layout_marginTop="8dp"
             android:layout_marginEnd="16dp"
@@ -245,14 +254,14 @@
 
                 <TextView
                     android:id="@+id/txtubi"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="330dp"
+                    android:layout_height="48dp"
 
 
-                    android:onClick="Contactenos"
+                    android:onClick="IrUbicacion"
                     android:text="Ubicación"
                     android:textColor="@color/white"
-                    android:textSize="16sp" />
+                    android:textSize="24sp" />
 
             </LinearLayout>
 
@@ -279,7 +288,7 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="57dp"
             android:layout_marginStart="16dp"
             android:layout_marginTop="8dp"
             android:layout_marginEnd="16dp"
@@ -293,14 +302,14 @@
 
                 <TextView
                     android:id="@+id/txtTeryCon"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="323dp"
+                    android:layout_height="48dp"
 
 
-                    android:onClick="Terminos"
+                    android:onClick="IrTerminos"
                     android:text="Terminos y Condiciones"
                     android:textColor="@color/white"
-                    android:textSize="16sp" />
+                    android:textSize="24sp" />
 
             </LinearLayout>
 
@@ -332,7 +341,7 @@
         <LinearLayout
             android:id="@+id/vacio"
             android:layout_width="match_parent"
-            android:layout_height="193dp"
+            android:layout_height="81dp"
             android:background="@android:color/transparent"
             android:orientation="vertical">
 
@@ -354,7 +363,7 @@
                 android:layout_width="164dp"
                 android:layout_height="51dp"
                 android:backgroundTint="#808080"
-                android:onClick="irInicioDeSesion"
+                android:onClick="Cerrar"
                 android:text="Cerrar sesión"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -366,7 +375,7 @@
 
         <Space
             android:layout_width="match_parent"
-            android:layout_height="138dp" />
+            android:layout_height="25dp" />
 
         <TextView
             android:layout_width="382dp"

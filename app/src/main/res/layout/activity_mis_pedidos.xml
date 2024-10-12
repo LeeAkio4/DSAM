@@ -53,7 +53,7 @@
         android:layout_height="39dp"
         android:layout_marginBottom="44dp"
         android:backgroundTint="#808080"
-        android:onClick="irOpcionesDeAplicaciones"
+        android:onClick="Regresar"
         android:text="ATRAS"
         app:layout_constraintBottom_toTopOf="@+id/recyclerView"
         app:layout_constraintEnd_toEndOf="parent"
