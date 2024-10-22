@@ -45,7 +45,7 @@ public class Menu_Marcas extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // Crear un intent para navegar a OtraActivity
-                Intent intent = new Intent(Menu_Marcas.this, IniciarSesionActivity.class);
+                Intent intent = new Intent(Menu_Marcas.this, OpcionesDeAplicacionActivity.class);
                 startActivity(intent);
             }
         });

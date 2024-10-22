@@ -2,23 +2,25 @@ package com.app.proyectoFinal.modelo;
 
 public class Usuario {
 
-    public int codigo;
-    public String nombre, apellido, celular, correo, contrasena;
+    public int codigo, dni;
+    public String nombrescompletos, direccion, correo, genero, contrasena;
 
     public Usuario(){
         this.codigo = 0;
-        this.nombre = "";
-        this.apellido = "";
-        this.celular = "";
+        this.nombrescompletos = "";
+        this.direccion = "";
+        this.dni = 0;
+        this.genero = "";
         this.correo = "";
         this.contrasena = "";
     }
 
-    public Usuario(int codigo, String nombre, String apellido, String celular, String correo, String contrasena) {
+    public Usuario(int codigo, String nombrescompletos, String direccion, int dni, String genero, String correo, String contrasena) {
         this.codigo = codigo;
-        this.nombre = nombre;
-        this.apellido = apellido;
-        this.celular = celular;
+        this.nombrescompletos = nombrescompletos;
+        this.direccion = direccion;
+        this.dni = dni;
+        this.genero = genero;
         this.correo = correo;
         this.contrasena = contrasena;
     }
@@ -31,12 +33,28 @@ public class Usuario {
         this.codigo = codigo;
     }
 
-    public String getContrasena() {
-        return contrasena;
+    public int getDni() {
+        return dni;
     }
 
-    public void setContrasena(String contrasena) {
-        this.contrasena = contrasena;
+    public void setDni(int dni) {
+        this.dni = dni;
+    }
+
+    public String getNombrescompletos() {
+        return nombrescompletos;
+    }
+
+    public void setNombrescompletos(String nombrescompletos) {
+        this.nombrescompletos = nombrescompletos;
+    }
+
+    public String getDireccion() {
+        return direccion;
+    }
+
+    public void setDireccion(String direccion) {
+        this.direccion = direccion;
     }
 
     public String getCorreo() {
@@ -47,37 +65,30 @@ public class Usuario {
         this.correo = correo;
     }
 
-    public String getCelular() {
-        return celular;
+    public String getGenero() {
+        return genero;
     }
 
-    public void setCelular(String celular) {
-        this.celular = celular;
+    public void setGenero(String genero) {
+        this.genero = genero;
     }
 
-    public String getApellido() {
-        return apellido;
+    public String getContrasena() {
+        return contrasena;
     }
 
-    public void setApellido(String apellido) {
-        this.apellido = apellido;
-    }
-
-    public String getNombre() {
-        return nombre;
-    }
-
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
+    public void setContrasena(String contrasena) {
+        this.contrasena = contrasena;
     }
 
     @Override
     public String toString() {
         return "Usuario{" +
                 "codigo" + codigo +
-                ", nombre" + nombre + '\n' +
-                ", apellido" + apellido + '\n' +
-                ", celular" + celular + '\n' +
+                ", nombres_completos" + nombrescompletos + '\n' +
+                ", direccion" + direccion + '\n' +
+                ", dni" + dni + '\n' +
+                ", genero" + genero + '\n' +
                 ", correo" + correo + '\n' +
                 ", constraseña" + contrasena + '\n' +
                 "}";

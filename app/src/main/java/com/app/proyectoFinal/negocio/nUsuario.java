@@ -17,8 +17,8 @@ public class nUsuario{
     public nUsuario(Context context){
         x=new cUsuario(context);
     }
-    public void insertar(int cod, String nom, String ape, String cel, String corr, String contra){
-        x.insert(new Usuario(cod,nom,ape,cel,corr,contra));
+    public void insertar(int cod, String nomcom, String dir, int dni, String gen, String corr, String contra){
+        x.insert(new Usuario(cod,nomcom,dir,dni,gen,corr,contra));
     }
     public ArrayList<Usuario> seleccionar(){
         return x.Select();

@@ -22,8 +22,8 @@
 
     <ScrollView
         android:id="@+id/scrollView2"
-        android:layout_width="348dp"
-        android:layout_height="451dp"
+        android:layout_width="352dp"
+        android:layout_height="463dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.49"
@@ -39,11 +39,11 @@
                 android:id="@+id/textView3"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Nombre"
+                android:text="Nombres Completos"
                 android:textColor="#E9E9E9" />
 
             <EditText
-                android:id="@+id/txtNombre"
+                android:id="@+id/txtNombrecompleto"
                 android:layout_width="match_parent"
                 android:layout_height="47dp"
                 android:layout_marginBottom="10sp"
@@ -52,49 +52,86 @@
                 android:ems="10"
                 android:hint="Nombre"
                 android:inputType="text"
-                android:labelFor="@id/txtApellido"
+                android:labelFor="@id/txtdireccion"
                 android:textColorHint="#BABABA" />
 
             <TextView
                 android:id="@+id/textView6"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Apellido"
+                android:text="Direccion"
                 android:textColor="#E9E9E9" />
 
             <EditText
-                android:id="@+id/txtApellido"
+                android:id="@+id/txtdireccion"
                 android:layout_width="match_parent"
                 android:layout_height="47dp"
                 android:layout_marginBottom="10sp"
                 android:height="60sp"
                 android:background="#FFFFFF"
                 android:ems="10"
-                android:hint="Apellido"
+                android:hint="Direccion"
                 android:inputType="text"
-                android:textColor="#DCDCDC"
+                android:textColor="@color/black"
                 android:textColorHint="#BABABA" />
 
-            <TextView
-                android:id="@+id/textView7"
+            <TableRow
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Celular"
-                android:textColor="#E9E9E9" />
+                android:layout_height="match_parent">
 
-            <EditText
-                android:id="@+id/txtCelular"
+                <TextView
+                    android:id="@+id/textView20"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Nro. Dni"
+                    android:textColor="@color/white" />
+
+                <Space
+                    android:layout_width="125dp"
+                    android:layout_height="wrap_content" />
+
+                <TextView
+                    android:id="@+id/textView7"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Genero"
+                    android:textColor="#E9E9E9" />
+
+            </TableRow>
+
+            <TableRow
                 android:layout_width="match_parent"
-                android:layout_height="47dp"
-                android:layout_marginBottom="10sp"
-                android:height="60sp"
-                android:background="#FFFFFF"
-                android:ems="10"
-                android:hint="Num. Celular"
-                android:inputType="phone"
-                android:maxLength="9"
-                android:textColor="#DCDCDC"
-                android:textColorHint="#BABABA" />
+                android:layout_height="match_parent">
+
+                <EditText
+                    android:id="@+id/txtDni"
+                    android:layout_width="163dp"
+                    android:layout_height="45dp"
+                    android:background="@color/white"
+                    android:ems="10"
+                    android:hint="Dni"
+                    android:inputType="number"
+                    android:textColor="@color/black"
+                    android:textColorHint="#BABABA" />
+
+                <Space
+                    android:layout_width="13dp"
+                    android:layout_height="wrap_content" />
+
+                <EditText
+                    android:id="@+id/txtgenero"
+                    android:layout_width="167dp"
+                    android:layout_height="45dp"
+                    android:layout_marginBottom="10sp"
+                    android:height="60sp"
+                    android:background="#FFFFFF"
+                    android:ems="10"
+                    android:hint="Genero"
+                    android:inputType="text"
+                    android:maxLength="9"
+                    android:textColor="@color/black"
+                    android:textColorHint="#BABABA" />
+            </TableRow>
 
             <TextView
                 android:id="@+id/textView9"
@@ -113,7 +150,7 @@
                 android:ems="10"
                 android:hint="Correo"
                 android:inputType="textEmailAddress"
-                android:textColor="#DCDCDC"
+                android:textColor="@color/black"
                 android:textColorHint="#BABABA" />
 
             <TextView
@@ -125,7 +162,7 @@
 
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
-                android:layout_height="47dp"
+                android:layout_height="wrap_content"
                 android:background="#FFFFFF"
                 app:passwordToggleEnabled="true">
 
@@ -135,7 +172,7 @@
                     android:layout_height="47dp"
                     android:background="#FFFFFF"
                     android:inputType="textPassword"
-                    android:textColor="#DCDCDC" />
+                    android:textColor="@color/black" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <TextView
@@ -153,10 +190,10 @@
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/txtConfirmarClave"
                     android:layout_width="match_parent"
-                    android:layout_height="47dp"
+                    android:layout_height="52dp"
                     android:background="#FFFFFF"
                     android:inputType="textPassword"
-                    android:textColor="#DCDCDC"
+                    android:textColor="@color/black"
                     android:textColorHighlight="#D9D9D9" />
 
             </com.google.android.material.textfield.TextInputLayout>
@@ -170,7 +207,7 @@
     </ScrollView>
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/btnregistrarse"
         android:layout_width="140dp"
         android:layout_height="50dp"
         android:backgroundTint="#808080"
@@ -210,6 +247,6 @@
         app:layout_constraintHorizontal_bias="0.175"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.847" />
+        app:layout_constraintVertical_bias="0.863" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
