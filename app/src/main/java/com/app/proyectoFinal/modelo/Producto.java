@@ -11,7 +11,7 @@ public class Producto {
         this.marca = "";
         this.descripcion = "";
         this.precio = "";
-        this.stock="";
+        this.stock = "";
     }
 
     public Producto(int codigo_prod, String nombre, String marca, String descripcion, String precio, String stock) {
@@ -20,7 +20,7 @@ public class Producto {
         this.marca = marca;
         this.descripcion = descripcion;
         this.precio = precio;
-        this.stock=stock;
+        this.stock = stock;
     }
 
     public int getCodigo_prod() {

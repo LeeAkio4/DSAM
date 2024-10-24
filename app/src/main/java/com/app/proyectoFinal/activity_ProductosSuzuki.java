@@ -77,6 +77,7 @@ public class activity_ProductosSuzuki extends AppCompatActivity {
     }
 
     // Adaptador para el RecyclerView
+    // Adaptador para el RecyclerView
     public class ProductoAdapter extends RecyclerView.Adapter<ProductoAdapter.ProductoViewHolder> {
 
         private ArrayList<Producto> listaProductos;

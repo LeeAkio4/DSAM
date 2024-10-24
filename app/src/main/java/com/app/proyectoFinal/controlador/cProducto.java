@@ -70,7 +70,8 @@ public class cProducto extends conexion{
                                 dato.getString(1),
                                 dato.getString(2),
                                 dato.getString(3),
-                                dato.getString(4)
+                                dato.getString(4),
+                                dato.getString(5)
                         )
                 );
             }while (dato.moveToNext());
