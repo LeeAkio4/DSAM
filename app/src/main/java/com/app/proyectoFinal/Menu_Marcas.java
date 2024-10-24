@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 
 import androidx.activity.EdgeToEdge;
@@ -39,6 +40,7 @@ public class Menu_Marcas extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
         // Encontrar el botón y configurar el listener
         Button btnSiguiente = findViewById(R.id.btnRetroceder2);
         btnSiguiente.setOnClickListener(new View.OnClickListener() {
@@ -49,6 +51,69 @@ public class Menu_Marcas extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+        ImageButton ibtnSuzuki = findViewById(R.id.ibtnSuzuki);
+        ibtnSuzuki.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Cambiar a la nueva actividad
+                Intent intent = new Intent(Menu_Marcas.this, activity_ProductosSuzuki.class);
+                startActivity(intent);
+            }
+        });
+
+        ImageButton ibtnTesla = findViewById(R.id.ibtnTesla);
+        ibtnTesla.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Cambiar a la nueva actividad
+                Intent intent = new Intent(Menu_Marcas.this, activity_ProductosTesla.class);
+                startActivity(intent);
+            }
+        });
+
+        ImageButton ibtnKia = findViewById(R.id.ibtnKia);
+        ibtnKia.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Cambiar a la nueva actividad
+                Intent intent = new Intent(Menu_Marcas.this, activity_ProductosKia.class);
+                startActivity(intent);
+            }
+        });
+
+        ImageButton ibtnVolks = findViewById(R.id.ibtnVolsk);
+        ibtnVolks.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Cambiar a la nueva actividad
+                Intent intent = new Intent(Menu_Marcas.this, activity_ProductosVolks.class);
+                startActivity(intent);
+            }
+        });
+
+        ImageButton ibtnNissan = findViewById(R.id.ibtnNissan);
+        ibtnNissan.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Cambiar a la nueva actividad
+                Intent intent = new Intent(Menu_Marcas.this, Activity_ProductosNissan.class);
+                startActivity(intent);
+            }
+        });
+
+        ImageButton ibtnToyota = findViewById(R.id.ibtnToyota);
+        ibtnToyota.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Cambiar a la nueva actividad
+                Intent intent = new Intent(Menu_Marcas.this, activity_ProductosToyota.class);
+                startActivity(intent);
+            }
+        });
+
+
     }
+
 }
 
