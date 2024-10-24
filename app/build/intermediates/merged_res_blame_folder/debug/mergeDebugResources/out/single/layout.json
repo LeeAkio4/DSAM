@@ -1,0 +1,110 @@
+[
+    {
+        "merged": "com.app.proyectoFinal.app-mergeDebugResources-43:/layout/activity_productos_toyota.xml",
+        "source": "com.app.proyectoFinal.app-main-46:/layout/activity_productos_toyota.xml"
+    },
+    {
+        "merged": "com.app.proyectoFinal.app-mergeDebugResources-43:/layout/pedido_individual.xml",
+        "source": "com.app.proyectoFinal.app-main-46:/layout/pedido_individual.xml"
+    },
+    {
+        "merged": "com.app.proyectoFinal.app-mergeDebugResources-43:/layout/activity_metodos_de_pago.xml",
+        "source": "com.app.proyectoFinal.app-main-46:/layout/activity_metodos_de_pago.xml"
+    },
+    {
+        "merged": "com.app.proyectoFinal.app-mergeDebugResources-43:/layout/activity_productos_volks.xml",
+        "source": "com.app.proyectoFinal.app-main-46:/layout/activity_productos_volks.xml"
+    },
+    {
+        "merged": "com.app.proyectoFinal.app-mergeDebugResources-43:/layout/activity_iniciar_sesion.xml",
+        "source": "com.app.proyectoFinal.app-main-46:/layout/activity_iniciar_sesion.xml"
+    },
+    {
+        "merged": "com.app.proyectoFinal.app-mergeDebugResources-43:/layout/activity_productos_nissan.xml",
+        "source": "com.app.proyectoFinal.app-main-46:/layout/activity_productos_nissan.xml"
+    },
+    {
+        "merged": "com.app.proyectoFinal.app-mergeDebugResources-43:/layout/activity_perfil.xml",
+        "source": "com.app.proyectoFinal.app-main-46:/layout/activity_perfil.xml"
+    },
+    {
+        "merged": "com.app.proyectoFinal.app-mergeDebugResources-43:/layout/activity_compra.xml",
+        "source": "com.app.proyectoFinal.app-main-46:/layout/activity_compra.xml"
+    },
+    {
+        "merged": "com.app.proyectoFinal.app-mergeDebugResources-43:/layout/activity_compra_rechazada.xml",
+        "source": "com.app.proyectoFinal.app-main-46:/layout/activity_compra_rechazada.xml"
+    },
+    {
+        "merged": "com.app.proyectoFinal.app-mergeDebugResources-43:/layout/activity_anadir_tarjeta.xml",
+        "source": "com.app.proyectoFinal.app-main-46:/layout/activity_anadir_tarjeta.xml"
+    },
+    {
+        "merged": "com.app.proyectoFinal.app-mergeDebugResources-43:/layout/activity_productos_tesla.xml",
+        "source": "com.app.proyectoFinal.app-main-46:/layout/activity_productos_tesla.xml"
+    },
+    {
+        "merged": "com.app.proyectoFinal.app-mergeDebugResources-43:/layout/activity_carrito_de_compras.xml",
+        "source": "com.app.proyectoFinal.app-main-46:/layout/activity_carrito_de_compras.xml"
+    },
+    {
+        "merged": "com.app.proyectoFinal.app-mergeDebugResources-43:/layout/activity_carga.xml",
+        "source": "com.app.proyectoFinal.app-main-46:/layout/activity_carga.xml"
+    },
+    {
+        "merged": "com.app.proyectoFinal.app-mergeDebugResources-43:/layout/activity_editar_perfil.xml",
+        "source": "com.app.proyectoFinal.app-main-46:/layout/activity_editar_perfil.xml"
+    },
+    {
+        "merged": "com.app.proyectoFinal.app-mergeDebugResources-43:/layout/activity_mis_pedidos.xml",
+        "source": "com.app.proyectoFinal.app-main-46:/layout/activity_mis_pedidos.xml"
+    },
+    {
+        "merged": "com.app.proyectoFinal.app-mergeDebugResources-43:/layout/activity_mi_tarjeta.xml",
+        "source": "com.app.proyectoFinal.app-main-46:/layout/activity_mi_tarjeta.xml"
+    },
+    {
+        "merged": "com.app.proyectoFinal.app-mergeDebugResources-43:/layout/activity_main.xml",
+        "source": "com.app.proyectoFinal.app-main-46:/layout/activity_main.xml"
+    },
+    {
+        "merged": "com.app.proyectoFinal.app-mergeDebugResources-43:/layout/activity_terminos_condiciones.xml",
+        "source": "com.app.proyectoFinal.app-main-46:/layout/activity_terminos_condiciones.xml"
+    },
+    {
+        "merged": "com.app.proyectoFinal.app-mergeDebugResources-43:/layout/activity_productos_suzuki.xml",
+        "source": "com.app.proyectoFinal.app-main-46:/layout/activity_productos_suzuki.xml"
+    },
+    {
+        "merged": "com.app.proyectoFinal.app-mergeDebugResources-43:/layout/activity_productos_kia.xml",
+        "source": "com.app.proyectoFinal.app-main-46:/layout/activity_productos_kia.xml"
+    },
+    {
+        "merged": "com.app.proyectoFinal.app-mergeDebugResources-43:/layout/activity_recuperar_contr.xml",
+        "source": "com.app.proyectoFinal.app-main-46:/layout/activity_recuperar_contr.xml"
+    },
+    {
+        "merged": "com.app.proyectoFinal.app-mergeDebugResources-43:/layout/activity_registro.xml",
+        "source": "com.app.proyectoFinal.app-main-46:/layout/activity_registro.xml"
+    },
+    {
+        "merged": "com.app.proyectoFinal.app-mergeDebugResources-43:/layout/activity_nuestra_ubicacion.xml",
+        "source": "com.app.proyectoFinal.app-main-46:/layout/activity_nuestra_ubicacion.xml"
+    },
+    {
+        "merged": "com.app.proyectoFinal.app-mergeDebugResources-43:/layout/activity_opciones_de_aplicacion.xml",
+        "source": "com.app.proyectoFinal.app-main-46:/layout/activity_opciones_de_aplicacion.xml"
+    },
+    {
+        "merged": "com.app.proyectoFinal.app-mergeDebugResources-43:/layout/activity_menu_marcas.xml",
+        "source": "com.app.proyectoFinal.app-main-46:/layout/activity_menu_marcas.xml"
+    },
+    {
+        "merged": "com.app.proyectoFinal.app-mergeDebugResources-43:/layout/detalle_pedido.xml",
+        "source": "com.app.proyectoFinal.app-main-46:/layout/detalle_pedido.xml"
+    },
+    {
+        "merged": "com.app.proyectoFinal.app-mergeDebugResources-43:/layout/activity_compra_exitosa.xml",
+        "source": "com.app.proyectoFinal.app-main-46:/layout/activity_compra_exitosa.xml"
+    }
+]

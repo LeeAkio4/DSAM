@@ -1,0 +1,269 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+3    package="com.app.proyectoFinal"
+4    android:versionCode="1"
+5    android:versionName="1.0" >
+6
+7    <uses-sdk
+8        android:minSdkVersion="24"
+9        android:targetSdkVersion="34" />
+10
+11    <permission
+11-->[androidx.core:core:1.13.0] C:\Users\akiobruno4\.gradle\caches\transforms-4\ae16ec3ceacaf47c77d797444b2e0f1a\transformed\core-1.13.0\AndroidManifest.xml:22:5-24:47
+12        android:name="com.app.proyectoFinal.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"
+12-->[androidx.core:core:1.13.0] C:\Users\akiobruno4\.gradle\caches\transforms-4\ae16ec3ceacaf47c77d797444b2e0f1a\transformed\core-1.13.0\AndroidManifest.xml:23:9-81
+13        android:protectionLevel="signature" />
+13-->[androidx.core:core:1.13.0] C:\Users\akiobruno4\.gradle\caches\transforms-4\ae16ec3ceacaf47c77d797444b2e0f1a\transformed\core-1.13.0\AndroidManifest.xml:24:9-44
+14
+15    <uses-permission android:name="com.app.proyectoFinal.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION" />
+15-->[androidx.core:core:1.13.0] C:\Users\akiobruno4\.gradle\caches\transforms-4\ae16ec3ceacaf47c77d797444b2e0f1a\transformed\core-1.13.0\AndroidManifest.xml:26:5-97
+15-->[androidx.core:core:1.13.0] C:\Users\akiobruno4\.gradle\caches\transforms-4\ae16ec3ceacaf47c77d797444b2e0f1a\transformed\core-1.13.0\AndroidManifest.xml:26:22-94
+16
+17    <application
+17-->D:\LeeAkio4\UPN-CURSOS\8vo ciclo\Des.Apl..Moviles\app\src\main\AndroidManifest.xml:5:5-87:19
+18        android:allowBackup="true"
+18-->D:\LeeAkio4\UPN-CURSOS\8vo ciclo\Des.Apl..Moviles\app\src\main\AndroidManifest.xml:6:9-35
+19        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+19-->[androidx.core:core:1.13.0] C:\Users\akiobruno4\.gradle\caches\transforms-4\ae16ec3ceacaf47c77d797444b2e0f1a\transformed\core-1.13.0\AndroidManifest.xml:28:18-86
+20        android:dataExtractionRules="@xml/data_extraction_rules"
+20-->D:\LeeAkio4\UPN-CURSOS\8vo ciclo\Des.Apl..Moviles\app\src\main\AndroidManifest.xml:7:9-65
+21        android:debuggable="true"
+22        android:extractNativeLibs="false"
+23        android:fullBackupContent="@xml/backup_rules"
+23-->D:\LeeAkio4\UPN-CURSOS\8vo ciclo\Des.Apl..Moviles\app\src\main\AndroidManifest.xml:8:9-54
+24        android:icon="@mipmap/ic_launcher"
+24-->D:\LeeAkio4\UPN-CURSOS\8vo ciclo\Des.Apl..Moviles\app\src\main\AndroidManifest.xml:9:9-43
+25        android:label="@string/app_name"
+25-->D:\LeeAkio4\UPN-CURSOS\8vo ciclo\Des.Apl..Moviles\app\src\main\AndroidManifest.xml:10:9-41
+26        android:roundIcon="@mipmap/ic_launcher_round"
+26-->D:\LeeAkio4\UPN-CURSOS\8vo ciclo\Des.Apl..Moviles\app\src\main\AndroidManifest.xml:11:9-54
+27        android:supportsRtl="true"
+27-->D:\LeeAkio4\UPN-CURSOS\8vo ciclo\Des.Apl..Moviles\app\src\main\AndroidManifest.xml:12:9-35
+28        android:testOnly="true"
+29        android:theme="@style/Theme.ProyectoFinal" >
+29-->D:\LeeAkio4\UPN-CURSOS\8vo ciclo\Des.Apl..Moviles\app\src\main\AndroidManifest.xml:13:9-51
+30        <activity
+30-->D:\LeeAkio4\UPN-CURSOS\8vo ciclo\Des.Apl..Moviles\app\src\main\AndroidManifest.xml:15:9-17:40
+31            android:name="com.app.proyectoFinal.activity_ProductosToyota"
+31-->D:\LeeAkio4\UPN-CURSOS\8vo ciclo\Des.Apl..Moviles\app\src\main\AndroidManifest.xml:16:13-53
+32            android:exported="false" />
+32-->D:\LeeAkio4\UPN-CURSOS\8vo ciclo\Des.Apl..Moviles\app\src\main\AndroidManifest.xml:17:13-37
+33        <activity
+33-->D:\LeeAkio4\UPN-CURSOS\8vo ciclo\Des.Apl..Moviles\app\src\main\AndroidManifest.xml:18:9-20:40
+34            android:name="com.app.proyectoFinal.Activity_ProductosNissan"
+34-->D:\LeeAkio4\UPN-CURSOS\8vo ciclo\Des.Apl..Moviles\app\src\main\AndroidManifest.xml:19:13-53
+35            android:exported="false" />
+35-->D:\LeeAkio4\UPN-CURSOS\8vo ciclo\Des.Apl..Moviles\app\src\main\AndroidManifest.xml:20:13-37
+36        <activity
+36-->D:\LeeAkio4\UPN-CURSOS\8vo ciclo\Des.Apl..Moviles\app\src\main\AndroidManifest.xml:21:9-23:40
+37            android:name="com.app.proyectoFinal.activity_ProductosKia"
+37-->D:\LeeAkio4\UPN-CURSOS\8vo ciclo\Des.Apl..Moviles\app\src\main\AndroidManifest.xml:22:13-50
+38            android:exported="false" />
+38-->D:\LeeAkio4\UPN-CURSOS\8vo ciclo\Des.Apl..Moviles\app\src\main\AndroidManifest.xml:23:13-37
+39        <activity
+39-->D:\LeeAkio4\UPN-CURSOS\8vo ciclo\Des.Apl..Moviles\app\src\main\AndroidManifest.xml:24:9-26:40
+40            android:name="com.app.proyectoFinal.activity_ProductosVolks"
+40-->D:\LeeAkio4\UPN-CURSOS\8vo ciclo\Des.Apl..Moviles\app\src\main\AndroidManifest.xml:25:13-52
+41            android:exported="false" />
+41-->D:\LeeAkio4\UPN-CURSOS\8vo ciclo\Des.Apl..Moviles\app\src\main\AndroidManifest.xml:26:13-37
+42        <activity
+42-->D:\LeeAkio4\UPN-CURSOS\8vo ciclo\Des.Apl..Moviles\app\src\main\AndroidManifest.xml:27:9-29:40
+43            android:name="com.app.proyectoFinal.activity_ProductosTesla"
+43-->D:\LeeAkio4\UPN-CURSOS\8vo ciclo\Des.Apl..Moviles\app\src\main\AndroidManifest.xml:28:13-52
+44            android:exported="false" />
+44-->D:\LeeAkio4\UPN-CURSOS\8vo ciclo\Des.Apl..Moviles\app\src\main\AndroidManifest.xml:29:13-37
+45        <activity
+45-->D:\LeeAkio4\UPN-CURSOS\8vo ciclo\Des.Apl..Moviles\app\src\main\AndroidManifest.xml:30:9-32:40
+46            android:name="com.app.proyectoFinal.activity_ProductosSuzuki"
+46-->D:\LeeAkio4\UPN-CURSOS\8vo ciclo\Des.Apl..Moviles\app\src\main\AndroidManifest.xml:31:13-53
+47            android:exported="false" />
+47-->D:\LeeAkio4\UPN-CURSOS\8vo ciclo\Des.Apl..Moviles\app\src\main\AndroidManifest.xml:32:13-37
+48        <activity
+48-->D:\LeeAkio4\UPN-CURSOS\8vo ciclo\Des.Apl..Moviles\app\src\main\AndroidManifest.xml:33:9-35:40
+49            android:name="com.app.proyectoFinal.negocio.activity_Productos"
+49-->D:\LeeAkio4\UPN-CURSOS\8vo ciclo\Des.Apl..Moviles\app\src\main\AndroidManifest.xml:34:13-55
+50            android:exported="false" />
+50-->D:\LeeAkio4\UPN-CURSOS\8vo ciclo\Des.Apl..Moviles\app\src\main\AndroidManifest.xml:35:13-37
+51        <activity
+51-->D:\LeeAkio4\UPN-CURSOS\8vo ciclo\Des.Apl..Moviles\app\src\main\AndroidManifest.xml:36:9-40:70
+52            android:name="com.app.proyectoFinal.Sidevar"
+52-->D:\LeeAkio4\UPN-CURSOS\8vo ciclo\Des.Apl..Moviles\app\src\main\AndroidManifest.xml:37:13-36
+53            android:exported="false"
+53-->D:\LeeAkio4\UPN-CURSOS\8vo ciclo\Des.Apl..Moviles\app\src\main\AndroidManifest.xml:38:13-37
+54            android:label="@string/title_activity_sidevar"
+54-->D:\LeeAkio4\UPN-CURSOS\8vo ciclo\Des.Apl..Moviles\app\src\main\AndroidManifest.xml:39:13-59
+55            android:theme="@style/Theme.ProyectoFinal.NoActionBar" />
+55-->D:\LeeAkio4\UPN-CURSOS\8vo ciclo\Des.Apl..Moviles\app\src\main\AndroidManifest.xml:40:13-67
+56        <activity
+56-->D:\LeeAkio4\UPN-CURSOS\8vo ciclo\Des.Apl..Moviles\app\src\main\AndroidManifest.xml:41:9-50:20
+57            android:name="com.app.proyectoFinal.IniciarSesionActivity"
+57-->D:\LeeAkio4\UPN-CURSOS\8vo ciclo\Des.Apl..Moviles\app\src\main\AndroidManifest.xml:42:13-50
+58            android:exported="true"
+58-->D:\LeeAkio4\UPN-CURSOS\8vo ciclo\Des.Apl..Moviles\app\src\main\AndroidManifest.xml:43:13-36
+59            android:theme="@style/Theme.ProyectoFinal" >
+59-->D:\LeeAkio4\UPN-CURSOS\8vo ciclo\Des.Apl..Moviles\app\src\main\AndroidManifest.xml:44:13-55
+60            <intent-filter>
+60-->D:\LeeAkio4\UPN-CURSOS\8vo ciclo\Des.Apl..Moviles\app\src\main\AndroidManifest.xml:45:13-49:29
+61                <action android:name="android.intent.action.MAIN" />
+61-->D:\LeeAkio4\UPN-CURSOS\8vo ciclo\Des.Apl..Moviles\app\src\main\AndroidManifest.xml:46:17-69
+61-->D:\LeeAkio4\UPN-CURSOS\8vo ciclo\Des.Apl..Moviles\app\src\main\AndroidManifest.xml:46:25-66
+62
+63                <category android:name="android.intent.category.LAUNCHER" />
+63-->D:\LeeAkio4\UPN-CURSOS\8vo ciclo\Des.Apl..Moviles\app\src\main\AndroidManifest.xml:48:17-77
+63-->D:\LeeAkio4\UPN-CURSOS\8vo ciclo\Des.Apl..Moviles\app\src\main\AndroidManifest.xml:48:27-74
+64            </intent-filter>
+65        </activity>
+66        <activity
+66-->D:\LeeAkio4\UPN-CURSOS\8vo ciclo\Des.Apl..Moviles\app\src\main\AndroidManifest.xml:51:9-53:40
+67            android:name="com.app.proyectoFinal.UserActivity"
+67-->D:\LeeAkio4\UPN-CURSOS\8vo ciclo\Des.Apl..Moviles\app\src\main\AndroidManifest.xml:52:13-41
+68            android:exported="false" />
+68-->D:\LeeAkio4\UPN-CURSOS\8vo ciclo\Des.Apl..Moviles\app\src\main\AndroidManifest.xml:53:13-37
+69        <activity
+69-->D:\LeeAkio4\UPN-CURSOS\8vo ciclo\Des.Apl..Moviles\app\src\main\AndroidManifest.xml:54:9-56:40
+70            android:name="com.app.proyectoFinal.Menu_Marcas"
+70-->D:\LeeAkio4\UPN-CURSOS\8vo ciclo\Des.Apl..Moviles\app\src\main\AndroidManifest.xml:55:13-40
+71            android:exported="false" />
+71-->D:\LeeAkio4\UPN-CURSOS\8vo ciclo\Des.Apl..Moviles\app\src\main\AndroidManifest.xml:56:13-37
+72        <activity
+72-->D:\LeeAkio4\UPN-CURSOS\8vo ciclo\Des.Apl..Moviles\app\src\main\AndroidManifest.xml:57:9-59:40
+73            android:name="com.app.proyectoFinal.activity_registro"
+73-->D:\LeeAkio4\UPN-CURSOS\8vo ciclo\Des.Apl..Moviles\app\src\main\AndroidManifest.xml:58:13-46
+74            android:exported="false" />
+74-->D:\LeeAkio4\UPN-CURSOS\8vo ciclo\Des.Apl..Moviles\app\src\main\AndroidManifest.xml:59:13-37
+75        <activity
+75-->D:\LeeAkio4\UPN-CURSOS\8vo ciclo\Des.Apl..Moviles\app\src\main\AndroidManifest.xml:60:9-62:40
+76            android:name="com.app.proyectoFinal.MainActivity"
+76-->D:\LeeAkio4\UPN-CURSOS\8vo ciclo\Des.Apl..Moviles\app\src\main\AndroidManifest.xml:61:13-41
+77            android:exported="false" />
+77-->D:\LeeAkio4\UPN-CURSOS\8vo ciclo\Des.Apl..Moviles\app\src\main\AndroidManifest.xml:62:13-37
+78        <activity
+78-->D:\LeeAkio4\UPN-CURSOS\8vo ciclo\Des.Apl..Moviles\app\src\main\AndroidManifest.xml:63:9-65:40
+79            android:name="com.app.proyectoFinal.OpcionesDeAplicacionActivity"
+79-->D:\LeeAkio4\UPN-CURSOS\8vo ciclo\Des.Apl..Moviles\app\src\main\AndroidManifest.xml:64:13-57
+80            android:exported="false" />
+80-->D:\LeeAkio4\UPN-CURSOS\8vo ciclo\Des.Apl..Moviles\app\src\main\AndroidManifest.xml:65:13-37
+81        <activity
+81-->D:\LeeAkio4\UPN-CURSOS\8vo ciclo\Des.Apl..Moviles\app\src\main\AndroidManifest.xml:66:9-68:40
+82            android:name="com.app.proyectoFinal.activity_perfil"
+82-->D:\LeeAkio4\UPN-CURSOS\8vo ciclo\Des.Apl..Moviles\app\src\main\AndroidManifest.xml:67:13-44
+83            android:exported="false" />
+83-->D:\LeeAkio4\UPN-CURSOS\8vo ciclo\Des.Apl..Moviles\app\src\main\AndroidManifest.xml:68:13-37
+84        <activity
+84-->D:\LeeAkio4\UPN-CURSOS\8vo ciclo\Des.Apl..Moviles\app\src\main\AndroidManifest.xml:69:9-71:40
+85            android:name="com.app.proyectoFinal.activity_editar_perfil"
+85-->D:\LeeAkio4\UPN-CURSOS\8vo ciclo\Des.Apl..Moviles\app\src\main\AndroidManifest.xml:70:13-51
+86            android:exported="false" />
+86-->D:\LeeAkio4\UPN-CURSOS\8vo ciclo\Des.Apl..Moviles\app\src\main\AndroidManifest.xml:71:13-37
+87        <activity
+87-->D:\LeeAkio4\UPN-CURSOS\8vo ciclo\Des.Apl..Moviles\app\src\main\AndroidManifest.xml:72:9-74:40
+88            android:name="com.app.proyectoFinal.activity_tarjeta"
+88-->D:\LeeAkio4\UPN-CURSOS\8vo ciclo\Des.Apl..Moviles\app\src\main\AndroidManifest.xml:73:13-45
+89            android:exported="false" />
+89-->D:\LeeAkio4\UPN-CURSOS\8vo ciclo\Des.Apl..Moviles\app\src\main\AndroidManifest.xml:74:13-37
+90        <activity
+90-->D:\LeeAkio4\UPN-CURSOS\8vo ciclo\Des.Apl..Moviles\app\src\main\AndroidManifest.xml:75:9-77:40
+91            android:name="com.app.proyectoFinal.activity_añadir_tarjeta"
+91-->D:\LeeAkio4\UPN-CURSOS\8vo ciclo\Des.Apl..Moviles\app\src\main\AndroidManifest.xml:76:13-52
+92            android:exported="false" />
+92-->D:\LeeAkio4\UPN-CURSOS\8vo ciclo\Des.Apl..Moviles\app\src\main\AndroidManifest.xml:77:13-37
+93        <activity
+93-->D:\LeeAkio4\UPN-CURSOS\8vo ciclo\Des.Apl..Moviles\app\src\main\AndroidManifest.xml:78:9-80:40
+94            android:name="com.app.proyectoFinal.activity_ubicacion"
+94-->D:\LeeAkio4\UPN-CURSOS\8vo ciclo\Des.Apl..Moviles\app\src\main\AndroidManifest.xml:79:13-47
+95            android:exported="false" />
+95-->D:\LeeAkio4\UPN-CURSOS\8vo ciclo\Des.Apl..Moviles\app\src\main\AndroidManifest.xml:80:13-37
+96        <activity
+96-->D:\LeeAkio4\UPN-CURSOS\8vo ciclo\Des.Apl..Moviles\app\src\main\AndroidManifest.xml:81:9-83:40
+97            android:name="com.app.proyectoFinal.activity_terminoycondicion"
+97-->D:\LeeAkio4\UPN-CURSOS\8vo ciclo\Des.Apl..Moviles\app\src\main\AndroidManifest.xml:82:13-55
+98            android:exported="false" />
+98-->D:\LeeAkio4\UPN-CURSOS\8vo ciclo\Des.Apl..Moviles\app\src\main\AndroidManifest.xml:83:13-37
+99        <activity
+99-->D:\LeeAkio4\UPN-CURSOS\8vo ciclo\Des.Apl..Moviles\app\src\main\AndroidManifest.xml:84:9-86:40
+100            android:name="com.app.proyectoFinal.activity_pedidos"
+100-->D:\LeeAkio4\UPN-CURSOS\8vo ciclo\Des.Apl..Moviles\app\src\main\AndroidManifest.xml:85:13-45
+101            android:exported="false" />
+101-->D:\LeeAkio4\UPN-CURSOS\8vo ciclo\Des.Apl..Moviles\app\src\main\AndroidManifest.xml:86:13-37
+102
+103        <provider
+103-->[androidx.emoji2:emoji2:1.3.0] C:\Users\akiobruno4\.gradle\caches\transforms-4\07e9f8621b2321f8bfaff0b6af6399e7\transformed\emoji2-1.3.0\AndroidManifest.xml:24:9-32:20
+104            android:name="androidx.startup.InitializationProvider"
+104-->[androidx.emoji2:emoji2:1.3.0] C:\Users\akiobruno4\.gradle\caches\transforms-4\07e9f8621b2321f8bfaff0b6af6399e7\transformed\emoji2-1.3.0\AndroidManifest.xml:25:13-67
+105            android:authorities="com.app.proyectoFinal.androidx-startup"
+105-->[androidx.emoji2:emoji2:1.3.0] C:\Users\akiobruno4\.gradle\caches\transforms-4\07e9f8621b2321f8bfaff0b6af6399e7\transformed\emoji2-1.3.0\AndroidManifest.xml:26:13-68
+106            android:exported="false" >
+106-->[androidx.emoji2:emoji2:1.3.0] C:\Users\akiobruno4\.gradle\caches\transforms-4\07e9f8621b2321f8bfaff0b6af6399e7\transformed\emoji2-1.3.0\AndroidManifest.xml:27:13-37
+107            <meta-data
+107-->[androidx.emoji2:emoji2:1.3.0] C:\Users\akiobruno4\.gradle\caches\transforms-4\07e9f8621b2321f8bfaff0b6af6399e7\transformed\emoji2-1.3.0\AndroidManifest.xml:29:13-31:52
+108                android:name="androidx.emoji2.text.EmojiCompatInitializer"
+108-->[androidx.emoji2:emoji2:1.3.0] C:\Users\akiobruno4\.gradle\caches\transforms-4\07e9f8621b2321f8bfaff0b6af6399e7\transformed\emoji2-1.3.0\AndroidManifest.xml:30:17-75
+109                android:value="androidx.startup" />
+109-->[androidx.emoji2:emoji2:1.3.0] C:\Users\akiobruno4\.gradle\caches\transforms-4\07e9f8621b2321f8bfaff0b6af6399e7\transformed\emoji2-1.3.0\AndroidManifest.xml:31:17-49
+110            <meta-data
+110-->[androidx.lifecycle:lifecycle-process:2.6.2] C:\Users\akiobruno4\.gradle\caches\transforms-4\b3f48b5641f2a1e1bd3ff8687fcdd2d6\transformed\lifecycle-process-2.6.2\AndroidManifest.xml:29:13-31:52
+111                android:name="androidx.lifecycle.ProcessLifecycleInitializer"
+111-->[androidx.lifecycle:lifecycle-process:2.6.2] C:\Users\akiobruno4\.gradle\caches\transforms-4\b3f48b5641f2a1e1bd3ff8687fcdd2d6\transformed\lifecycle-process-2.6.2\AndroidManifest.xml:30:17-78
+112                android:value="androidx.startup" />
+112-->[androidx.lifecycle:lifecycle-process:2.6.2] C:\Users\akiobruno4\.gradle\caches\transforms-4\b3f48b5641f2a1e1bd3ff8687fcdd2d6\transformed\lifecycle-process-2.6.2\AndroidManifest.xml:31:17-49
+113            <meta-data
+113-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\akiobruno4\.gradle\caches\transforms-4\95a21a876565395c98bb0cd2ac464cb3\transformed\profileinstaller-1.3.1\AndroidManifest.xml:29:13-31:52
+114                android:name="androidx.profileinstaller.ProfileInstallerInitializer"
+114-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\akiobruno4\.gradle\caches\transforms-4\95a21a876565395c98bb0cd2ac464cb3\transformed\profileinstaller-1.3.1\AndroidManifest.xml:30:17-85
+115                android:value="androidx.startup" />
+115-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\akiobruno4\.gradle\caches\transforms-4\95a21a876565395c98bb0cd2ac464cb3\transformed\profileinstaller-1.3.1\AndroidManifest.xml:31:17-49
+116        </provider>
+117
+118        <uses-library
+118-->[androidx.window:window:1.0.0] C:\Users\akiobruno4\.gradle\caches\transforms-4\168366761795b8ffb75d1069bce2b71f\transformed\window-1.0.0\AndroidManifest.xml:25:9-27:40
+119            android:name="androidx.window.extensions"
+119-->[androidx.window:window:1.0.0] C:\Users\akiobruno4\.gradle\caches\transforms-4\168366761795b8ffb75d1069bce2b71f\transformed\window-1.0.0\AndroidManifest.xml:26:13-54
+120            android:required="false" />
+120-->[androidx.window:window:1.0.0] C:\Users\akiobruno4\.gradle\caches\transforms-4\168366761795b8ffb75d1069bce2b71f\transformed\window-1.0.0\AndroidManifest.xml:27:13-37
+121        <uses-library
+121-->[androidx.window:window:1.0.0] C:\Users\akiobruno4\.gradle\caches\transforms-4\168366761795b8ffb75d1069bce2b71f\transformed\window-1.0.0\AndroidManifest.xml:28:9-30:40
+122            android:name="androidx.window.sidecar"
+122-->[androidx.window:window:1.0.0] C:\Users\akiobruno4\.gradle\caches\transforms-4\168366761795b8ffb75d1069bce2b71f\transformed\window-1.0.0\AndroidManifest.xml:29:13-51
+123            android:required="false" />
+123-->[androidx.window:window:1.0.0] C:\Users\akiobruno4\.gradle\caches\transforms-4\168366761795b8ffb75d1069bce2b71f\transformed\window-1.0.0\AndroidManifest.xml:30:13-37
+124
+125        <receiver
+125-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\akiobruno4\.gradle\caches\transforms-4\95a21a876565395c98bb0cd2ac464cb3\transformed\profileinstaller-1.3.1\AndroidManifest.xml:34:9-52:20
+126            android:name="androidx.profileinstaller.ProfileInstallReceiver"
+126-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\akiobruno4\.gradle\caches\transforms-4\95a21a876565395c98bb0cd2ac464cb3\transformed\profileinstaller-1.3.1\AndroidManifest.xml:35:13-76
+127            android:directBootAware="false"
+127-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\akiobruno4\.gradle\caches\transforms-4\95a21a876565395c98bb0cd2ac464cb3\transformed\profileinstaller-1.3.1\AndroidManifest.xml:36:13-44
+128            android:enabled="true"
+128-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\akiobruno4\.gradle\caches\transforms-4\95a21a876565395c98bb0cd2ac464cb3\transformed\profileinstaller-1.3.1\AndroidManifest.xml:37:13-35
+129            android:exported="true"
+129-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\akiobruno4\.gradle\caches\transforms-4\95a21a876565395c98bb0cd2ac464cb3\transformed\profileinstaller-1.3.1\AndroidManifest.xml:38:13-36
+130            android:permission="android.permission.DUMP" >
+130-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\akiobruno4\.gradle\caches\transforms-4\95a21a876565395c98bb0cd2ac464cb3\transformed\profileinstaller-1.3.1\AndroidManifest.xml:39:13-57
+131            <intent-filter>
+131-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\akiobruno4\.gradle\caches\transforms-4\95a21a876565395c98bb0cd2ac464cb3\transformed\profileinstaller-1.3.1\AndroidManifest.xml:40:13-42:29
+132                <action android:name="androidx.profileinstaller.action.INSTALL_PROFILE" />
+132-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\akiobruno4\.gradle\caches\transforms-4\95a21a876565395c98bb0cd2ac464cb3\transformed\profileinstaller-1.3.1\AndroidManifest.xml:41:17-91
+132-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\akiobruno4\.gradle\caches\transforms-4\95a21a876565395c98bb0cd2ac464cb3\transformed\profileinstaller-1.3.1\AndroidManifest.xml:41:25-88
+133            </intent-filter>
+134            <intent-filter>
+134-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\akiobruno4\.gradle\caches\transforms-4\95a21a876565395c98bb0cd2ac464cb3\transformed\profileinstaller-1.3.1\AndroidManifest.xml:43:13-45:29
+135                <action android:name="androidx.profileinstaller.action.SKIP_FILE" />
+135-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\akiobruno4\.gradle\caches\transforms-4\95a21a876565395c98bb0cd2ac464cb3\transformed\profileinstaller-1.3.1\AndroidManifest.xml:44:17-85
+135-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\akiobruno4\.gradle\caches\transforms-4\95a21a876565395c98bb0cd2ac464cb3\transformed\profileinstaller-1.3.1\AndroidManifest.xml:44:25-82
+136            </intent-filter>
+137            <intent-filter>
+137-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\akiobruno4\.gradle\caches\transforms-4\95a21a876565395c98bb0cd2ac464cb3\transformed\profileinstaller-1.3.1\AndroidManifest.xml:46:13-48:29
+138                <action android:name="androidx.profileinstaller.action.SAVE_PROFILE" />
+138-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\akiobruno4\.gradle\caches\transforms-4\95a21a876565395c98bb0cd2ac464cb3\transformed\profileinstaller-1.3.1\AndroidManifest.xml:47:17-88
+138-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\akiobruno4\.gradle\caches\transforms-4\95a21a876565395c98bb0cd2ac464cb3\transformed\profileinstaller-1.3.1\AndroidManifest.xml:47:25-85
+139            </intent-filter>
+140            <intent-filter>
+140-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\akiobruno4\.gradle\caches\transforms-4\95a21a876565395c98bb0cd2ac464cb3\transformed\profileinstaller-1.3.1\AndroidManifest.xml:49:13-51:29
+141                <action android:name="androidx.profileinstaller.action.BENCHMARK_OPERATION" />
+141-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\akiobruno4\.gradle\caches\transforms-4\95a21a876565395c98bb0cd2ac464cb3\transformed\profileinstaller-1.3.1\AndroidManifest.xml:50:17-95
+141-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\akiobruno4\.gradle\caches\transforms-4\95a21a876565395c98bb0cd2ac464cb3\transformed\profileinstaller-1.3.1\AndroidManifest.xml:50:25-92
+142            </intent-filter>
+143        </receiver>
+144    </application>
+145
+146</manifest>

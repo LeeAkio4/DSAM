@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#2C2C2C"
+    tools:context=".CompraRechazadaActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:id="@+id/linearLayout2"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:background="#1A1A1A"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:layout_marginVertical="5dp"
+                android:src="@drawable/logo" />
+
+        </LinearLayout>
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="78dp" />
+
+        <TextView
+            android:id="@+id/main_text"
+            android:layout_width="match_parent"
+            android:layout_height="32dp"
+            android:layout_marginHorizontal="30dp"
+            android:layout_marginVertical="5dp"
+            android:layout_marginBottom="5dp"
+            android:fontFamily="sans-serif-black"
+            android:gravity="center"
+            android:text="Compra en camino!"
+            android:textColor="#F2F2F2"
+            android:textSize="24dp" />
+
+        <TextView
+            android:id="@+id/sub_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="30dp"
+            android:layout_marginVertical="5dp"
+            android:layout_marginTop="28dp"
+            android:fontFamily="sans-serif"
+            android:gravity="center"
+            android:text="Tu pedido ha sido pagado exitosamente"
+            android:textColor="#F2F2F2"
+            android:textSize="16dp" />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="56dp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <Space
+                    android:layout_width="38dp"
+                    android:layout_height="match_parent" />
+
+                <TextView
+                    android:id="@+id/pago_total"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="0dp"
+                    android:text="Pago total"
+                    android:textColor="#F2F2F2"
+                    android:textSize="24sp" />
+
+                <Space
+                    android:layout_width="38dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1" />
+
+                <TextView
+                    android:id="@+id/pago_total_amount"
+                    android:layout_width="177dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="0dp"
+                    android:text="S/. 1500.00"
+                    android:textColor="#F2F2F2"
+                    android:textSize="24sp"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/transaction_details"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <!-- Código de la transacción -->
+            <TextView
+                android:id="@+id/codigo_transaccion"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:text="Codigo transaccion: 000JFJWRKK23"
+                android:textColor="#F2F2F2"
+                android:textSize="16sp" />
+
+            <!-- Fecha de pago -->
+
+            <!-- Método de pago -->
+            <TextView
+                android:id="@+id/fecha_pago"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:text="Fecha de Pago: 19 mayo 2024, 02:24"
+                android:textColor="#F2F2F2"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/metodo_pago"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:text="Metodo de Pago: Yape / BCP"
+                android:textColor="#F2F2F2"
+                android:textSize="16sp" />
+
+            <!-- Nombre del destinatario -->
+            <TextView
+                android:id="@+id/nombre_destinatario"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:text="Nombre destinatario: Alex Santiago Yalan"
+                android:textColor="#F2F2F2"
+                android:textSize="16sp" />
+
+            <Button
+                android:id="@+id/button_print"
+                android:layout_width="108dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="136dp"
+                android:layout_marginTop="28dp"
+                android:backgroundTint="#808080"
+                android:padding="12dp"
+                android:text="Imprimir"
+                android:textColor="#000000"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/transaction_details" />
+        </LinearLayout>
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
