@@ -10,7 +10,11 @@
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="#2C2C2C">
+        android:background="#2C2C2C"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
         <LinearLayout
             android:id="@+id/linearLayout"
@@ -181,7 +185,7 @@
                     android:onClick="irCarritoDeCompras"
                     android:paddingStart="16dp"
                     android:paddingEnd="16dp"
-                    android:text="Añadir al carrito"
+                    android:text="Añadir a Pedidos"
                     android:textColor="#FFFFFF" />
 
             </LinearLayout>
