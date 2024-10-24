@@ -16,8 +16,13 @@ public class nProducto {
     public nProducto(Context context){
         x=new cProducto(context);
     }
+<<<<<<< HEAD
     public void insertar(int cod_prod, String nombre, String marca, String descripcion, String precio){
         x.insert(new Producto(cod_prod,nombre,marca,descripcion,precio));
+=======
+    public void insertar(int cod_prod, String nombre, String marca, String descripcion, String precio, String stock){
+        x.insert(new Producto(cod_prod,nombre,marca,descripcion,precio,stock));
+>>>>>>> 6b31fd5ecb7a697e051d42e96d9e34d725baa4b3
     }
     public ArrayList<Producto> seleccionar(){
         return x.Select();

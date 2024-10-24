@@ -188,7 +188,7 @@
                     android:onClick="irCarritoDeCompras"
                     android:paddingStart="16dp"
                     android:paddingEnd="16dp"
-                    android:text="Añadir al carrito"
+                    android:text="Añadir a Pedidos"
                     android:textColor="#FFFFFF" />
 
             </LinearLayout>
