@@ -3,7 +3,7 @@ package com.app.proyectoFinal.modelo;
 public class Producto {
 
     public int codigo_prod;
-    public String nombre, marca, descripcion, precio;
+    public String nombre, marca, descripcion, precio, stock;
 
     public Producto(){
         this.codigo_prod = 0;
@@ -11,14 +11,16 @@ public class Producto {
         this.marca = "";
         this.descripcion = "";
         this.precio = "";
+        this.stock = "";
     }
 
-    public Producto(int codigo_prod, String nombre, String marca, String descripcion, String precio) {
+    public Producto(int codigo_prod, String nombre, String marca, String descripcion, String precio, String stock) {
         this.codigo_prod = codigo_prod;
         this.nombre = nombre;
         this.marca = marca;
         this.descripcion = descripcion;
         this.precio = precio;
+        this.stock = stock;
     }
 
     public int getCodigo_prod() {
@@ -61,6 +63,14 @@ public class Producto {
         this.precio = precio;
     }
 
+    public String getStock() {
+        return stock;
+    }
+
+    public void setStock(String stock) {
+        this.stock = stock;
+    }
+
     @Override
     public String toString() {
         return "Producto{" +
@@ -69,6 +79,7 @@ public class Producto {
                 ", marca" + marca + '\n' +
                 ", descripcion" + descripcion + '\n' +
                 ", precio" + precio + '\n' +
+                ", stock" + stock + '\n' +
                 "}";
     }
 }
