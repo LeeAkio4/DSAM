@@ -13,6 +13,42 @@
         android:theme="@style/Theme.ProyectoFinal"
         tools:targetApi="31">
         <activity
+            android:name=".activity_ProductosToyota"
+            android:exported="false" />
+        <activity
+            android:name=".Activity_ProductosNissan"
+            android:exported="false" />
+        <activity
+            android:name=".activity_ProductosKia"
+            android:exported="false" />
+        <activity
+            android:name=".activity_ProductosVolks"
+            android:exported="false" />
+        <activity
+            android:name=".activity_ProductosTesla"
+            android:exported="false" />
+        <activity
+            android:name=".activity_ProductosSuzuki"
+            android:exported="false" />
+        <activity
+            android:name=".negocio.activity_Productos"
+            android:exported="false" />
+        <activity
+            android:name=".Sidevar"
+            android:exported="false"
+            android:label="@string/title_activity_sidevar"
+            android:theme="@style/Theme.ProyectoFinal.NoActionBar" />
+        <activity
+            android:name=".IniciarSesionActivity"
+            android:exported="true"
+            android:theme="@style/Theme.ProyectoFinal">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
             android:name=".UserActivity"
             android:exported="false" />
         <activity
@@ -22,17 +58,32 @@
             android:name=".activity_registro"
             android:exported="false" />
         <activity
-            android:name=".IniciarSesionActivity"
+            android:name=".MainActivity"
             android:exported="false" />
         <activity
-            android:name=".MainActivity"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+            android:name=".OpcionesDeAplicacionActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity_perfil"
+            android:exported="false" />
+        <activity
+            android:name=".activity_editar_perfil"
+            android:exported="false" />
+        <activity
+            android:name=".activity_tarjeta"
+            android:exported="false" />
+        <activity
+            android:name=".activity_añadir_tarjeta"
+            android:exported="false" />
+        <activity
+            android:name=".activity_ubicacion"
+            android:exported="false" />
+        <activity
+            android:name=".activity_terminoycondicion"
+            android:exported="false" />
+        <activity
+            android:name=".activity_pedidos"
+            android:exported="false" />
     </application>
 
 </manifest>
