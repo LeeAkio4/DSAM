@@ -2,38 +2,26 @@ package com.app.proyectoFinal.modelo;
 
 public class Producto {
 
-    public int codigo_prod;
-<<<<<<< HEAD
-    public String nombre, marca, descripcion, precio;
-=======
-    public String nombre, marca, descripcion, precio, stock;
->>>>>>> 6b31fd5ecb7a697e051d42e96d9e34d725baa4b3
+    public int codigo_prod, stock;
+    public String nombre, marca, descripcion;
+    public double precio;
 
     public Producto(){
         this.codigo_prod = 0;
         this.nombre = "";
         this.marca = "";
         this.descripcion = "";
-        this.precio = "";
-<<<<<<< HEAD
+        this.precio = 0;
+        this.stock = 0;
     }
 
-    public Producto(int codigo_prod, String nombre, String marca, String descripcion, String precio) {
-=======
-        this.stock = "";
-    }
-
-    public Producto(int codigo_prod, String nombre, String marca, String descripcion, String precio, String stock) {
->>>>>>> 6b31fd5ecb7a697e051d42e96d9e34d725baa4b3
+    public Producto(int codigo_prod, String nombre, String marca, String descripcion, double precio, int stock) {
         this.codigo_prod = codigo_prod;
         this.nombre = nombre;
         this.marca = marca;
         this.descripcion = descripcion;
         this.precio = precio;
-<<<<<<< HEAD
-=======
         this.stock = stock;
->>>>>>> 6b31fd5ecb7a697e051d42e96d9e34d725baa4b3
     }
 
     public int getCodigo_prod() {
@@ -68,25 +56,22 @@ public class Producto {
         this.descripcion = descripcion;
     }
 
-    public String getPrecio() {
+    public double getPrecio() {
         return precio;
     }
 
-    public void setPrecio(String precio) {
+    public void setPrecio(double precio) {
         this.precio = precio;
     }
 
-<<<<<<< HEAD
-=======
-    public String getStock() {
+    public int getStock() {
         return stock;
     }
 
-    public void setStock(String stock) {
+    public void setStock(int stock) {
         this.stock = stock;
     }
 
->>>>>>> 6b31fd5ecb7a697e051d42e96d9e34d725baa4b3
     @Override
     public String toString() {
         return "Producto{" +
@@ -95,10 +80,7 @@ public class Producto {
                 ", marca" + marca + '\n' +
                 ", descripcion" + descripcion + '\n' +
                 ", precio" + precio + '\n' +
-<<<<<<< HEAD
-=======
                 ", stock" + stock + '\n' +
->>>>>>> 6b31fd5ecb7a697e051d42e96d9e34d725baa4b3
                 "}";
     }
 }

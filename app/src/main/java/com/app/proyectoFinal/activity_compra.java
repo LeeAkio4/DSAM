@@ -1,10 +1,8 @@
 package com.app.proyectoFinal;
-<<<<<<< HEAD
 
-=======
->>>>>>> 6b31fd5ecb7a697e051d42e96d9e34d725baa4b3
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
@@ -14,47 +12,31 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
 public class activity_compra extends AppCompatActivity {
+
+    private TextView nombreTextView, descripcionTextView, precioTextView, stockTextView;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        EdgeToEdge.enable(this);
         setContentView(R.layout.activity_compra);
 
-        // Ajustar los insets de la pantalla para la barra de estado
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
-            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
-            return insets;
-        });
+        // Referencia a los TextViews
+        nombreTextView = findViewById(R.id.idNombre);
+        descripcionTextView = findViewById(R.id.idDescripcion);
+        precioTextView = findViewById(R.id.idSalePrice);
+        stockTextView = findViewById(R.id.idStock);  // Asegúrate de tener este TextView en el layout
 
-        // Obtener los datos pasados desde el intent
+        // Obtener los datos enviados desde activity_ProductosSuzuki
         Intent intent = getIntent();
-        String nombreProducto = intent.getStringExtra("nombre");
-        String descripcionProducto = intent.getStringExtra("descripcion");
-        double precioProducto = intent.getDoubleExtra("precio", 0);
-<<<<<<< HEAD
+        String nombre = intent.getStringExtra("nombre");
+        String descripcion = intent.getStringExtra("descripcion");
+        double precio = intent.getDoubleExtra("precio", 0);
+        int stock = intent.getIntExtra("stock", 0);
 
-
-        // Mostrar los datos en los TextViews correspondientes
-
-        TextView nombreTextView = findViewById(R.id.idDescripcion);
-        TextView precioTextView = findViewById(R.id.idSalePrice);
-
-        nombreTextView.setText(descripcionProducto);
-        precioTextView.setText("S/ " + precioProducto);
+        // Asignar los valores a los TextViews
+        nombreTextView.setText(nombre);
+        descripcionTextView.setText(descripcion);
+        precioTextView.setText("Precio: $" + precio);
+        stockTextView.setText("Stock: " + stock);  // Mostrar el stock aquí
     }
-
-=======
-        int cantidadVendidos = intent.getIntExtra("cantidadVendidos", 0); // Asegúrate de que esto esté presente en el modelo de Producto
-
-        // Mostrar los datos en los TextViews correspondientes
-        TextView nombreTextView = findViewById(R.id.idDescripcion);
-        TextView precioTextView = findViewById(R.id.idSalePrice);
-        TextView vendidosTextView = findViewById(R.id.idVendidos);
-
-        nombreTextView.setText(descripcionProducto);
-        precioTextView.setText("S/ " + precioProducto);
-        vendidosTextView.setText(cantidadVendidos + " Vendidos");
-    }
->>>>>>> 6b31fd5ecb7a697e051d42e96d9e34d725baa4b3
 }
