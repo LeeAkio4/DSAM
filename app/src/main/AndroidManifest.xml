@@ -31,9 +31,6 @@
             android:name=".activity_ProductosSuzuki"
             android:exported="false" />
         <activity
-            android:name=".negocio.activity_Productos"
-            android:exported="false" />
-        <activity
             android:name=".Sidevar"
             android:exported="false"
             android:label="@string/title_activity_sidevar"
@@ -84,6 +81,7 @@
         <activity
             android:name=".activity_pedidos"
             android:exported="false" />
+        <activity android:name=".activity_compra" />
     </application>
 
 </manifest>

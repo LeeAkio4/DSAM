@@ -8,7 +8,6 @@ import androidx.annotation.Nullable;
 
 import com.app.proyectoFinal.dao.conexion;
 import com.app.proyectoFinal.modelo.Producto;
-import com.app.proyectoFinal.modelo.Tarjeta;
 
 import java.util.ArrayList;
 
@@ -28,7 +27,8 @@ public class cProducto extends conexion{
                     dato.getNombre()+ "','" +
                     dato.getMarca()+ "','" +
                     dato.getDescripcion()+ "','" +
-                    dato.getPrecio()+ "')" );
+                    dato.getPrecio()+ "')"  +
+                    dato.getStock()+ "')" );
             database.close();
         }
     }
@@ -42,7 +42,8 @@ public class cProducto extends conexion{
                     "nombre"+dato.getNombre()+"','" +
                     "marca"+dato.getMarca()+"','" +
                     "descripcion"+dato.getDescripcion()+"','" +
-                    "precio"+dato.getPrecio()+"','");
+                    "precio"+dato.getPrecio()+"','" +
+                    "stock"+dato.getStock()+"','");
             database.close();
         }
     }
@@ -70,12 +71,8 @@ public class cProducto extends conexion{
                                 dato.getString(1),
                                 dato.getString(2),
                                 dato.getString(3),
-<<<<<<< HEAD
-                                dato.getString(4)
-=======
-                                dato.getString(4),
-                                dato.getString(5)
->>>>>>> 6b31fd5ecb7a697e051d42e96d9e34d725baa4b3
+                                dato.getDouble(4),
+                                Integer.parseInt(dato.getString(5))
                         )
                 );
             }while (dato.moveToNext());

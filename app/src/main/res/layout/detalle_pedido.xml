@@ -106,11 +106,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:backgroundTint="#808080"
-<<<<<<< HEAD
-                    android:text="Ver Estado de Pedido" />
-=======
                     android:text="Pagar" />
->>>>>>> 6b31fd5ecb7a697e051d42e96d9e34d725baa4b3
+
             </LinearLayout>
         </LinearLayout>
 
