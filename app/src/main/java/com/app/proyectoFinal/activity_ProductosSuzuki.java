@@ -20,6 +20,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.app.proyectoFinal.controlador.cProducto;
 import com.app.proyectoFinal.modelo.Producto;
 
+import java.text.BreakIterator;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
@@ -77,10 +78,6 @@ public class activity_ProductosSuzuki extends AppCompatActivity {
     }
 
     // Adaptador para el RecyclerView
-<<<<<<< HEAD
-=======
-    // Adaptador para el RecyclerView
->>>>>>> 6b31fd5ecb7a697e051d42e96d9e34d725baa4b3
     public class ProductoAdapter extends RecyclerView.Adapter<ProductoAdapter.ProductoViewHolder> {
 
         private ArrayList<Producto> listaProductos;
@@ -92,64 +89,40 @@ public class activity_ProductosSuzuki extends AppCompatActivity {
         @NonNull
         @Override
         public ProductoViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-<<<<<<< HEAD
-            // Inflar un layout vacío o genérico
-=======
->>>>>>> 6b31fd5ecb7a697e051d42e96d9e34d725baa4b3
-            View view = LayoutInflater.from(parent.getContext()).inflate(android.R.layout.simple_list_item_1, parent, false);
+            // Inflar el layout personalizado para el producto
+            View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_producto, parent, false);
             return new ProductoViewHolder(view);
         }
 
         @Override
         public void onBindViewHolder(@NonNull ProductoViewHolder holder, int position) {
-<<<<<<< HEAD
-            // Obteniendo el producto en la posición actual
             Producto producto = listaProductos.get(position);
 
-            // Filtrar para mostrar solo los productos de la marca 'Suzuki'
+            // Mostrar solo productos de la marca 'Suzuki'
             if (producto.getMarca().equalsIgnoreCase("Suzuki")) {
-                // Mostrar el nombre y el precio del producto
-                holder.itemView.setText(
-                                "Producto: " + producto.getNombre() + "\n" +
-                                "Precio: $ " + producto.getPrecio() + "\n" +
-                                "Descripción: " + producto.getDescripcion() + "\n" +
-                                "-----------------------------------------------------------"
-                );
-                holder.itemView.setVisibility(View.VISIBLE); // Asegurarse de que el elemento sea visible
-=======
-            Producto producto = listaProductos.get(position);
+                holder.nombreTextView.setText(producto.getNombre());
+                holder.descripcionTextView.setText(producto.getDescripcion());
+                holder.precioTextView.setText("Precio: $" + producto.getPrecio());
+                holder.stockTextView.setText("Stock: " + producto.getStock());
 
-            if (producto.getMarca().equalsIgnoreCase("Suzuki")) {
-                holder.itemView.setText("Producto: " + producto.getNombre() + "\n" +
-                        "Precio: $ " + producto.getPrecio() + "\n" +
-                        "Descripción: " + producto.getDescripcion() + "\n" +
-                        "-----------------------------------------------------------");
                 holder.itemView.setVisibility(View.VISIBLE);
 
->>>>>>> 6b31fd5ecb7a697e051d42e96d9e34d725baa4b3
                 // Configurar el OnClickListener para cada producto
                 holder.itemView.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
                         Intent intent = new Intent(v.getContext(), activity_compra.class);
                         intent.putExtra("nombre", producto.getNombre());
-                        intent.putExtra("precio", producto.getPrecio());
-<<<<<<< HEAD
-                        intent.putExtra("descripcion", producto.getDescripcion());  // Asumiendo que este campo existe
-=======
                         intent.putExtra("descripcion", producto.getDescripcion());
-                        intent.putExtra("cantidadVendidos", producto.getStock());  // Asumiendo que este campo existe
->>>>>>> 6b31fd5ecb7a697e051d42e96d9e34d725baa4b3
+                        intent.putExtra("precio", producto.getPrecio());
+                        intent.putExtra("stock", producto.getStock());
+
                         v.getContext().startActivity(intent);
                     }
                 });
+
             } else {
-<<<<<<< HEAD
-                // Si no es de la marca 'Suzuki', lo ocultamos
-                holder.itemView.setVisibility(View.GONE); // Ocultar el elemento
-=======
-                holder.itemView.setVisibility(View.GONE);
->>>>>>> 6b31fd5ecb7a697e051d42e96d9e34d725baa4b3
+                holder.itemView.setVisibility(View.GONE); // Ocultar si no es Suzuki
             }
         }
 
@@ -158,24 +131,21 @@ public class activity_ProductosSuzuki extends AppCompatActivity {
             return listaProductos.size();
         }
 
-<<<<<<< HEAD
         // ViewHolder para manejar las vistas
-=======
->>>>>>> 6b31fd5ecb7a697e051d42e96d9e34d725baa4b3
         public class ProductoViewHolder extends RecyclerView.ViewHolder {
-            TextView itemView;
+            TextView nombreTextView;
+            TextView descripcionTextView;
+            TextView precioTextView;
+            TextView stockTextView;
 
             public ProductoViewHolder(@NonNull View itemView) {
                 super(itemView);
-<<<<<<< HEAD
-                this.itemView = (TextView) itemView;  // SimpleListItem1 tiene un TextView por defecto
+                nombreTextView = itemView.findViewById(R.id.nombreTextView);
+                descripcionTextView = itemView.findViewById(R.id.descripcionTextView);
+                precioTextView = itemView.findViewById(R.id.precioTextView);
+                stockTextView= itemView.findViewById(R.id.stockTextView);
             }
         }
-
-=======
-                this.itemView = (TextView) itemView;
-            }
-        }
->>>>>>> 6b31fd5ecb7a697e051d42e96d9e34d725baa4b3
     }
+
 }

@@ -6,7 +6,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".CompraActivity">
+    tools:context=".activity_compra">
 
 
     <ScrollView
@@ -42,10 +42,23 @@
                 android:layout_width="match_parent"
                 android:layout_height="28dp" />
 
+            <TextView
+                android:id="@+id/idNombre"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Nombre"
+                android:textAlignment="center"
+                android:textColor="#FFFFFF"
+                android:textSize="20sp" />
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="28dp" />
+
             <ImageView
                 android:id="@+id/imageView13"
                 android:layout_width="match_parent"
-                android:layout_height="211dp"
+                android:layout_height="200dp"
                 android:src="@drawable/coche1" />
 
             <LinearLayout
@@ -56,27 +69,19 @@
                 android:padding="2dp">
 
                 <TextView
-                    android:id="@+id/idVendidos"
+                    android:id="@+id/txt"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="423 Vendidos"
+                    android:text="Stock"
                     android:textColor="#808080"
                     android:textSize="14sp" />
 
                 <TextView
+                    android:id="@+id/idStock"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="4dp"
-                    android:text="4.4"
-                    android:textColor="#808080"
-                    android:textSize="14sp" />
-
-                <TextView
-                    android:id="@+id/IdNombre"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="4dp"
-                    android:text="(200 recomendaciones)"
+                    android:text="0"
                     android:textColor="#808080"
                     android:textSize="14sp" />
 
@@ -107,7 +112,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
-                    android:text="El Model S Plaid tiene la aceleración más rápida de todos los vehículos en producción. La arquitectura de batería actualizada para todos los modelos del Model S permite realizar recorridos consecutivos sin que el rendimiento se vea afectado."
+                    android:text="Descripción"
                     android:textColor="#000000"
                     android:textSize="14sp" />
             </LinearLayout>
@@ -175,20 +180,21 @@
                         android:id="@+id/idSalePrice"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="S/120.99"
+                        android:text="Precio"
                         android:textColor="#000000"
                         android:textSize="30sp" />
 
                 </LinearLayout>
 
                 <Button
+                    android:id="@+id/btn_pedir"
                     android:layout_width="wrap_content"
                     android:layout_height="60dp"
                     android:backgroundTint="#808080"
-                    android:onClick="irCarritoDeCompras"
+                    android:onClick="Pagar"
                     android:paddingStart="16dp"
                     android:paddingEnd="16dp"
-                    android:text="Añadir a Pedidos"
+                    android:text="Agregar a Pedidos"
                     android:textColor="#FFFFFF" />
 
             </LinearLayout>
