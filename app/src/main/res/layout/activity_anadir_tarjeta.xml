@@ -140,9 +140,8 @@
             android:layout_height="wrap_content"
             android:layout_margin="50dp"
             android:backgroundTint="#808080"
-            android:text="Registrar"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            android:onClick="registrarTarjeta"
+            android:text="Registrar" />
 
 
     </LinearLayout>

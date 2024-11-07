@@ -16,8 +16,8 @@ public class nTarjeta {
     public nTarjeta(Context context){
         x=new cTarjeta(context);
     }
-    public void insertar(int cod_t, int cod_u, String nom, String corr, String fechacad, String cvv){
-        x.insert(new Tarjeta(cod_t,cod_u,nom,corr,fechacad,cvv));
+    public void insertar(int cod_t, int cod_u, String nom, String corr, long numeroTar, String fechacad, String cvv) {
+        x.insert(new Tarjeta(cod_t, cod_u, nom, corr, numeroTar, fechacad, cvv));
     }
     public ArrayList<Tarjeta> seleccionar(){
         return x.Select();
