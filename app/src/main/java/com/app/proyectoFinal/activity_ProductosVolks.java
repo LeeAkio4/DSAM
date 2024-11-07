@@ -27,26 +27,26 @@ import java.util.Comparator;
 public class activity_ProductosVolks extends AppCompatActivity {
 
     private RecyclerView recyclerViewS;
-    private ProductoAdapter productoAdapter;
+    private activity_ProductosVolks.ProductoAdapter productoAdapter;
     private ArrayList<Producto> listaProductos;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
-        setContentView(R.layout.activity_productos_volks);  // Cambia el nombre del layout si es necesario
+        setContentView(R.layout.activity_productos_volks);
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
 
-        Button btnAtrasProductos = findViewById(R.id.btnAtrasProducVolks);  // Cambia el ID del botón si es necesario
+        Button btnAtrasProductos = findViewById(R.id.btnAtrasProducVolks);
         btnAtrasProductos.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 // Cambiar a la nueva actividad
-                Intent intent = new Intent(activity_ProductosVolks.this, Menu_Marcas.class);  // Cambia el nombre de la actividad si es necesario
+                Intent intent = new Intent(activity_ProductosVolks.this, Menu_Marcas.class);
                 startActivity(intent);
             }
         });
@@ -58,7 +58,6 @@ public class activity_ProductosVolks extends AppCompatActivity {
         // Cargar los productos desde la base de datos
         listaProductos = new cProducto(this).Select();
 
-        // Ordenar la lista para que los productos de la marca 'Volks' aparezcan primero
         Collections.sort(listaProductos, new Comparator<Producto>() {
             @Override
             public int compare(Producto p1, Producto p2) {
@@ -68,17 +67,17 @@ public class activity_ProductosVolks extends AppCompatActivity {
                 } else if (!p1.getMarca().equalsIgnoreCase("Volks") && p2.getMarca().equalsIgnoreCase("Volks")) {
                     return 1; // p2 (Volks) va primero
                 }
-                return 0; // Si ambas marcas son iguales o no son 'Volks', no se cambia el orden
+                return 0; // Si ambas marcas son iguales o no son 'Suzuki', no se cambia el orden
             }
-        });
 
-        // Crear el adaptador y asignarlo al RecyclerView
-        productoAdapter = new ProductoAdapter(listaProductos);
+        });
+        productoAdapter = new activity_ProductosVolks.ProductoAdapter(listaProductos);
         recyclerViewS.setAdapter(productoAdapter);
+
     }
 
     // Adaptador para el RecyclerView
-    public class ProductoAdapter extends RecyclerView.Adapter<ProductoAdapter.ProductoViewHolder> {
+    public class ProductoAdapter extends RecyclerView.Adapter<activity_ProductosVolks.ProductoAdapter.ProductoViewHolder> {
 
         private ArrayList<Producto> listaProductos;
 
@@ -88,30 +87,41 @@ public class activity_ProductosVolks extends AppCompatActivity {
 
         @NonNull
         @Override
-        public ProductoViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-            // Inflar un layout vacío o genérico
-            View view = LayoutInflater.from(parent.getContext()).inflate(android.R.layout.simple_list_item_1, parent, false);
-            return new ProductoViewHolder(view);
+        public activity_ProductosVolks.ProductoAdapter.ProductoViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+            // Inflar el layout personalizado para el producto
+            View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_producto, parent, false);
+            return new activity_ProductosVolks.ProductoAdapter.ProductoViewHolder(view);
         }
 
         @Override
-        public void onBindViewHolder(@NonNull ProductoViewHolder holder, int position) {
-            // Obteniendo el producto en la posición actual
+        public void onBindViewHolder(@NonNull activity_ProductosVolks.ProductoAdapter.ProductoViewHolder holder, int position) {
             Producto producto = listaProductos.get(position);
 
-            // Filtrar para mostrar solo los productos de la marca 'Volks'
+            // Mostrar solo productos de la marca 'Volks'
             if (producto.getMarca().equalsIgnoreCase("Volks")) {
-                // Mostrar el nombre y el precio del producto
-                holder.itemView.setText(
-                                "Producto: " + producto.getNombre() + "\n" +
-                                "Precio: $ " + producto.getPrecio() + "\n" +
-                                "Descripción: " + producto.getDescripcion() + "\n" +
-                                "-----------------------------------------------------------"
-                );
-                holder.itemView.setVisibility(View.VISIBLE); // Asegurarse de que el elemento sea visible
+                holder.nombreTextView.setText(producto.getNombre());
+                holder.descripcionTextView.setText(producto.getDescripcion());
+                holder.precioTextView.setText("Precio: $" + producto.getPrecio());
+                holder.stockTextView.setText("Stock: " + producto.getStock());
+
+                holder.itemView.setVisibility(View.VISIBLE);
+
+                // Configurar el OnClickListener para cada producto
+                holder.itemView.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Intent intent = new Intent(v.getContext(), activity_compra.class);
+                        intent.putExtra("nombre", producto.getNombre());
+                        intent.putExtra("descripcion", producto.getDescripcion());
+                        intent.putExtra("precio", producto.getPrecio());
+                        intent.putExtra("stock", producto.getStock());
+
+                        v.getContext().startActivity(intent);
+                    }
+                });
+
             } else {
-                // Si no es de la marca 'Volks', lo ocultamos
-                holder.itemView.setVisibility(View.GONE); // Ocultar el elemento
+                holder.itemView.setVisibility(View.GONE); // Ocultar si no es Suzuki
             }
         }
 
@@ -122,12 +132,19 @@ public class activity_ProductosVolks extends AppCompatActivity {
 
         // ViewHolder para manejar las vistas
         public class ProductoViewHolder extends RecyclerView.ViewHolder {
-            TextView itemView;
+            TextView nombreTextView;
+            TextView descripcionTextView;
+            TextView precioTextView;
+            TextView stockTextView;
 
             public ProductoViewHolder(@NonNull View itemView) {
                 super(itemView);
-                this.itemView = (TextView) itemView;  // SimpleListItem1 tiene un TextView por defecto
+                nombreTextView = itemView.findViewById(R.id.nombreTextView);
+                descripcionTextView = itemView.findViewById(R.id.descripcionTextView);
+                precioTextView = itemView.findViewById(R.id.precioTextView);
+                stockTextView= itemView.findViewById(R.id.stockTextView);
             }
         }
     }
 }
+

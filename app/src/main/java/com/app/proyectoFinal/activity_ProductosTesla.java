@@ -35,11 +35,13 @@ public class activity_ProductosTesla extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_productos_tesla);
+
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+
         recyclerViewT = findViewById(R.id.recyclerViewT);
         recyclerViewT.setLayoutManager(new LinearLayoutManager(this));
 
@@ -52,30 +54,27 @@ public class activity_ProductosTesla extends AppCompatActivity {
             public int compare(Producto p1, Producto p2) {
                 // Colocar 'Tesla' al principio
                 if (p1.getMarca().equalsIgnoreCase("Tesla") && !p2.getMarca().equalsIgnoreCase("Tesla")) {
-                    return -1; // p1 (Tesla) va primero
+                    return -1;
                 } else if (!p1.getMarca().equalsIgnoreCase("Tesla") && p2.getMarca().equalsIgnoreCase("Tesla")) {
-                    return 1; // p2 (Tesla) va primero
+                    return 1;
                 }
-                return 0; // Si ambas marcas son iguales o no son 'Tesla', no se cambia el orden
+                return 0;
             }
-
         });
-
 
         // Crear el adaptador y asignarlo al RecyclerView
         productoAdapterT = new ProductoAdapter(listaProductosT);
         recyclerViewT.setAdapter(productoAdapterT);
 
-        Button btnAtrasProductosT = findViewById(R.id.btnAtrasProducTesla2);  // Cambia el ID del botón
+        // Configurar el botón de "Atrás"
+        Button btnAtrasProductosT = findViewById(R.id.btnAtrasProducTesla2);
         btnAtrasProductosT.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Cambiar a la nueva actividad
-                Intent intent = new Intent(activity_ProductosTesla.this, Menu_Marcas.class);  // Cambia el nombre de la actividad
+                Intent intent = new Intent(activity_ProductosTesla.this, Menu_Marcas.class);
                 startActivity(intent);
             }
         });
-
     }
 
     // Adaptador para el RecyclerView
@@ -90,29 +89,37 @@ public class activity_ProductosTesla extends AppCompatActivity {
         @NonNull
         @Override
         public ProductoViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-            // Inflar un layout vacío o genérico
-            View view = LayoutInflater.from(parent.getContext()).inflate(android.R.layout.simple_list_item_1, parent, false);
+            // Inflar el layout personalizado para cada producto
+            View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_producto, parent, false);
             return new ProductoViewHolder(view);
         }
 
         @Override
         public void onBindViewHolder(@NonNull ProductoViewHolder holder, int position) {
-            // Obteniendo el producto en la posición actual
             Producto producto = listaProductos.get(position);
 
-            // Filtrar para mostrar solo los productos de la marca 'Tesla'
+            // Mostrar solo productos de la marca 'Tesla'
             if (producto.getMarca().equalsIgnoreCase("Tesla")) {
-                // Mostrar el nombre y el precio del producto
-                holder.itemView.setText(
-                                "Producto: " + producto.getNombre() + "\n" +
-                                "Precio: $ " + producto.getPrecio() + "\n" +
-                                "Descripción: " + producto.getDescripcion() + "\n" +
-                                "-----------------------------------------------------------"
-                );
-                holder.itemView.setVisibility(View.VISIBLE); // Asegurarse de que el elemento sea visible
+                holder.nombreTextView.setText(producto.getNombre());
+                holder.descripcionTextView.setText(producto.getDescripcion());
+                holder.precioTextView.setText("Precio: $" + producto.getPrecio());
+                holder.stockTextView.setText("Stock: " + producto.getStock());
+                holder.itemView.setVisibility(View.VISIBLE);
+
+                // Configurar el clic para cada producto
+                holder.itemView.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Intent intent = new Intent(v.getContext(), activity_compra.class);
+                        intent.putExtra("nombre", producto.getNombre());
+                        intent.putExtra("descripcion", producto.getDescripcion());
+                        intent.putExtra("precio", producto.getPrecio());
+                        intent.putExtra("stock", producto.getStock());
+                        v.getContext().startActivity(intent);
+                    }
+                });
             } else {
-                // Si no es de la marca 'Tesla', lo ocultamos
-                holder.itemView.setVisibility(View.GONE); // Ocultar el elemento
+                holder.itemView.setVisibility(View.GONE); // Ocultar si no es de la marca Tesla
             }
         }
 
@@ -123,14 +130,18 @@ public class activity_ProductosTesla extends AppCompatActivity {
 
         // ViewHolder para manejar las vistas
         public class ProductoViewHolder extends RecyclerView.ViewHolder {
-            TextView itemView;
+            TextView nombreTextView;
+            TextView descripcionTextView;
+            TextView precioTextView;
+            TextView stockTextView;
 
             public ProductoViewHolder(@NonNull View itemView) {
                 super(itemView);
-                this.itemView = (TextView) itemView;  // SimpleListItem1 tiene un TextView por defecto
+                nombreTextView = itemView.findViewById(R.id.nombreTextView);
+                descripcionTextView = itemView.findViewById(R.id.descripcionTextView);
+                precioTextView = itemView.findViewById(R.id.precioTextView);
+                stockTextView = itemView.findViewById(R.id.stockTextView);
             }
         }
-
     }
-
 }

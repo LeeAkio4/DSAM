@@ -34,7 +34,7 @@ public class Activity_ProductosNissan extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
-        setContentView(R.layout.activity_productos_nissan);  // Cambia el nombre del layout si es necesario
+        setContentView(R.layout.activity_productos_nissan);  // Cambia el layout a activity_productos_nissan
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
@@ -45,30 +45,28 @@ public class Activity_ProductosNissan extends AppCompatActivity {
         btnAtrasProductos.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Cambiar a la nueva actividad
-                Intent intent = new Intent(Activity_ProductosNissan.this, Menu_Marcas.class);  // Cambia el nombre de la actividad si es necesario
+                Intent intent = new Intent(Activity_ProductosNissan.this, Menu_Marcas.class);
                 startActivity(intent);
             }
         });
 
         // Configurar el RecyclerView
-        recyclerViewS = findViewById(R.id.recyclerViewS);
+        recyclerViewS = findViewById(R.id.recyclerViewS); // Cambia el ID si es necesario
         recyclerViewS.setLayoutManager(new LinearLayoutManager(this));
 
         // Cargar los productos desde la base de datos
         listaProductos = new cProducto(this).Select();
 
-        // Ordenar la lista para que los productos de la marca 'Nissan' aparezcan primero
+        // Ordenar los productos para que 'Nissan' aparezca primero
         Collections.sort(listaProductos, new Comparator<Producto>() {
             @Override
             public int compare(Producto p1, Producto p2) {
-                // Colocar 'Nissan' al principio
                 if (p1.getMarca().equalsIgnoreCase("Nissan") && !p2.getMarca().equalsIgnoreCase("Nissan")) {
-                    return -1; // p1 (Nissan) va primero
+                    return -1;
                 } else if (!p1.getMarca().equalsIgnoreCase("Nissan") && p2.getMarca().equalsIgnoreCase("Nissan")) {
-                    return 1; // p2 (Nissan) va primero
+                    return 1;
                 }
-                return 0; // Si ambas marcas son iguales o no son 'Nissan', no se cambia el orden
+                return 0;
             }
         });
 
@@ -89,29 +87,39 @@ public class Activity_ProductosNissan extends AppCompatActivity {
         @NonNull
         @Override
         public ProductoViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-            // Inflar un layout vacío o genérico
-            View view = LayoutInflater.from(parent.getContext()).inflate(android.R.layout.simple_list_item_1, parent, false);
+            View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_producto, parent, false);
             return new ProductoViewHolder(view);
         }
 
         @Override
         public void onBindViewHolder(@NonNull ProductoViewHolder holder, int position) {
-            // Obteniendo el producto en la posición actual
             Producto producto = listaProductos.get(position);
 
-            // Filtrar para mostrar solo los productos de la marca 'Nissan'
+            // Mostrar solo productos de la marca 'Nissan'
             if (producto.getMarca().equalsIgnoreCase("Nissan")) {
-                // Mostrar el nombre y el precio del producto
-                holder.itemView.setText(
-                                "Producto: " + producto.getNombre() + "\n" +
-                                "Precio: $ " + producto.getPrecio() + "\n" +
-                                "Descripción: " + producto.getDescripcion() + "\n" +
-                                "-----------------------------------------------------------"
-                );
-                holder.itemView.setVisibility(View.VISIBLE); // Asegurarse de que el elemento sea visible
+                holder.nombreTextView.setText(producto.getNombre());
+                holder.descripcionTextView.setText(producto.getDescripcion());
+                holder.precioTextView.setText("Precio: $" + producto.getPrecio());
+                holder.stockTextView.setText("Stock: " + producto.getStock());
+
+                holder.itemView.setVisibility(View.VISIBLE);
+
+                // Configurar el OnClickListener para cada producto
+                holder.itemView.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Intent intent = new Intent(v.getContext(), activity_compra.class);
+                        intent.putExtra("nombre", producto.getNombre());
+                        intent.putExtra("descripcion", producto.getDescripcion());
+                        intent.putExtra("precio", producto.getPrecio());
+                        intent.putExtra("stock", producto.getStock());
+
+                        v.getContext().startActivity(intent);
+                    }
+                });
+
             } else {
-                // Si no es de la marca 'Nissan', lo ocultamos
-                holder.itemView.setVisibility(View.GONE); // Ocultar el elemento
+                holder.itemView.setVisibility(View.GONE); // Ocultar si no es Nissan
             }
         }
 
@@ -122,12 +130,19 @@ public class Activity_ProductosNissan extends AppCompatActivity {
 
         // ViewHolder para manejar las vistas
         public class ProductoViewHolder extends RecyclerView.ViewHolder {
-            TextView itemView;
+            TextView nombreTextView;
+            TextView descripcionTextView;
+            TextView precioTextView;
+            TextView stockTextView;
 
             public ProductoViewHolder(@NonNull View itemView) {
                 super(itemView);
-                this.itemView = (TextView) itemView;  // SimpleListItem1 tiene un TextView por defecto
+                nombreTextView = itemView.findViewById(R.id.nombreTextView);
+                descripcionTextView = itemView.findViewById(R.id.descripcionTextView);
+                precioTextView = itemView.findViewById(R.id.precioTextView);
+                stockTextView = itemView.findViewById(R.id.stockTextView);
             }
         }
     }
 }
+

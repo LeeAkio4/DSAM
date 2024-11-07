@@ -89,29 +89,40 @@ public class activity_ProductosKia extends AppCompatActivity {
         @NonNull
         @Override
         public ProductoViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-            // Inflar un layout vacío o genérico
-            View view = LayoutInflater.from(parent.getContext()).inflate(android.R.layout.simple_list_item_1, parent, false);
+            // Inflar el layout personalizado para el producto
+            View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_producto, parent, false);
             return new ProductoViewHolder(view);
         }
 
         @Override
         public void onBindViewHolder(@NonNull ProductoViewHolder holder, int position) {
-            // Obteniendo el producto en la posición actual
             Producto producto = listaProductos.get(position);
 
-            // Filtrar para mostrar solo los productos de la marca 'Kia'
+            // Mostrar solo productos de la marca 'Kia'
             if (producto.getMarca().equalsIgnoreCase("Kia")) {
-                // Mostrar el nombre y el precio del producto
-                holder.itemView.setText(
-                                "Producto: " + producto.getNombre() + "\n" +
-                                "Precio: $ " + producto.getPrecio() + "\n" +
-                                "Descripción: " + producto.getDescripcion() + "\n" +
-                                "-----------------------------------------------------------"
-                );
-                holder.itemView.setVisibility(View.VISIBLE); // Asegurarse de que el elemento sea visible
+                holder.nombreTextView.setText(producto.getNombre());
+                holder.descripcionTextView.setText(producto.getDescripcion());
+                holder.precioTextView.setText("Precio: $" + producto.getPrecio());
+                holder.stockTextView.setText("Stock: " + producto.getStock());
+
+                holder.itemView.setVisibility(View.VISIBLE);
+
+                // Configurar el OnClickListener para cada producto
+                holder.itemView.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Intent intent = new Intent(v.getContext(), activity_compra.class);
+                        intent.putExtra("nombre", producto.getNombre());
+                        intent.putExtra("descripcion", producto.getDescripcion());
+                        intent.putExtra("precio", producto.getPrecio());
+                        intent.putExtra("stock", producto.getStock());
+
+                        v.getContext().startActivity(intent);
+                    }
+                });
+
             } else {
-                // Si no es de la marca 'Kia', lo ocultamos
-                holder.itemView.setVisibility(View.GONE); // Ocultar el elemento
+                holder.itemView.setVisibility(View.GONE); // Ocultar si no es Kia
             }
         }
 
@@ -122,11 +133,17 @@ public class activity_ProductosKia extends AppCompatActivity {
 
         // ViewHolder para manejar las vistas
         public class ProductoViewHolder extends RecyclerView.ViewHolder {
-            TextView itemView;
+            TextView nombreTextView;
+            TextView descripcionTextView;
+            TextView precioTextView;
+            TextView stockTextView;
 
             public ProductoViewHolder(@NonNull View itemView) {
                 super(itemView);
-                this.itemView = (TextView) itemView;  // SimpleListItem1 tiene un TextView por defecto
+                nombreTextView = itemView.findViewById(R.id.nombreTextView);
+                descripcionTextView = itemView.findViewById(R.id.descripcionTextView);
+                precioTextView = itemView.findViewById(R.id.precioTextView);
+                stockTextView = itemView.findViewById(R.id.stockTextView);
             }
         }
     }

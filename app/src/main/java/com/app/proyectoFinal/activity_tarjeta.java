@@ -81,7 +81,6 @@ public class activity_tarjeta extends AppCompatActivity {
             Toast.makeText(this, "Error: usuario no autenticado", Toast.LENGTH_SHORT).show();
             return;
         }
-
         Intent intent = new Intent(this, activity_añadir_tarjeta.class);
         intent.putExtra("codigoUsuario", codigoUsuario);
         startActivity(intent);
