@@ -81,7 +81,16 @@
         <activity
             android:name=".activity_pedidos"
             android:exported="false" />
-        <activity android:name=".activity_compra" />
+        <activity
+            android:name=".activity_compra"
+            android:exported="false" />
+        <activity
+            android:name=".activity_detalle_pedido"
+            android:exported="false" />
+        <activity
+            android:name=".activity_metodos_de_pago"
+            android:exported="false" />
+
     </application>
 
 </manifest>

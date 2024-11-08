@@ -3,6 +3,7 @@ package com.app.proyectoFinal.controlador;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.util.Log;
 
 import androidx.annotation.Nullable;
 
@@ -79,4 +80,29 @@ public class cProducto extends conexion{
         }
         return est;
     }
+    public Producto obtenerProductoPorCodigo(int codigo) {
+        conexion con = new cProducto(context);
+        SQLiteDatabase database = con.getReadableDatabase();
+        Producto producto = null;
+
+        // Agregar un log para ver el código del producto que se está consultando
+        Log.d("cProducto", "Consultando producto con codigo_producto: " + codigo);
+
+        Cursor cursor = database.rawQuery("SELECT * FROM " + tbProducto + " WHERE codigo_producto = ?", new String[]{String.valueOf(codigo)});
+
+        if (cursor != null && cursor.moveToFirst()) {
+            producto = new Producto(
+                    cursor.getInt(0),         // codigo_producto
+                    cursor.getString(1),      // nombre
+                    cursor.getString(2),      // marca
+                    cursor.getString(3),      // descripcion
+                    cursor.getDouble(4),      // precio
+                    cursor.getInt(5)          // stock
+            );
+            cursor.close();
+        }
+        database.close();
+        return producto;
+    }
+
 }

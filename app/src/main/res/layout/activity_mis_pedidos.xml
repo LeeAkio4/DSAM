@@ -29,7 +29,7 @@
     </LinearLayout>
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerViewT"
+        android:id="@+id/recyclerViewPedidos"
         android:layout_width="370dp"
         android:layout_height="484dp"
         android:background="#FFFFFF"
@@ -44,30 +44,29 @@
         android:id="@+id/recyclerProductos"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="28dp"
         android:text="Mis Pedidos"
         android:textColor="#F2F2F2"
         android:textSize="45sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.155"
+        app:layout_constraintHorizontal_bias="0.099"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout3"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.184" />
 
     <Button
         android:id="@+id/buttonRegresar"
         android:layout_width="108dp"
         android:layout_height="39dp"
-        android:layout_marginBottom="552dp"
         android:backgroundTint="#808080"
         android:onClick="Regresar"
         android:text="ATRAS"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.428"
-        app:layout_constraintStart_toEndOf="@+id/recyclerProductos"
-        app:layout_constraintTop_toBottomOf="@+id/imageView" />
+        app:layout_constraintHorizontal_bias="0.947"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.197" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

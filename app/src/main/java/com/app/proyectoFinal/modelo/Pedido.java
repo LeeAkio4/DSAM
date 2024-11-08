@@ -2,20 +2,22 @@ package com.app.proyectoFinal.modelo;
 
 public class Pedido {
 
-    public int codigo_p, codigo_u;
+    public int codigo_p, codigo_u, codigo_prod;
     public String fechaPed, estado, total;
 
     public Pedido(){
         this.codigo_p = 0;
         this.codigo_u = 0;
+        this.codigo_prod = 0;
         this.fechaPed = "";
         this.estado = "";
         this.total = "";
     }
 
-    public Pedido(int codigo_p, int codigo_u, String fechaPed, String estado, String total) {
+    public Pedido(int codigo_p, int codigo_u, int codigo_prod, String fechaPed, String estado, String total) {
         this.codigo_p = codigo_p;
         this.codigo_u = codigo_u;
+        this.codigo_prod = codigo_prod;
         this.fechaPed = fechaPed;
         this.estado = estado;
         this.total = total;
@@ -35,6 +37,14 @@ public class Pedido {
 
     public void setCodigo_u(int codigo_u) {
         this.codigo_u = codigo_u;
+    }
+
+    public int getCodigo_prod() {
+        return codigo_prod;
+    }
+
+    public void setCodigo_prod(int codigo_prod) {
+        this.codigo_prod = codigo_prod;
     }
 
     public String getFechaPed() {
@@ -64,11 +74,13 @@ public class Pedido {
     @Override
     public String toString() {
         return "Pedido{" +
-                "codigo_pedido" + codigo_p +
-                ", codigo_usuario" + codigo_u + '\n' +
-                ", fecha_pedido" + fechaPed + '\n' +
-                ", estado" + estado + '\n' +
-                ", total" + total + '\n' +
-                "}";
+                "codigo_pedido=" + codigo_p +
+                ", codigo_usuario=" + codigo_u + '\n' +
+                ", codigo_prod=" + codigo_prod + '\n' +
+                ", fecha_pedido='" + fechaPed + '\'' + '\n' +
+                ", estado='" + estado + '\'' + '\n' +
+                ", total='" + total + '\'' + '\n' +
+                '}';
     }
+
 }

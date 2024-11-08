@@ -8,6 +8,11 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 import androidx.annotation.Nullable;
 
+import com.app.proyectoFinal.modelo.Pedido;
+
+import java.util.ArrayList;
+import java.util.List;
+
 public class conexion extends SQLiteOpenHelper {
     private static final int dbVersion=2;
     private static final String dbNombre= "dbAutonex.db";
@@ -24,7 +29,7 @@ public class conexion extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase db) {
         db.execSQL("CREATE TABLE " + tbUsuario + "(codigoUser INTEGER PRIMARY KEY AUTOINCREMENT, nombrescompletos TEXT NOT NULL, direccion TEXT NOT NULL, dni INTEGER NOT NULL, genero TEXT NOT NULL, correo TEXT NOT NULL, contrasena TEXT NOT NULL )");
         db.execSQL("CREATE TABLE " + tbTarjeta + " (codigo_tarjeta INTEGER PRIMARY KEY AUTOINCREMENT, codigo_usuario INTEGER NOT NULL, nombre TEXT NOT NULL, correo TEXT NOT NULL, numero_tarjeta INTEGER NOT NULL,fecha_cad TEXT NOT NULL, cvv TEXT NOT NULL, FOREIGN KEY (codigo_usuario) REFERENCES " + tbUsuario + "(codigo_usuario))");
-        db.execSQL("CREATE TABLE " + tbPedido + " (codigo_pedido INTEGER PRIMARY KEY AUTOINCREMENT, codigo_usuario INTEGER NOT NULL, fecha_pedido TEXT NOT NULL, estado TEXT NOT NULL, total REAL NOT NULL, FOREIGN KEY (codigo_usuario) REFERENCES " + tbUsuario + "(codigo_usuario))");
+        db.execSQL("CREATE TABLE " + tbPedido + " (codigo_pedido INTEGER PRIMARY KEY AUTOINCREMENT, codigo_usuario INTEGER NOT NULL, codigo_producto INTEGER NOT NULL, fecha_pedido TEXT NOT NULL, estado TEXT NOT NULL, total REAL NOT NULL, FOREIGN KEY (codigo_usuario) REFERENCES " + tbUsuario + "(codigo_usuario), FOREIGN KEY (codigo_producto) REFERENCES " + tbProducto + "(codigo_producto))");
         db.execSQL("CREATE TABLE " + tbProducto + " (codigo_producto INTEGER PRIMARY KEY AUTOINCREMENT, nombre TEXT NOT NULL, marca TEXT NOT NULL, descripcion TEXT NOT NULL, precio REAL NOT NULL, stock INTEGER NOT NULL)");
         insertarProductos(db);
         insertarUsuarios(db);
@@ -132,4 +137,5 @@ public class conexion extends SQLiteOpenHelper {
         db.execSQL("DROP TABLE IF EXISTS " + tbProducto);
         onCreate(db);  // Recrear las tablas
     }
+
 }

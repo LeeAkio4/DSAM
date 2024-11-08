@@ -16,8 +16,8 @@ public class nPedido {
     public nPedido(Context context){
         x=new cPedido(context);
     }
-    public void insertar(int cod_p, int cod_u, String fechaped, String est, String total){
-        x.insert(new Pedido(cod_p,cod_u,fechaped,est,total));
+    public void insertar(int cod_p, int cod_u, int cod_prod, String fechaped, String est, String total){
+        x.insert(new Pedido(cod_p,cod_u,cod_prod, fechaped,est,total));
     }
     public ArrayList<Pedido> seleccionar(){
         return x.Select();

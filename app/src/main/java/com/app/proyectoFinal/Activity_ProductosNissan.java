@@ -109,6 +109,8 @@ public class Activity_ProductosNissan extends AppCompatActivity {
                     @Override
                     public void onClick(View v) {
                         Intent intent = new Intent(v.getContext(), activity_compra.class);
+
+                        intent.putExtra("codigoProducto", producto.getCodigo_prod());
                         intent.putExtra("nombre", producto.getNombre());
                         intent.putExtra("descripcion", producto.getDescripcion());
                         intent.putExtra("precio", producto.getPrecio());

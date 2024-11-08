@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="8dp">
+
+    <TextView
+        android:id="@+id/codigoPedido"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Código Pedido"
+        android:textSize="16sp"
+        android:layout_marginBottom="8dp" />
+
+    <TextView
+        android:id="@+id/codigoUsuario"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Código Usuario"
+        android:textSize="16sp"
+        android:layout_marginBottom="8dp" />
+
+    <TextView
+        android:id="@+id/codigoProducto"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Código Producto"
+        android:textSize="16sp"
+        android:layout_marginBottom="8dp" />
+
+    <TextView
+        android:id="@+id/fechaPedido"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Fecha"
+        android:textSize="16sp"
+        android:layout_marginBottom="8dp" />
+
+    <TextView
+        android:id="@+id/estado"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Estado"
+        android:textSize="16sp"
+        android:layout_marginBottom="8dp" />
+
+    <TextView
+        android:id="@+id/total"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Total"
+        android:textSize="16sp" />
+</LinearLayout>
+
