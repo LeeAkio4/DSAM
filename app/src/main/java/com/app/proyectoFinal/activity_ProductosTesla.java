@@ -42,17 +42,26 @@ public class activity_ProductosTesla extends AppCompatActivity {
             return insets;
         });
 
+        Button btnAtrasProductos = findViewById(R.id.btnAtrasProducTesla2);
+        btnAtrasProductos.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(activity_ProductosTesla.this, Menu_Marcas.class);
+                startActivity(intent);
+            }
+        });
+
+        // Configurar el RecyclerView
         recyclerViewT = findViewById(R.id.recyclerViewT);
         recyclerViewT.setLayoutManager(new LinearLayoutManager(this));
 
         // Cargar los productos desde la base de datos
         listaProductosT = new cProducto(this).Select();
 
-        // Ordenar la lista para que los productos de la marca 'Tesla' aparezcan primero
+        // Ordenar los productos para que 'Tesla' aparezca primero
         Collections.sort(listaProductosT, new Comparator<Producto>() {
             @Override
             public int compare(Producto p1, Producto p2) {
-                // Colocar 'Tesla' al principio
                 if (p1.getMarca().equalsIgnoreCase("Tesla") && !p2.getMarca().equalsIgnoreCase("Tesla")) {
                     return -1;
                 } else if (!p1.getMarca().equalsIgnoreCase("Tesla") && p2.getMarca().equalsIgnoreCase("Tesla")) {
@@ -65,20 +74,10 @@ public class activity_ProductosTesla extends AppCompatActivity {
         // Crear el adaptador y asignarlo al RecyclerView
         productoAdapterT = new ProductoAdapter(listaProductosT);
         recyclerViewT.setAdapter(productoAdapterT);
-
-        // Configurar el botón de "Atrás"
-        Button btnAtrasProductosT = findViewById(R.id.btnAtrasProducTesla2);
-        btnAtrasProductosT.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(activity_ProductosTesla.this, Menu_Marcas.class);
-                startActivity(intent);
-            }
-        });
     }
 
     // Adaptador para el RecyclerView
-    public class ProductoAdapter extends RecyclerView.Adapter<ProductoAdapter.ProductoViewHolder> {
+    public class ProductoAdapter extends RecyclerView.Adapter<activity_ProductosTesla.ProductoAdapter.ProductoViewHolder> {
 
         private ArrayList<Producto> listaProductos;
 
@@ -89,7 +88,6 @@ public class activity_ProductosTesla extends AppCompatActivity {
         @NonNull
         @Override
         public ProductoViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-            // Inflar el layout personalizado para cada producto
             View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_producto, parent, false);
             return new ProductoViewHolder(view);
         }
@@ -101,12 +99,20 @@ public class activity_ProductosTesla extends AppCompatActivity {
             // Mostrar solo productos de la marca 'Tesla'
             if (producto.getMarca().equalsIgnoreCase("Tesla")) {
                 holder.nombreTextView.setText(producto.getNombre());
+                holder.marcaTextView.setText(producto.getMarca());
                 holder.descripcionTextView.setText(producto.getDescripcion());
-                holder.precioTextView.setText("Precio: $" + producto.getPrecio());
-                holder.stockTextView.setText("Stock: " + producto.getStock());
+                holder.precioTextView.setText(String.format("$%.2f", producto.getPrecio()));
+                holder.stockTextView.setText(String.valueOf(producto.getStock()));
+                holder.anioTextView.setText(String.valueOf(producto.getAnio()));
+                holder.colorTextView.setText(producto.getColor());
+                holder.cilindrosTextView.setText(String.valueOf(producto.getCilindros()));
+                holder.transmisionTextView.setText(producto.getTransmision());
+                holder.tipomotorTextView.setText(producto.getTipomotor());
+                holder.placaTextView.setText(producto.getPlaca());
+
                 holder.itemView.setVisibility(View.VISIBLE);
 
-                // Configurar el clic para cada producto
+                // Configurar el OnClickListener para cada producto
                 holder.itemView.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
@@ -114,14 +120,22 @@ public class activity_ProductosTesla extends AppCompatActivity {
 
                         intent.putExtra("codigoProducto", producto.getCodigo_prod());
                         intent.putExtra("nombre", producto.getNombre());
+                        intent.putExtra("marca", producto.getMarca());
                         intent.putExtra("descripcion", producto.getDescripcion());
                         intent.putExtra("precio", producto.getPrecio());
                         intent.putExtra("stock", producto.getStock());
+                        intent.putExtra("anio", producto.getAnio());
+                        intent.putExtra("color", producto.getColor());
+                        intent.putExtra("cilindros", producto.getCilindros());
+                        intent.putExtra("transmision", producto.getTransmision());
+                        intent.putExtra("tipomotor", producto.getTipomotor());
+                        intent.putExtra("placa", producto.getPlaca());
+
                         v.getContext().startActivity(intent);
                     }
                 });
             } else {
-                holder.itemView.setVisibility(View.GONE); // Ocultar si no es de la marca Tesla
+                holder.itemView.setVisibility(View.GONE); // Ocultar si no es Tesla
             }
         }
 
@@ -132,17 +146,22 @@ public class activity_ProductosTesla extends AppCompatActivity {
 
         // ViewHolder para manejar las vistas
         public class ProductoViewHolder extends RecyclerView.ViewHolder {
-            TextView nombreTextView;
-            TextView descripcionTextView;
-            TextView precioTextView;
-            TextView stockTextView;
+            TextView nombreTextView, marcaTextView, descripcionTextView, precioTextView, stockTextView, anioTextView;
+            TextView colorTextView, cilindrosTextView, transmisionTextView, tipomotorTextView, placaTextView;
 
             public ProductoViewHolder(@NonNull View itemView) {
                 super(itemView);
                 nombreTextView = itemView.findViewById(R.id.nombreTextView);
+                marcaTextView = itemView.findViewById(R.id.marcaTextView);
                 descripcionTextView = itemView.findViewById(R.id.descripcionTextView);
                 precioTextView = itemView.findViewById(R.id.precioTextView);
                 stockTextView = itemView.findViewById(R.id.stockTextView);
+                anioTextView = itemView.findViewById(R.id.anioTextView);
+                colorTextView = itemView.findViewById(R.id.colorTextView);
+                cilindrosTextView = itemView.findViewById(R.id.cilindrosTextView);
+                transmisionTextView = itemView.findViewById(R.id.transmisionTextView);
+                tipomotorTextView = itemView.findViewById(R.id.tipomotorTextView);
+                placaTextView = itemView.findViewById(R.id.placaTextView);
             }
         }
     }

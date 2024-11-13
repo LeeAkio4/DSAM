@@ -13,24 +13,194 @@
         android:textSize="18sp"
         android:textStyle="bold" />
 
-    <TextView
-        android:id="@+id/descripcionTextView"
+    <!-- Marca -->
+    <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Descripción del producto"
-        android:textSize="14sp" />
+        android:orientation="horizontal">
+        <TextView
+            android:id="@+id/marca"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Marca: "
+            android:textSize="16sp" />
+        <TextView
+            android:id="@+id/marcaTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Marca del producto"
+            android:textSize="16sp" />
+    </LinearLayout>
 
-    <TextView
-        android:id="@+id/precioTextView"
+    <!-- Descripción -->
+    <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Precio del producto"
-        android:textSize="16sp" />
+        android:orientation="horizontal">
+        <TextView
+            android:id="@+id/descripcion"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Descripcion: "
+            android:textSize="16sp" />
+        <TextView
+            android:id="@+id/descripcionTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Descripción del producto"
+            android:textSize="14sp" />
+    </LinearLayout>
 
-    <TextView
-        android:id="@+id/stockTextView"
+    <!-- Precio -->
+    <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Stock del producto"
-        android:textSize="16sp" />
+        android:orientation="horizontal">
+        <TextView
+            android:id="@+id/precio"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Precio: "
+            android:textSize="16sp" />
+        <TextView
+            android:id="@+id/precioTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Precio del producto"
+            android:textSize="16sp" />
+    </LinearLayout>
+
+    <!-- Stock -->
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <TextView
+            android:id="@+id/Stock"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Stock: "
+            android:textSize="16sp" />
+        <TextView
+            android:id="@+id/stockTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Stock del producto"
+            android:textSize="16sp" />
+    </LinearLayout>
+
+    <!-- Año -->
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <TextView
+            android:id="@+id/año"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Año: "
+            android:textSize="16sp" />
+        <TextView
+            android:id="@+id/anioTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Año del producto"
+            android:textSize="16sp" />
+    </LinearLayout>
+
+    <!-- Color -->
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <TextView
+            android:id="@+id/color"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Color: "
+            android:textSize="16sp" />
+        <TextView
+            android:id="@+id/colorTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Color del producto"
+            android:textSize="16sp" />
+    </LinearLayout>
+
+    <!-- Cilindros -->
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <TextView
+            android:id="@+id/cilindros"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Cilindros: "
+            android:textSize="16sp" />
+        <TextView
+            android:id="@+id/cilindrosTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Cilindrada del producto"
+            android:textSize="16sp" />
+    </LinearLayout>
+
+    <!-- Transmisión -->
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <TextView
+            android:id="@+id/transmision"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Transmision: "
+            android:textSize="16sp" />
+        <TextView
+            android:id="@+id/transmisionTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Transmisión del producto"
+            android:textSize="16sp" />
+    </LinearLayout>
+
+    <!-- Tipo de motor -->
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <TextView
+            android:id="@+id/tipomotor"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Tipo de motor: "
+            android:textSize="16sp" />
+        <TextView
+            android:id="@+id/tipomotorTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Tipo de motor del producto"
+            android:textSize="16sp" />
+    </LinearLayout>
+
+    <!-- Placa -->
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <TextView
+            android:id="@+id/placa"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Placa: "
+            android:textSize="16sp" />
+        <TextView
+            android:id="@+id/placaTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Placa del producto"
+            android:textSize="16sp" />
+    </LinearLayout>
+
 </LinearLayout>

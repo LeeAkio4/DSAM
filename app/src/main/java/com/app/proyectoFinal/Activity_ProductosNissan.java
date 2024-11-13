@@ -76,7 +76,7 @@ public class Activity_ProductosNissan extends AppCompatActivity {
     }
 
     // Adaptador para el RecyclerView
-    public class ProductoAdapter extends RecyclerView.Adapter<ProductoAdapter.ProductoViewHolder> {
+    public class ProductoAdapter extends RecyclerView.Adapter<Activity_ProductosNissan.ProductoAdapter.ProductoViewHolder> {
 
         private ArrayList<Producto> listaProductos;
 
@@ -86,21 +86,29 @@ public class Activity_ProductosNissan extends AppCompatActivity {
 
         @NonNull
         @Override
-        public ProductoViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        public Activity_ProductosNissan.ProductoAdapter.ProductoViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+            // Inflar el layout personalizado para el producto
             View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_producto, parent, false);
-            return new ProductoViewHolder(view);
+            return new Activity_ProductosNissan.ProductoAdapter.ProductoViewHolder(view);
         }
 
         @Override
-        public void onBindViewHolder(@NonNull ProductoViewHolder holder, int position) {
+        public void onBindViewHolder(@NonNull Activity_ProductosNissan.ProductoAdapter.ProductoViewHolder holder, int position) {
             Producto producto = listaProductos.get(position);
 
             // Mostrar solo productos de la marca 'Nissan'
             if (producto.getMarca().equalsIgnoreCase("Nissan")) {
                 holder.nombreTextView.setText(producto.getNombre());
+                holder.marcaTextView.setText(producto.getMarca());
                 holder.descripcionTextView.setText(producto.getDescripcion());
-                holder.precioTextView.setText("Precio: $" + producto.getPrecio());
-                holder.stockTextView.setText("Stock: " + producto.getStock());
+                holder.precioTextView.setText(String.format("$%.2f", producto.getPrecio()));
+                holder.stockTextView.setText(String.valueOf(producto.getStock()));
+                holder.anioTextView.setText(String.valueOf(producto.getAnio()));
+                holder.colorTextView.setText(producto.getColor());
+                holder.cilindrosTextView.setText(String.valueOf(producto.getCilindros()));
+                holder.transmisionTextView.setText(producto.getTransmision());
+                holder.tipomotorTextView.setText(producto.getTipomotor());
+                holder.placaTextView.setText(producto.getPlaca());
 
                 holder.itemView.setVisibility(View.VISIBLE);
 
@@ -112,16 +120,23 @@ public class Activity_ProductosNissan extends AppCompatActivity {
 
                         intent.putExtra("codigoProducto", producto.getCodigo_prod());
                         intent.putExtra("nombre", producto.getNombre());
+                        intent.putExtra("marca", producto.getMarca());
                         intent.putExtra("descripcion", producto.getDescripcion());
                         intent.putExtra("precio", producto.getPrecio());
                         intent.putExtra("stock", producto.getStock());
+                        intent.putExtra("anio", producto.getCodigo_prod());
+                        intent.putExtra("color", producto.getNombre());
+                        intent.putExtra("cilindros", producto.getDescripcion());
+                        intent.putExtra("transmision", producto.getPrecio());
+                        intent.putExtra("tipomotor", producto.getStock());
+                        intent.putExtra("placa", producto.getStock());
 
                         v.getContext().startActivity(intent);
                     }
                 });
 
             } else {
-                holder.itemView.setVisibility(View.GONE); // Ocultar si no es Nissan
+                holder.itemView.setVisibility(View.GONE); // Ocultar si no es Kia
             }
         }
 
@@ -133,16 +148,30 @@ public class Activity_ProductosNissan extends AppCompatActivity {
         // ViewHolder para manejar las vistas
         public class ProductoViewHolder extends RecyclerView.ViewHolder {
             TextView nombreTextView;
+            TextView marcaTextView;
             TextView descripcionTextView;
             TextView precioTextView;
             TextView stockTextView;
+            TextView anioTextView;
+            TextView colorTextView;
+            TextView cilindrosTextView;
+            TextView transmisionTextView;
+            TextView tipomotorTextView;
+            TextView placaTextView;
 
             public ProductoViewHolder(@NonNull View itemView) {
                 super(itemView);
                 nombreTextView = itemView.findViewById(R.id.nombreTextView);
+                marcaTextView = itemView.findViewById(R.id.marcaTextView);
                 descripcionTextView = itemView.findViewById(R.id.descripcionTextView);
                 precioTextView = itemView.findViewById(R.id.precioTextView);
                 stockTextView = itemView.findViewById(R.id.stockTextView);
+                anioTextView = itemView.findViewById(R.id.anioTextView);
+                colorTextView = itemView.findViewById(R.id.colorTextView);
+                cilindrosTextView = itemView.findViewById(R.id.cilindrosTextView);
+                transmisionTextView = itemView.findViewById(R.id.transmisionTextView);
+                tipomotorTextView = itemView.findViewById(R.id.tipomotorTextView);
+                placaTextView = itemView.findViewById(R.id.placaTextView);
             }
         }
     }

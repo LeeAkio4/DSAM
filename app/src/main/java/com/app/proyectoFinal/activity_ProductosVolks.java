@@ -27,7 +27,7 @@ import java.util.Comparator;
 public class activity_ProductosVolks extends AppCompatActivity {
 
     private RecyclerView recyclerViewS;
-    private activity_ProductosVolks.ProductoAdapter productoAdapter;
+    private ProductoAdapter productoAdapter;
     private ArrayList<Producto> listaProductos;
 
     @Override
@@ -45,7 +45,6 @@ public class activity_ProductosVolks extends AppCompatActivity {
         btnAtrasProductos.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Cambiar a la nueva actividad
                 Intent intent = new Intent(activity_ProductosVolks.this, Menu_Marcas.class);
                 startActivity(intent);
             }
@@ -58,26 +57,26 @@ public class activity_ProductosVolks extends AppCompatActivity {
         // Cargar los productos desde la base de datos
         listaProductos = new cProducto(this).Select();
 
+        // Ordenar los productos para que "Volkswagen" aparezca primero
         Collections.sort(listaProductos, new Comparator<Producto>() {
             @Override
             public int compare(Producto p1, Producto p2) {
-                // Colocar 'Volks' al principio
-                if (p1.getMarca().equalsIgnoreCase("Volks") && !p2.getMarca().equalsIgnoreCase("Volks")) {
-                    return -1; // p1 (Volks) va primero
-                } else if (!p1.getMarca().equalsIgnoreCase("Volks") && p2.getMarca().equalsIgnoreCase("Volks")) {
-                    return 1; // p2 (Volks) va primero
+                if (p1.getMarca().equalsIgnoreCase("Volkswagen") && !p2.getMarca().equalsIgnoreCase("Volkswagen")) {
+                    return -1;
+                } else if (!p1.getMarca().equalsIgnoreCase("Volkswagen") && p2.getMarca().equalsIgnoreCase("Volkswagen")) {
+                    return 1;
                 }
-                return 0; // Si ambas marcas son iguales o no son 'Suzuki', no se cambia el orden
+                return 0;
             }
-
         });
-        productoAdapter = new activity_ProductosVolks.ProductoAdapter(listaProductos);
-        recyclerViewS.setAdapter(productoAdapter);
 
+        // Crear el adaptador y asignarlo al RecyclerView
+        productoAdapter = new ProductoAdapter(listaProductos);
+        recyclerViewS.setAdapter(productoAdapter);
     }
 
     // Adaptador para el RecyclerView
-    public class ProductoAdapter extends RecyclerView.Adapter<activity_ProductosVolks.ProductoAdapter.ProductoViewHolder> {
+    public class ProductoAdapter extends RecyclerView.Adapter<ProductoAdapter.ProductoViewHolder> {
 
         private ArrayList<Producto> listaProductos;
 
@@ -87,22 +86,28 @@ public class activity_ProductosVolks extends AppCompatActivity {
 
         @NonNull
         @Override
-        public activity_ProductosVolks.ProductoAdapter.ProductoViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-            // Inflar el layout personalizado para el producto
+        public ProductoViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
             View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_producto, parent, false);
-            return new activity_ProductosVolks.ProductoAdapter.ProductoViewHolder(view);
+            return new ProductoViewHolder(view);
         }
 
         @Override
-        public void onBindViewHolder(@NonNull activity_ProductosVolks.ProductoAdapter.ProductoViewHolder holder, int position) {
+        public void onBindViewHolder(@NonNull ProductoViewHolder holder, int position) {
             Producto producto = listaProductos.get(position);
 
-            // Mostrar solo productos de la marca 'Volks'
-            if (producto.getMarca().equalsIgnoreCase("Volks")) {
+            // Mostrar solo productos de la marca "Volkswagen"
+            if (producto.getMarca().equalsIgnoreCase("Volkswagen")) {
                 holder.nombreTextView.setText(producto.getNombre());
+                holder.marcaTextView.setText(producto.getMarca());
                 holder.descripcionTextView.setText(producto.getDescripcion());
-                holder.precioTextView.setText("Precio: $" + producto.getPrecio());
-                holder.stockTextView.setText("Stock: " + producto.getStock());
+                holder.precioTextView.setText(String.format("$%.2f", producto.getPrecio()));
+                holder.stockTextView.setText(String.valueOf(producto.getStock()));
+                holder.anioTextView.setText(String.valueOf(producto.getAnio()));
+                holder.colorTextView.setText(producto.getColor());
+                holder.cilindrosTextView.setText(String.valueOf(producto.getCilindros()));
+                holder.transmisionTextView.setText(producto.getTransmision());
+                holder.tipomotorTextView.setText(producto.getTipomotor());
+                holder.placaTextView.setText(producto.getPlaca());
 
                 holder.itemView.setVisibility(View.VISIBLE);
 
@@ -114,16 +119,22 @@ public class activity_ProductosVolks extends AppCompatActivity {
 
                         intent.putExtra("codigoProducto", producto.getCodigo_prod());
                         intent.putExtra("nombre", producto.getNombre());
+                        intent.putExtra("marca", producto.getMarca());
                         intent.putExtra("descripcion", producto.getDescripcion());
                         intent.putExtra("precio", producto.getPrecio());
                         intent.putExtra("stock", producto.getStock());
+                        intent.putExtra("anio", producto.getAnio());
+                        intent.putExtra("color", producto.getColor());
+                        intent.putExtra("cilindros", producto.getCilindros());
+                        intent.putExtra("transmision", producto.getTransmision());
+                        intent.putExtra("tipomotor", producto.getTipomotor());
+                        intent.putExtra("placa", producto.getPlaca());
 
                         v.getContext().startActivity(intent);
                     }
                 });
-
             } else {
-                holder.itemView.setVisibility(View.GONE); // Ocultar si no es Suzuki
+                holder.itemView.setVisibility(View.GONE); // Ocultar si no es Volkswagen
             }
         }
 
@@ -135,18 +146,31 @@ public class activity_ProductosVolks extends AppCompatActivity {
         // ViewHolder para manejar las vistas
         public class ProductoViewHolder extends RecyclerView.ViewHolder {
             TextView nombreTextView;
+            TextView marcaTextView;
             TextView descripcionTextView;
             TextView precioTextView;
             TextView stockTextView;
+            TextView anioTextView;
+            TextView colorTextView;
+            TextView cilindrosTextView;
+            TextView transmisionTextView;
+            TextView tipomotorTextView;
+            TextView placaTextView;
 
             public ProductoViewHolder(@NonNull View itemView) {
                 super(itemView);
                 nombreTextView = itemView.findViewById(R.id.nombreTextView);
+                marcaTextView = itemView.findViewById(R.id.marcaTextView);
                 descripcionTextView = itemView.findViewById(R.id.descripcionTextView);
                 precioTextView = itemView.findViewById(R.id.precioTextView);
-                stockTextView= itemView.findViewById(R.id.stockTextView);
+                stockTextView = itemView.findViewById(R.id.stockTextView);
+                anioTextView = itemView.findViewById(R.id.anioTextView);
+                colorTextView = itemView.findViewById(R.id.colorTextView);
+                cilindrosTextView = itemView.findViewById(R.id.cilindrosTextView);
+                transmisionTextView = itemView.findViewById(R.id.transmisionTextView);
+                tipomotorTextView = itemView.findViewById(R.id.tipomotorTextView);
+                placaTextView = itemView.findViewById(R.id.placaTextView);
             }
         }
     }
 }
-

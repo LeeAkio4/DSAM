@@ -2,8 +2,8 @@ package com.app.proyectoFinal.modelo;
 
 public class Producto {
 
-    public int codigo_prod, stock, cilindros;
-    public String nombre, marca, descripcion, año, color, transmision, tipomotor, placa;
+    public int codigo_prod, stock, cilindros, anio;
+    public String nombre, marca, descripcion, color, transmision, tipomotor, placa;
     public double precio;
 
     public Producto(){
@@ -13,7 +13,7 @@ public class Producto {
         this.descripcion = "";
         this.precio = 0;
         this.stock = 0;
-        this.año = "";
+        this.anio = 0;
         this.color = "";
         this.cilindros = 0;
         this.transmision ="";
@@ -21,19 +21,19 @@ public class Producto {
         this.placa ="";
     }
 
-    public Producto(int codigo_prod, int stock, int cilindros, String nombre, String marca, String descripcion, String año, String color, String transmision, String tipomotor, String placa, double precio) {
+    public Producto(int codigo_prod, String nombre, String marca, String descripcion, double precio,  int stock, int anio, String color, int cilindros, String transmision, String tipomotor, String placa) {
         this.codigo_prod = codigo_prod;
-        this.stock = stock;
-        this.cilindros = cilindros;
         this.nombre = nombre;
         this.marca = marca;
         this.descripcion = descripcion;
-        this.año = año;
+        this.precio = precio;
+        this.stock = stock;
+        this.anio = anio;
         this.color = color;
+        this.cilindros = cilindros;
         this.transmision = transmision;
         this.tipomotor = tipomotor;
         this.placa = placa;
-        this.precio = precio;
     }
 
     public int getCodigo_prod() {
@@ -84,12 +84,12 @@ public class Producto {
         this.descripcion = descripcion;
     }
 
-    public String getAño() {
-        return año;
+    public int getAnio() {
+        return anio;
     }
 
-    public void setAño(String año) {
-        this.año = año;
+    public void setAnio(int anio) {
+        this.anio = anio;
     }
 
     public String getColor() {
@@ -141,7 +141,7 @@ public class Producto {
                 ", descripcion" + descripcion + '\n' +
                 ", precio" + precio + '\n' +
                 ", stock" + stock + '\n' +
-                ", año" + año +
+                ", anio" + anio + '\n' +
                 ", color" + color + '\n' +
                 ", cilindros" + cilindros + '\n' +
                 ", transmision" + transmision + '\n' +

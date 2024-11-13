@@ -101,9 +101,16 @@ public class activity_ProductosKia extends AppCompatActivity {
             // Mostrar solo productos de la marca 'Kia'
             if (producto.getMarca().equalsIgnoreCase("Kia")) {
                 holder.nombreTextView.setText(producto.getNombre());
+                holder.marcaTextView.setText(producto.getMarca());
                 holder.descripcionTextView.setText(producto.getDescripcion());
-                holder.precioTextView.setText("Precio: $" + producto.getPrecio());
-                holder.stockTextView.setText("Stock: " + producto.getStock());
+                holder.precioTextView.setText(String.format("$%.2f", producto.getPrecio()));
+                holder.stockTextView.setText(String.valueOf(producto.getStock()));
+                holder.anioTextView.setText(String.valueOf(producto.getAnio()));
+                holder.colorTextView.setText(producto.getColor());
+                holder.cilindrosTextView.setText(String.valueOf(producto.getCilindros()));
+                holder.transmisionTextView.setText(producto.getTransmision());
+                holder.tipomotorTextView.setText(producto.getTipomotor());
+                holder.placaTextView.setText(producto.getPlaca());
 
                 holder.itemView.setVisibility(View.VISIBLE);
 
@@ -115,9 +122,16 @@ public class activity_ProductosKia extends AppCompatActivity {
 
                         intent.putExtra("codigoProducto", producto.getCodigo_prod());
                         intent.putExtra("nombre", producto.getNombre());
+                        intent.putExtra("marca", producto.getMarca());
                         intent.putExtra("descripcion", producto.getDescripcion());
                         intent.putExtra("precio", producto.getPrecio());
                         intent.putExtra("stock", producto.getStock());
+                        intent.putExtra("anio", producto.getCodigo_prod());
+                        intent.putExtra("color", producto.getNombre());
+                        intent.putExtra("cilindros", producto.getDescripcion());
+                        intent.putExtra("transmision", producto.getPrecio());
+                        intent.putExtra("tipomotor", producto.getStock());
+                        intent.putExtra("placa", producto.getStock());
 
                         v.getContext().startActivity(intent);
                     }
@@ -136,16 +150,30 @@ public class activity_ProductosKia extends AppCompatActivity {
         // ViewHolder para manejar las vistas
         public class ProductoViewHolder extends RecyclerView.ViewHolder {
             TextView nombreTextView;
+            TextView marcaTextView;
             TextView descripcionTextView;
             TextView precioTextView;
             TextView stockTextView;
+            TextView anioTextView;
+            TextView colorTextView;
+            TextView cilindrosTextView;
+            TextView transmisionTextView;
+            TextView tipomotorTextView;
+            TextView placaTextView;
 
             public ProductoViewHolder(@NonNull View itemView) {
                 super(itemView);
                 nombreTextView = itemView.findViewById(R.id.nombreTextView);
+                marcaTextView = itemView.findViewById(R.id.marcaTextView);
                 descripcionTextView = itemView.findViewById(R.id.descripcionTextView);
                 precioTextView = itemView.findViewById(R.id.precioTextView);
                 stockTextView = itemView.findViewById(R.id.stockTextView);
+                anioTextView = itemView.findViewById(R.id.anioTextView);
+                colorTextView = itemView.findViewById(R.id.colorTextView);
+                cilindrosTextView = itemView.findViewById(R.id.cilindrosTextView);
+                transmisionTextView = itemView.findViewById(R.id.transmisionTextView);
+                tipomotorTextView = itemView.findViewById(R.id.tipomotorTextView);
+                placaTextView = itemView.findViewById(R.id.placaTextView);
             }
         }
     }
