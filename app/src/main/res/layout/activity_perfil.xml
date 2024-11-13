@@ -175,7 +175,7 @@
     <!-- Update button -->
 
     <Button
-        android:id="@+id/btnregistrarse"
+        android:id="@+id/btnConfirmar"
         android:layout_width="281dp"
         android:layout_height="39dp"
         android:layout_marginTop="20dp"

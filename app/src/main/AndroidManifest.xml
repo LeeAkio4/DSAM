@@ -12,6 +12,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.ProyectoFinal"
         tools:targetApi="31">
+
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyDOcStNwJCquyJipOjRBfQySAnplvrwUYo"
+            ></meta-data>
+
         <activity
             android:name=".activity_ProductosToyota"
             android:exported="false" />
@@ -89,6 +95,9 @@
             android:exported="false" />
         <activity
             android:name=".activity_metodos_de_pago"
+            android:exported="false" />
+        <activity
+            android:name=".activity_compra_exitosa"
             android:exported="false" />
 
     </application>

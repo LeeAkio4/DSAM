@@ -52,7 +52,7 @@
                 android:ems="10"
                 android:hint="Nombre"
                 android:inputType="text"
-                android:labelFor="@id/txtdireccion"
+                android:labelFor="@id/txtDireccion"
                 android:textColorHint="#BABABA" />
 
             <TextView
@@ -63,7 +63,7 @@
                 android:textColor="#E9E9E9" />
 
             <EditText
-                android:id="@+id/txtdireccion"
+                android:id="@+id/txtDireccion"
                 android:layout_width="match_parent"
                 android:layout_height="47dp"
                 android:layout_marginBottom="10sp"
@@ -119,7 +119,7 @@
                     android:layout_height="wrap_content" />
 
                 <EditText
-                    android:id="@+id/txtgenero"
+                    android:id="@+id/txtGenero"
                     android:layout_width="167dp"
                     android:layout_height="45dp"
                     android:layout_marginBottom="10sp"
@@ -207,7 +207,7 @@
     </ScrollView>
 
     <Button
-        android:id="@+id/btnregistrarse"
+        android:id="@+id/btnConfirmar"
         android:layout_width="140dp"
         android:layout_height="50dp"
         android:backgroundTint="#808080"

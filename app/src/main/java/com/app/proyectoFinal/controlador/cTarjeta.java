@@ -97,15 +97,21 @@ public class cTarjeta extends conexion{
     }
 
 
-    // Método para obtener las tarjetas por el código del usuario
     public List<Tarjeta> obtenerTarjetasPorUsuario(int codigoUsuario) {
         List<Tarjeta> tarjetas = new ArrayList<>();
         SQLiteDatabase db = this.getReadableDatabase();
 
+        // Agregar log para verificar el código del usuario
+        Log.d("cTarjeta", "Consultando con codigo_usuario: " + codigoUsuario);
+
         // Consulta SQL para obtener las tarjetas del usuario
         String query = "SELECT * FROM " + tbTarjeta + " WHERE codigo_usuario = ?";
+
+        // Agregar log para ver la consulta SQL que se está ejecutando
+        Log.d("cTarjeta", "Consulta SQL: " + query);  // Ver la consulta generada
+
         Cursor cursor = db.rawQuery(query, new String[]{String.valueOf(codigoUsuario)});
-        Log.d("cTarjeta", "Consultando con codigo_usuario: " + codigoUsuario);
+
         if (cursor.moveToFirst()) {
             do {
                 // Crear un objeto Tarjeta y configurarlo con los datos de la base de datos
@@ -119,6 +125,7 @@ public class cTarjeta extends conexion{
                 tarjetas.add(tarjeta);
             } while (cursor.moveToNext());
         }
+
         // Log para ver cuántas tarjetas se encontraron
         Log.d("cTarjeta", "Número de tarjetas encontradas: " + tarjetas.size());
         cursor.close();
@@ -126,5 +133,6 @@ public class cTarjeta extends conexion{
 
         return tarjetas;
     }
+
 
 }

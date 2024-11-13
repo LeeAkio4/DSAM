@@ -103,7 +103,7 @@ public class activity_añadir_tarjeta extends AppCompatActivity {
         try {
             controladorTarjeta.insert(tarjeta); // Intentar insertar
             Toast.makeText(this, "Tarjeta registrada con éxito", Toast.LENGTH_SHORT).show();
-            Intent intent = new Intent(this, activity_tarjeta.class);
+            Intent intent = new Intent(this, OpcionesDeAplicacionActivity.class);
             startActivity(intent);
             limpiarCampos();
         } catch (RuntimeException e) {

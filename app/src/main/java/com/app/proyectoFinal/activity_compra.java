@@ -50,9 +50,16 @@ public class activity_compra extends AppCompatActivity {
         Intent intent = getIntent();
         String nombre = intent.getStringExtra("nombre");
         String descripcion = intent.getStringExtra("descripcion");
-        codigoProducto = intent.getIntExtra("codigoProducto", 0);
-        precioProducto = intent.getDoubleExtra("precio", 0);
-        int stock = intent.getIntExtra("stock", 0);
+        codigoProducto = intent.getIntExtra("codigoProducto", -1);
+        precioProducto = intent.getDoubleExtra("precio", -1);
+        int stock = intent.getIntExtra("stock", -1);
+
+        // Validar los datos del producto
+        if (codigoProducto == -1 || precioProducto == -1 || stock == -1 || nombre == null || descripcion == null) {
+            Toast.makeText(this, "Error: Datos del producto no disponibles", Toast.LENGTH_SHORT).show();
+            finish();
+            return;
+        }
 
         // Asignar los valores a los TextViews
         nombreTextView.setText(nombre);
@@ -62,6 +69,14 @@ public class activity_compra extends AppCompatActivity {
     }
 
     public void Pagar(View view) {
+
+        // Validar stock antes de proceder
+        int stockActual = Integer.parseInt(stockTextView.getText().toString().replace("Stock: ", ""));
+        if (stockActual <= 0) {
+            Toast.makeText(this, "No hay stock disponible para este producto", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
         // Crear una instancia de la clase cPedido
         cPedido pedidoController = new cPedido(this);
 
@@ -81,10 +96,19 @@ public class activity_compra extends AppCompatActivity {
                 String.valueOf(precioProducto)
         );
 
-        // Insertar el pedido usando el método insert de cPedido
-        pedidoController.insert(nuevoPedido);
+        // Intentar insertar el pedido
+        try {
+            pedidoController.insert(nuevoPedido);
+            Toast.makeText(this, "Pedido agregado exitosamente", Toast.LENGTH_SHORT).show();
+        } catch (Exception e) {
+            Log.e("activity_compra", "Error al agregar el pedido: " + e.getMessage());
+            Toast.makeText(this, "Error al agregar el pedido", Toast.LENGTH_SHORT).show();
+        }
 
-        // Mostrar mensaje de éxito
-        Toast.makeText(this, "Pedido agregado exitosamente", Toast.LENGTH_SHORT).show();
+       }
+
+    public void Regresar9(View view){
+        Intent y=new Intent(this, Menu_Marcas.class);
+        startActivity(y);
     }
 }

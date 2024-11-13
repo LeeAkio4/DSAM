@@ -74,10 +74,13 @@ public class activity_perfil extends AppCompatActivity {
             Toast.makeText(this, "Código de usuario no válido", Toast.LENGTH_SHORT).show();
         }
     }
-    public void Actualizar(View view){
-        Intent x=new Intent(this, activity_editar_perfil.class);
+    public void Actualizar(View view) {
+        Intent x = new Intent(this, activity_editar_perfil.class);
+        int codigoUsuario = getIntent().getIntExtra("codigoUsuario", -1);
+        x.putExtra("codigoUsuario", codigoUsuario);
         startActivity(x);
     }
+
 
     public void Regresar(View view){
         finish();

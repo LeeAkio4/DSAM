@@ -8,14 +8,12 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
-import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
 import com.app.proyectoFinal.dao.conexion;
-import com.app.proyectoFinal.negocio.nUsuario;
 
 public class activity_registro extends AppCompatActivity {
 
@@ -35,13 +33,13 @@ public class activity_registro extends AppCompatActivity {
         });
 
         nomcom=findViewById(R.id.txtNombrecompleto);
-        direc=findViewById(R.id.txtdireccion);
+        direc=findViewById(R.id.txtDireccion);
         dni=findViewById(R.id.txtDni);
-        gener=findViewById(R.id.txtgenero);
+        gener=findViewById(R.id.txtGenero);
         corr=findViewById(R.id.txtCorreo);
         contra=findViewById(R.id.logTxtclave);
         contraconf=findViewById(R.id.txtConfirmarClave);
-        btnRegistrar = findViewById(R.id.btnregistrarse);
+        btnRegistrar = findViewById(R.id.btnConfirmar);
         dbHelper = new conexion(this);
 
         // Establecer el OnClickListener

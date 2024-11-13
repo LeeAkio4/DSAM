@@ -6,6 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#2C2C2C"
+    android:onClick="RealizarCompra"
     tools:context=".MetodosDePagoActivity">
 
     <LinearLayout
@@ -37,131 +38,103 @@
             android:layout_marginVertical="50dp"
             android:fontFamily="sans-serif-black"
             android:gravity="left"
-            android:text="Metodo de Pago:"
+            android:text="Metodo de Pago: Elegir tarjeta"
+            android:textAlignment="center"
             android:textColor="#F2F2F2"
             android:textSize="30dp" />
 
-        <com.google.android.material.textfield.TextInputLayout
+        <TableRow
             android:layout_width="match_parent"
+            android:layout_height="60dp">
+
+            <Space
+                android:layout_width="29dp"
+                android:layout_height="wrap_content" />
+
+            <Spinner
+                android:id="@+id/txtelegirtarjetas"
+                android:layout_width="352dp"
+                android:layout_height="match_parent"
+                android:background="@color/white"
+                android:backgroundTint="@color/white" />
+
+            <Space
+                android:layout_width="24dp"
+                android:layout_height="wrap_content" />
+        </TableRow>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content">
 
-            <EditText
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="208dp"
+                android:layout_height="wrap_content" />
 
-                android:id="@+id/Numerpo"
-                android:layout_width="match_parent"
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="200dp"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="83dp">
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="208dp"
+                android:layout_height="wrap_content" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="200dp"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="85dp">
+
+            <LinearLayout
+                android:layout_width="287dp"
                 android:layout_height="wrap_content"
-                android:layout_marginHorizontal="30dp"
-                android:layout_marginVertical="10dp"
-                android:background="#BFBFBF"
-                android:hint="Numero de Tarjeta"
-                android:inputType="textEmailAddress"
-                android:maxLength="100" />
+                android:layout_marginHorizontal="65dp"
+                android:layout_marginVertical="15dp"
+                android:orientation="horizontal">
 
-        </com.google.android.material.textfield.TextInputLayout>
+                <Button
+                    android:id="@+id/btnRealizarCompra"
+                    android:layout_width="238dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginRight="30dp"
+                    android:layout_weight="1"
+                    android:backgroundTint="#808080"
+                    android:onClick="RealizarCompra"
+                    android:text="Realizar compra"
+                    android:textAllCaps="false" />
+            </LinearLayout>
+        </TableRow>
 
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="64dp">
 
-            <com.google.android.material.textfield.TextInputLayout
-                android:layout_width="208dp"
-                android:layout_height="wrap_content">
-
-                <EditText
-
-                    android:id="@+id/logTxtCorreo"
-                    android:layout_width="171dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginHorizontal="30dp"
-                    android:layout_marginVertical="10dp"
-                    android:background="#BFBFBF"
-                    android:hint="MM/DD"
-                    android:inputType="textEmailAddress"
-                    android:maxLength="100" />
-
-
-            </com.google.android.material.textfield.TextInputLayout>
-
-            <com.google.android.material.textfield.TextInputLayout
-                android:layout_width="200dp"
-                android:layout_height="wrap_content">
-
-                <EditText
-
-                    android:layout_width="171dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginHorizontal="1dp"
-                    android:layout_marginVertical="10dp"
-                    android:background="#BFBFBF"
-                    android:hint="CVV"
-                    android:inputType="textEmailAddress"
-                    android:maxLength="100" />
-
-
-            </com.google.android.material.textfield.TextInputLayout>
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
-
-            <com.google.android.material.textfield.TextInputLayout
-                android:layout_width="208dp"
-                android:layout_height="wrap_content">
-
-                <EditText
-
-                    android:layout_width="171dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginHorizontal="30dp"
-                    android:layout_marginVertical="10dp"
-                    android:background="#BFBFBF"
-                    android:hint="name"
-                    android:inputType="textEmailAddress"
-                    android:maxLength="100" />
-
-
-            </com.google.android.material.textfield.TextInputLayout>
-
-            <com.google.android.material.textfield.TextInputLayout
-                android:layout_width="200dp"
-                android:layout_height="wrap_content">
-
-                <EditText
-
-                    android:layout_width="171dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginHorizontal="1dp"
-                    android:layout_marginVertical="10dp"
-                    android:background="#BFBFBF"
-                    android:hint="last name"
-                    android:inputType="textEmailAddress"
-                    android:maxLength="100" />
-
-
-            </com.google.android.material.textfield.TextInputLayout>
-        </LinearLayout>
-
-
-        <LinearLayout
-            android:layout_width="287dp"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="65dp"
-            android:layout_marginVertical="15dp"
-            android:orientation="horizontal">
+            <Space
+                android:layout_width="136dp"
+                android:layout_height="wrap_content" />
 
             <Button
-                android:id="@+id/LogBtnIniciar"
-                android:layout_width="216dp"
+                android:id="@+id/Volver9"
+                android:layout_width="151dp"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="30dp"
-                android:layout_marginRight="30dp"
-                android:layout_weight="1"
-                android:backgroundTint="#808080"
-                android:onClick="irCompraExitosa"
-                android:text="Realizar compra"
-                android:textAllCaps="false" />
-        </LinearLayout>
+                android:backgroundTint="@color/material_dynamic_neutral40"
+                android:onClick="volveralfuturo"
+                android:text="Atras" />
+
+            <Space
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </TableRow>
 
 
     </LinearLayout>

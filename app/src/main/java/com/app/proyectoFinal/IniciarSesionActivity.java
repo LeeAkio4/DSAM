@@ -71,6 +71,7 @@ public class IniciarSesionActivity extends AppCompatActivity {
                 Toast.makeText(IniciarSesionActivity.this, "Login exitoso", Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(IniciarSesionActivity.this, OpcionesDeAplicacionActivity.class);
                 intent.putExtra("codigoUsuario", usuario.getCodigo()); // Pasamos el código del usuario
+                UsuarioManager.getInstance().setCodigoUsuario(usuario.getCodigo());
                 startActivity(intent);
             } else {
                 Toast.makeText(IniciarSesionActivity.this, "Correo o contraseña incorrectos", Toast.LENGTH_SHORT).show();

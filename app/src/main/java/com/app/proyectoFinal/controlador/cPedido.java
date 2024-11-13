@@ -24,17 +24,17 @@ public class cPedido extends conexion {
         this.context = context;
     }
 
-    public void insert(Pedido pedi) {
+    // Método para insertar un nuevo pedido
+    public void insert(Pedido pedido) {
         try (SQLiteDatabase database = getWritableDatabase()) {
-            // Log para depurar los valores de los parámetros
-            Log.d("cPedido", "Insertando pedido: codigo_usuario=" + pedi.getCodigo_u() + ", codigo_producto=" + pedi.getCodigo_prod());
+            Log.d("cPedido", "Insertando pedido: codigo_usuario=" + pedido.getCodigo_u() + ", codigo_producto=" + pedido.getCodigo_prod());
 
             ContentValues values = new ContentValues();
-            values.put("codigo_usuario", pedi.getCodigo_u());
-            values.put("codigo_producto", pedi.getCodigo_prod());
-            values.put("fecha_pedido", pedi.getFechaPed());
-            values.put("estado", pedi.getEstado());
-            values.put("total", Double.parseDouble(pedi.getTotal())); // Asegurarse de que el total sea un número
+            values.put("codigo_usuario", pedido.getCodigo_u());
+            values.put("codigo_producto", pedido.getCodigo_prod());
+            values.put("fecha_pedido", pedido.getFechaPed());
+            values.put("estado", pedido.getEstado());
+            values.put("total", Double.parseDouble(pedido.getTotal()));
 
             long newRowId = database.insert(tbPedido, null, values);
 
@@ -48,82 +48,114 @@ public class cPedido extends conexion {
         }
     }
 
-    public void update(Pedido dato) {
-        conexion con = new cPedido(context);
-        SQLiteDatabase database = con.getWritableDatabase();
-        if (database != null) {
-            database.execSQL("update " + tbPedido + " set(' " +
-                    "codigo_ped" + dato.getCodigo_p() + "','" +
-                    "codigo_usu" + dato.getCodigo_u() + "','" +
-                    "codigo_prod" + dato.getCodigo_prod() + "','" +
-                    "fecha_pedido" + dato.getFechaPed() + "','" +
-                    "estado" + dato.getEstado() + "','" +
-                    "total" + dato.getTotal() + "','");
-            database.close();
+    // Método para actualizar un pedido existente
+    public void update(Pedido pedido) {
+        try (SQLiteDatabase database = getWritableDatabase()) {
+            ContentValues values = new ContentValues();
+            values.put("codigo_usuario", pedido.getCodigo_u());
+            values.put("codigo_producto", pedido.getCodigo_prod());
+            values.put("fecha_pedido", pedido.getFechaPed());
+            values.put("estado", pedido.getEstado());
+            values.put("total", Double.parseDouble(pedido.getTotal()));
+
+            int rowsAffected = database.update(
+                    tbPedido, values, "codigo_pedido = ?", new String[]{String.valueOf(pedido.getCodigo_p())}
+            );
+
+            if (rowsAffected == 0) {
+                Log.e("cPedido", "No se encontró el pedido para actualizar");
+            }
+        } catch (Exception e) {
+            Log.e("cPedido", "Error al actualizar el pedido", e);
+            throw new RuntimeException("Error al actualizar el pedido: " + e.getMessage());
         }
     }
 
-    public void delete(Pedido dato) {
-        conexion con = new cPedido(context);
-        SQLiteDatabase database = con.getWritableDatabase();
-        if (database != null) {
-            database.execSQL("delete from " + tbPedido + " where " +
-                    "codigo='" + dato.getCodigo_p() + "'" );
-            database.close();
+    // Método para eliminar un pedido
+    public void delete(int codigoPedido) {
+        try (SQLiteDatabase database = getWritableDatabase()) {
+            int rowsDeleted = database.delete(
+                    tbPedido, "codigo_pedido = ?", new String[]{String.valueOf(codigoPedido)}
+            );
+
+            if (rowsDeleted == 0) {
+                Log.e("cPedido", "No se encontró el pedido para eliminar");
+            }
+        } catch (Exception e) {
+            Log.e("cPedido", "Error al eliminar el pedido", e);
+            throw new RuntimeException("Error al eliminar el pedido: " + e.getMessage());
         }
     }
 
+
+    // Método para obtener todos los pedidos
     public ArrayList<Pedido> Select() {
-        conexion con = new cPedido(context);
-        SQLiteDatabase database = con.getWritableDatabase();
-        ArrayList<Pedido> est = new ArrayList<>();
-        Cursor dato = null;
-        dato = database.rawQuery("select * from " + tbPedido, null);
-        if (dato.moveToFirst()) {
-            do {
-                est.add(new Pedido(
-                                Integer.parseInt(dato.getString(0)),
-                                Integer.parseInt(dato.getString(1)),
-                                Integer.parseInt(dato.getString(2)),
-                                dato.getString(3),
-                                dato.getString(4),
-                                dato.getString(5)
-                        )
-                );
-            } while (dato.moveToNext());
+        ArrayList<Pedido> listaPedidos = new ArrayList<>();
+        try (SQLiteDatabase database = getReadableDatabase();
+             Cursor cursor = database.rawQuery("SELECT * FROM " + tbPedido, null)) {
+
+            if (cursor.moveToFirst()) {
+                do {
+                    Pedido pedido = new Pedido(
+                            cursor.getInt(cursor.getColumnIndexOrThrow("codigo_pedido")),
+                            cursor.getInt(cursor.getColumnIndexOrThrow("codigo_usuario")),
+                            cursor.getInt(cursor.getColumnIndexOrThrow("codigo_producto")),
+                            cursor.getString(cursor.getColumnIndexOrThrow("fecha_pedido")),
+                            cursor.getString(cursor.getColumnIndexOrThrow("estado")),
+                            cursor.getString(cursor.getColumnIndexOrThrow("total"))
+                    );
+                    listaPedidos.add(pedido);
+                } while (cursor.moveToNext());
+            }
+        } catch (Exception e) {
+            Log.e("cPedido", "Error al obtener los pedidos", e);
+            throw new RuntimeException("Error al obtener los pedidos: " + e.getMessage());
         }
-        return est;
+        return listaPedidos;
     }
 
-    // Método para obtener las tarjetas por el código del usuario
+    // Método para obtener pedidos por el código de usuario
     public List<Pedido> obtenerPedidosPorUsuario(int codigoUsuario) {
         List<Pedido> pedidos = new ArrayList<>();
-        SQLiteDatabase db = this.getReadableDatabase();
+        try (SQLiteDatabase db = getReadableDatabase();
+             Cursor cursor = db.rawQuery("SELECT * FROM " + tbPedido + " WHERE codigo_usuario = ?", new String[]{String.valueOf(codigoUsuario)})) {
 
-        // Consulta SQL para obtener las tarjetas del usuario
-        String query = "SELECT * FROM " + tbPedido + " WHERE codigo_usuario = ?";
-        Cursor cursor = db.rawQuery(query, new String[]{String.valueOf(codigoUsuario)});
-        Log.d("cPedido", "Consultando con codigo_usuario: " + codigoUsuario);
-        if (cursor.moveToFirst()) {
-            do {
-                // Crear un objeto Tarjeta y configurarlo con los datos de la base de datos
-                Pedido pedido = new Pedido();
-                pedido.setCodigo_p(cursor.getInt(cursor.getColumnIndexOrThrow("codigo_pedido")));
-                pedido.setCodigo_u(cursor.getInt(cursor.getColumnIndexOrThrow("codigo_usuario")));
-                pedido.setCodigo_prod(cursor.getInt(cursor.getColumnIndexOrThrow("codigo_producto")));
-                pedido.setFechaPed(cursor.getString(cursor.getColumnIndexOrThrow("fecha_pedido")));
-                pedido.setEstado(cursor.getString(cursor.getColumnIndexOrThrow("estado")));
-                pedido.setTotal(cursor.getString(cursor.getColumnIndexOrThrow("total")));
-
-                // Agregar el objeto Tarjeta a la lista
-                pedidos.add(pedido);
-            } while (cursor.moveToNext());
+            Log.d("cPedido", "Consultando con codigo_usuario: " + codigoUsuario);
+            if (cursor.moveToFirst()) {
+                do {
+                    Pedido pedido = new Pedido(
+                            cursor.getInt(cursor.getColumnIndexOrThrow("codigo_pedido")),
+                            cursor.getInt(cursor.getColumnIndexOrThrow("codigo_usuario")),
+                            cursor.getInt(cursor.getColumnIndexOrThrow("codigo_producto")),
+                            cursor.getString(cursor.getColumnIndexOrThrow("fecha_pedido")),
+                            cursor.getString(cursor.getColumnIndexOrThrow("estado")),
+                            cursor.getString(cursor.getColumnIndexOrThrow("total"))
+                    );
+                    pedidos.add(pedido);
+                } while (cursor.moveToNext());
+            }
+            Log.d("cPedido", "Número de pedidos encontrados: " + pedidos.size());
+        } catch (Exception e) {
+            Log.e("cPedido", "Error al obtener pedidos por usuario", e);
+            throw new RuntimeException("Error al obtener pedidos por usuario: " + e.getMessage());
         }
-        // Log para ver cuántas tarjetas se encontraron
-        Log.d("cPedido", "Número de pedidos encontrados: " + pedidos.size());
-        cursor.close();
-        db.close();
-
         return pedidos;
     }
+
+    public boolean actualizarEstadoPedido(int codigoPedido, String nuevoEstado) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put("estado", nuevoEstado);  // Establecer el nuevo estado
+
+        int rowsAffected = db.update(
+                "pedido",  // Nombre de la tabla
+                values,  // Valores a actualizar
+                "codigo_pedido = ?",  // Condición para seleccionar el pedido
+                new String[]{String.valueOf(codigoPedido)}  // El código del pedido como parámetro
+        );
+
+        db.close();
+        return rowsAffected > 0;  // Retorna true si al menos una fila fue actualizada
+    }
+
 }

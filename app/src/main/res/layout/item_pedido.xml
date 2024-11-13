@@ -3,53 +3,140 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
-    android:padding="8dp">
+    android:padding="16dp"
+    android:background="@android:color/white"
+    android:layout_margin="8dp"
+    android:elevation="2dp">
 
-    <TextView
-        android:id="@+id/codigoPedido"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Código Pedido"
-        android:textSize="16sp"
-        android:layout_marginBottom="8dp" />
+    <!-- Título "Código Pedido" -->
 
-    <TextView
-        android:id="@+id/codigoUsuario"
+    <TableRow
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Código Usuario"
-        android:textSize="16sp"
-        android:layout_marginBottom="8dp" />
+        android:layout_height="match_parent" >
 
-    <TextView
-        android:id="@+id/codigoProducto"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Código Producto"
-        android:textSize="16sp"
-        android:layout_marginBottom="8dp" />
+        <TextView
+            android:id="@+id/textView8"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Codigo Pedigo: "
+            android:textSize="16sp"
+            android:textStyle="normal|bold" />
 
-    <TextView
-        android:id="@+id/fechaPedido"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Fecha"
-        android:textSize="16sp"
-        android:layout_marginBottom="8dp" />
+        <TextView
+            android:id="@+id/codigoPedido"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="4dp"
+            android:text="Código Pedido"
+            android:textColor="@android:color/black"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+    </TableRow>
 
-    <TextView
-        android:id="@+id/estado"
+    <!-- Código Usuario -->
+    <TableRow
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Estado"
-        android:textSize="16sp"
-        android:layout_marginBottom="8dp" />
+        android:layout_height="match_parent" >
 
-    <TextView
-        android:id="@+id/total"
+        <TextView
+            android:id="@+id/textView14"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Codigo Usuario: "
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/codigoUsuario"
+            android:layout_width="67dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="4dp"
+            android:text="Código Usuario"
+            android:textColor="@android:color/black"
+            android:textSize="14sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/textView17"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Codigo Producto: "
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/codigoProducto"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="4dp"
+            android:text="Código Producto"
+            android:textColor="@android:color/black"
+            android:textSize="14sp"
+            android:textStyle="bold" />
+    </TableRow>
+
+    <!-- Código Producto -->
+
+    <!-- Fecha Pedido -->
+
+    <!-- Estado del Pedido -->
+    <TableRow
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Total"
-        android:textSize="16sp" />
+        android:layout_height="match_parent" >
+
+        <TextView
+            android:id="@+id/textView19"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Fecha: " />
+
+        <TextView
+            android:id="@+id/fechaPedido"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="4dp"
+            android:text="Fecha"
+            android:textColor="@android:color/black"
+            android:textSize="14sp" />
+    </TableRow>
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+
+        <TextView
+            android:id="@+id/textView21"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Estado: " />
+
+        <TextView
+            android:id="@+id/estado"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="4dp"
+            android:text="Estado"
+            android:textColor="@android:color/black"
+            android:textSize="14sp"
+            android:textStyle="italic" />
+    </TableRow>
+
+    <!-- Total -->
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+
+        <TextView
+            android:id="@+id/textView22"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Total: " />
+
+        <TextView
+            android:id="@+id/total"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Total"
+            android:textColor="@android:color/black"
+            android:textSize="14sp" />
+    </TableRow>
+
 </LinearLayout>
-

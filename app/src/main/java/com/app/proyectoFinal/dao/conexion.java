@@ -14,7 +14,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class conexion extends SQLiteOpenHelper {
-    private static final int dbVersion=2;
+    private static final int dbVersion=3;
     private static final String dbNombre= "dbAutonex.db";
     public static final String tbUsuario= "usuario";
     public static final String tbTarjeta= "tarjeta";
@@ -28,17 +28,36 @@ public class conexion extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
         db.execSQL("CREATE TABLE " + tbUsuario + "(codigoUser INTEGER PRIMARY KEY AUTOINCREMENT, nombrescompletos TEXT NOT NULL, direccion TEXT NOT NULL, dni INTEGER NOT NULL, genero TEXT NOT NULL, correo TEXT NOT NULL, contrasena TEXT NOT NULL )");
-        db.execSQL("CREATE TABLE " + tbTarjeta + " (codigo_tarjeta INTEGER PRIMARY KEY AUTOINCREMENT, codigo_usuario INTEGER NOT NULL, nombre TEXT NOT NULL, correo TEXT NOT NULL, numero_tarjeta INTEGER NOT NULL,fecha_cad TEXT NOT NULL, cvv TEXT NOT NULL, FOREIGN KEY (codigo_usuario) REFERENCES " + tbUsuario + "(codigo_usuario))");
-        db.execSQL("CREATE TABLE " + tbPedido + " (codigo_pedido INTEGER PRIMARY KEY AUTOINCREMENT, codigo_usuario INTEGER NOT NULL, codigo_producto INTEGER NOT NULL, fecha_pedido TEXT NOT NULL, estado TEXT NOT NULL, total REAL NOT NULL, FOREIGN KEY (codigo_usuario) REFERENCES " + tbUsuario + "(codigo_usuario), FOREIGN KEY (codigo_producto) REFERENCES " + tbProducto + "(codigo_producto))");
+        db.execSQL("CREATE TABLE " + tbTarjeta + " (codigo_tarjeta INTEGER PRIMARY KEY AUTOINCREMENT, codigo_usuario INTEGER NOT NULL, nombre TEXT NOT NULL, correo TEXT NOT NULL, numero_tarjeta INTEGER NOT NULL, fecha_cad TEXT NOT NULL, cvv TEXT NOT NULL, FOREIGN KEY (codigo_usuario) REFERENCES " + tbUsuario + "(codigoUser))");
+        db.execSQL("CREATE TABLE " + tbPedido + " (codigo_pedido INTEGER PRIMARY KEY AUTOINCREMENT, codigo_usuario INTEGER NOT NULL, codigo_producto INTEGER NOT NULL, fecha_pedido TEXT NOT NULL, estado TEXT NOT NULL, total REAL NOT NULL, FOREIGN KEY (codigo_usuario) REFERENCES " + tbUsuario + "(codigoUser), FOREIGN KEY (codigo_producto) REFERENCES " + tbProducto + "(codigo_producto))");
         db.execSQL("CREATE TABLE " + tbProducto + " (codigo_producto INTEGER PRIMARY KEY AUTOINCREMENT, nombre TEXT NOT NULL, marca TEXT NOT NULL, descripcion TEXT NOT NULL, precio REAL NOT NULL, stock INTEGER NOT NULL)");
         insertarProductos(db);
         insertarUsuarios(db);
     }
 
+
+    public boolean actualizarUsuario(int codigoUser, String nombrescompletos, String direccion, String genero, String correo, String contrasena) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put("nombrescompletos", nombrescompletos);
+        values.put("direccion", direccion);
+        values.put("genero", genero);
+        values.put("correo", correo);
+        values.put("contrasena", contrasena);
+
+        int result = db.update(tbUsuario, values, "codigoUser=?", new String[]{String.valueOf(codigoUser)});
+        db.close();
+
+        return result > 0;
+    }
+
+
+
     private void insertarUsuarios(SQLiteDatabase db1){
         db1.execSQL("INSERT INTO " + tbUsuario + " (nombrescompletos, direccion, dni, genero, correo, contrasena) VALUES ('admin', 'admin', '00000001', 'admin', 'admin', 'admin')");
         db1.execSQL("INSERT INTO " + tbUsuario + " (nombrescompletos, direccion, dni, genero, correo, contrasena) VALUES ('Sebastian Ernesto Bedon Oscco', 'Av. BolasLLenas', '69697777', 'Masculino', 'sebastian@gmail.com', '123456')");
         db1.execSQL("INSERT INTO " + tbUsuario + " (nombrescompletos, direccion, dni, genero, correo, contrasena) VALUES ('Lee Akio Bruno Mauricio Taboada', 'Av. Algo', '69697777', 'Masculino', 'lee@gmail.com', '123456')");
+        db1.execSQL("INSERT INTO " + tbUsuario + " (nombrescompletos, direccion, dni, genero, correo, contrasena) VALUES ('Cesar Valentin', 'Av. Chorrillos', '71509648', 'Masculino', 'valentin@gmail.com', '123456')");
         db1.execSQL("INSERT INTO " + tbUsuario + " (nombrescompletos, direccion, dni, genero, correo, contrasena) VALUES ('Mario Cesar Silva Salcedo', 'Av. Chorrillos', '71589648', 'Masculino', 'mario@gmail.com', '123456')");
     }
 
@@ -135,7 +154,8 @@ public class conexion extends SQLiteOpenHelper {
         db.execSQL("DROP TABLE IF EXISTS " + tbTarjeta);
         db.execSQL("DROP TABLE IF EXISTS " + tbPedido);
         db.execSQL("DROP TABLE IF EXISTS " + tbProducto);
-        onCreate(db);  // Recrear las tablas
+        onCreate(db);
     }
+
 
 }
