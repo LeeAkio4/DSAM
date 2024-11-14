@@ -124,12 +124,12 @@ public class Activity_ProductosNissan extends AppCompatActivity {
                         intent.putExtra("descripcion", producto.getDescripcion());
                         intent.putExtra("precio", producto.getPrecio());
                         intent.putExtra("stock", producto.getStock());
-                        intent.putExtra("anio", producto.getCodigo_prod());
-                        intent.putExtra("color", producto.getNombre());
-                        intent.putExtra("cilindros", producto.getDescripcion());
-                        intent.putExtra("transmision", producto.getPrecio());
-                        intent.putExtra("tipomotor", producto.getStock());
-                        intent.putExtra("placa", producto.getStock());
+                        intent.putExtra("anio", producto.getAnio());
+                        intent.putExtra("color", producto.getColor());
+                        intent.putExtra("cilindros", producto.getCilindros());
+                        intent.putExtra("transmision", producto.getTransmision());
+                        intent.putExtra("tipomotor", producto.getTipomotor());
+                        intent.putExtra("placa", producto.getPlaca());
 
                         v.getContext().startActivity(intent);
                     }

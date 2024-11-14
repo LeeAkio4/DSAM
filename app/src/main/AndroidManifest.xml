@@ -12,11 +12,16 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.ProyectoFinal"
         tools:targetApi="31">
+        <activity
+            android:name=".activity_CrudProductos"
+            android:exported="false" />
+        <activity
+            android:name=".activity_MenuAdmin"
+            android:exported="false" />
 
         <meta-data
             android:name="com.google.android.geo.API_KEY"
-            android:value="AIzaSyDOcStNwJCquyJipOjRBfQySAnplvrwUYo"
-            ></meta-data>
+            android:value="AIzaSyDOcStNwJCquyJipOjRBfQySAnplvrwUYo" />
 
         <activity
             android:name=".activity_ProductosToyota"
@@ -99,7 +104,6 @@
         <activity
             android:name=".activity_compra_exitosa"
             android:exported="false" />
-
     </application>
 
 </manifest>

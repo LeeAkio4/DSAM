@@ -9,24 +9,24 @@
     android:elevation="2dp">
 
     <!-- Título "Código Pedido" -->
-
     <TableRow
         android:layout_width="match_parent"
-        android:layout_height="match_parent" >
+        android:layout_height="wrap_content">
 
         <TextView
             android:id="@+id/textView8"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Codigo Pedigo: "
+            android:text="Codigo Pedido: "
             android:textSize="16sp"
             android:textStyle="normal|bold" />
 
         <TextView
             android:id="@+id/codigoPedido"
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginBottom="4dp"
+            android:layout_weight="1"
             android:text="Código Pedido"
             android:textColor="@android:color/black"
             android:textSize="16sp"
@@ -36,7 +36,7 @@
     <!-- Código Usuario -->
     <TableRow
         android:layout_width="match_parent"
-        android:layout_height="match_parent" >
+        android:layout_height="wrap_content">
 
         <TextView
             android:id="@+id/textView14"
@@ -64,8 +64,9 @@
 
         <TextView
             android:id="@+id/codigoProducto"
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_weight="1"
             android:layout_marginBottom="4dp"
             android:text="Código Producto"
             android:textColor="@android:color/black"
@@ -73,14 +74,10 @@
             android:textStyle="bold" />
     </TableRow>
 
-    <!-- Código Producto -->
-
     <!-- Fecha Pedido -->
-
-    <!-- Estado del Pedido -->
     <TableRow
         android:layout_width="match_parent"
-        android:layout_height="match_parent" >
+        android:layout_height="wrap_content">
 
         <TextView
             android:id="@+id/textView19"
@@ -90,17 +87,39 @@
 
         <TextView
             android:id="@+id/fechaPedido"
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_weight="1"
             android:layout_marginBottom="4dp"
             android:text="Fecha"
             android:textColor="@android:color/black"
             android:textSize="14sp" />
+
+        <Space
+            android:layout_width="10dp"
+            android:layout_height="match_parent" />
+
+        <TextView
+            android:id="@+id/nombre"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Nombre: " />
+
+        <TextView
+            android:id="@+id/textViewNombre"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Nombre"
+            android:textColor="@android:color/black"
+            android:textSize="14sp"
+            android:textStyle="italic" />
     </TableRow>
 
+    <!-- Estado del Pedido -->
     <TableRow
         android:layout_width="match_parent"
-        android:layout_height="match_parent" >
+        android:layout_height="wrap_content">
 
         <TextView
             android:id="@+id/textView21"
@@ -110,10 +129,30 @@
 
         <TextView
             android:id="@+id/estado"
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_weight="1"
             android:layout_marginBottom="4dp"
             android:text="Estado"
+            android:textColor="@android:color/black"
+            android:textSize="14sp"/>
+
+        <Space
+            android:layout_width="22dp"
+            android:layout_height="match_parent" />
+
+        <TextView
+            android:id="@+id/placa"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Placa: " />
+
+        <TextView
+            android:id="@+id/textViewPlaca"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Placa"
             android:textColor="@android:color/black"
             android:textSize="14sp"
             android:textStyle="italic" />
@@ -122,7 +161,7 @@
     <!-- Total -->
     <TableRow
         android:layout_width="match_parent"
-        android:layout_height="match_parent" >
+        android:layout_height="wrap_content">
 
         <TextView
             android:id="@+id/textView22"
@@ -132,9 +171,54 @@
 
         <TextView
             android:id="@+id/total"
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginBottom="4dp"
             android:text="Total"
+            android:textColor="@android:color/black"
+            android:textSize="14sp"/>
+
+        <Space
+            android:layout_width="28dp"
+            android:layout_height="match_parent" />
+
+        <TextView
+            android:id="@+id/marca"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Marca: " />
+
+        <TextView
+            android:id="@+id/textViewMarca"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Marca"
+            android:textColor="@android:color/black"
+            android:textSize="14sp"
+            android:textStyle="italic" />
+    </TableRow>
+
+
+    <!-- Año -->
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/anio"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Año: "
+            android:textStyle="italic" />
+
+        <TextView
+            android:id="@+id/textViewAnio"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Año"
             android:textColor="@android:color/black"
             android:textSize="14sp" />
     </TableRow>

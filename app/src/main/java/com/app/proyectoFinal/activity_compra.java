@@ -20,6 +20,7 @@ import java.util.Locale;
 public class activity_compra extends AppCompatActivity {
 
     private TextView nombreTextView, descripcionTextView, precioTextView, stockTextView;
+    private TextView marcaTextView, anioTextView, colorTextView, cilindrosTextView, transmisionTextView, tipoMotorTextView, placaTextView;
     private int codigoProducto;
     private int codigoUsuario;
     private double precioProducto;
@@ -34,6 +35,13 @@ public class activity_compra extends AppCompatActivity {
         descripcionTextView = findViewById(R.id.idDescripcion);
         precioTextView = findViewById(R.id.idSalePrice);
         stockTextView = findViewById(R.id.idStock);
+        marcaTextView = findViewById(R.id.idMarca);
+        anioTextView = findViewById(R.id.idAnio);
+        colorTextView = findViewById(R.id.idColor);
+        cilindrosTextView = findViewById(R.id.idCilindros);
+        transmisionTextView = findViewById(R.id.idTransmision);
+        tipoMotorTextView = findViewById(R.id.idTipomotor);
+        placaTextView = findViewById(R.id.idPlaca);
 
         // Obtener el código de usuario desde SharedPreferences
         SharedPreferences sharedPreferences = getSharedPreferences("UsuarioPrefs", MODE_PRIVATE);
@@ -50,6 +58,13 @@ public class activity_compra extends AppCompatActivity {
         Intent intent = getIntent();
         String nombre = intent.getStringExtra("nombre");
         String descripcion = intent.getStringExtra("descripcion");
+        String marca = intent.getStringExtra("marca");
+        int anio = intent.getIntExtra("anio", -1);
+        String color = intent.getStringExtra("color");
+        int cilindros = intent.getIntExtra("cilindros", -1);
+        String transmision = intent.getStringExtra("transmision");
+        String tipoMotor = intent.getStringExtra("tipomotor");
+        String placa = intent.getStringExtra("placa");
         codigoProducto = intent.getIntExtra("codigoProducto", -1);
         precioProducto = intent.getDoubleExtra("precio", -1);
         int stock = intent.getIntExtra("stock", -1);
@@ -66,6 +81,13 @@ public class activity_compra extends AppCompatActivity {
         descripcionTextView.setText(descripcion);
         precioTextView.setText("Precio: $" + precioProducto);
         stockTextView.setText("Stock: " + stock);
+        marcaTextView.setText(marca);
+        anioTextView.setText("" + anio);
+        colorTextView.setText(color);
+        cilindrosTextView.setText("" + cilindros);
+        transmisionTextView.setText(transmision);
+        tipoMotorTextView.setText(tipoMotor);
+        placaTextView.setText(placa);
     }
 
     public void Pagar(View view) {

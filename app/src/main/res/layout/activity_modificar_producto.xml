@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+
+    <EditText
+        android:id="@+id/edtNombre"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Nombre del Producto"
+        android:inputType="text"/>
+
+    <EditText
+        android:id="@+id/edtMarca"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Marca"
+        android:inputType="text"/>
+
+    <EditText
+        android:id="@+id/edtDescripcion"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Descripción"
+        android:inputType="text"/>
+
+    <EditText
+        android:id="@+id/edtPrecio"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Precio"
+        android:inputType="numberDecimal"/>
+
+    <EditText
+        android:id="@+id/edtAnio"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Año"
+        android:inputType="number"/>
+
+    <EditText
+        android:id="@+id/edtColor"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Color"
+        android:inputType="text"/>
+
+    <EditText
+        android:id="@+id/edtCilindros"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Cilindrada"
+        android:inputType="number"/>
+
+    <EditText
+        android:id="@+id/edtTransmision"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Transmisión"
+        android:inputType="text"/>
+
+    <EditText
+        android:id="@+id/edtTipoMotor"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Tipo de Motor"
+        android:inputType="text"/>
+
+    <EditText
+        android:id="@+id/edtPlaca"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Placa"
+        android:inputType="text"/>
+
+    <EditText
+        android:id="@+id/edtStock"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Stock"
+        android:inputType="number"/>
+
+</LinearLayout>

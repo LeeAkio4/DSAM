@@ -65,16 +65,24 @@ public class IniciarSesionActivity extends AppCompatActivity {
             String correo = etcorreo.getText().toString();
             String contrasena = etcontrasena.getText().toString();
 
-            Usuario usuario = controladorUsuario.ValidarUsuario(correo, contrasena); // Cambia a este método
-
-            if (dbConexion.verificarLogin(correo, contrasena)) {
-                Toast.makeText(IniciarSesionActivity.this, "Login exitoso", Toast.LENGTH_SHORT).show();
-                Intent intent = new Intent(IniciarSesionActivity.this, OpcionesDeAplicacionActivity.class);
-                intent.putExtra("codigoUsuario", usuario.getCodigo()); // Pasamos el código del usuario
-                UsuarioManager.getInstance().setCodigoUsuario(usuario.getCodigo());
+            // Verificar si el usuario es administrador
+            if (correo.equals("admin") && contrasena.equals("admin")) {
+                Toast.makeText(IniciarSesionActivity.this, "Bienvenido, Admin", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(IniciarSesionActivity.this, activity_MenuAdmin.class); // Redirige al menú de administrador
                 startActivity(intent);
             } else {
-                Toast.makeText(IniciarSesionActivity.this, "Correo o contraseña incorrectos", Toast.LENGTH_SHORT).show();
+                // Continuar con el flujo normal de inicio de sesión
+                Usuario usuario = controladorUsuario.ValidarUsuario(correo, contrasena); // Cambia a este método
+
+                if (dbConexion.verificarLogin(correo, contrasena)) {
+                    Toast.makeText(IniciarSesionActivity.this, "Login exitoso", Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(IniciarSesionActivity.this, OpcionesDeAplicacionActivity.class);
+                    intent.putExtra("codigoUsuario", usuario.getCodigo()); // Pasamos el código del usuario
+                    UsuarioManager.getInstance().setCodigoUsuario(usuario.getCodigo());
+                    startActivity(intent);
+                } else {
+                    Toast.makeText(IniciarSesionActivity.this, "Correo o contraseña incorrectos", Toast.LENGTH_SHORT).show();
+                }
             }
         });
     }

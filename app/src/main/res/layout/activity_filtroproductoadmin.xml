@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:background="?android:attr/windowBackground"
+    android:gravity="center">
+
+    <!-- Título del modal -->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Filtros de Productos"
+        android:textSize="18sp"
+        android:textColor="@android:color/black"
+        android:gravity="center"
+        android:layout_marginBottom="16dp"/>
+
+    <!-- Campo de texto para filtrar por marca -->
+    <EditText
+        android:id="@+id/editTextMarca"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Marca del producto"
+        android:inputType="text"
+        android:layout_marginBottom="8dp"/>
+
+    <!-- Campo de texto para filtrar por precio -->
+    <EditText
+        android:id="@+id/editTextPrecio"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Precio máximo"
+        android:inputType="numberDecimal"
+        android:layout_marginBottom="8dp"/>
+
+    <!-- Campo para filtrar por año -->
+    <EditText
+        android:id="@+id/editTextAnio"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Año de fabricación"
+        android:inputType="number"
+        android:layout_marginBottom="8dp"/>
+
+    <!-- Campo para filtrar por color -->
+    <EditText
+        android:id="@+id/editTextColor"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Color del producto"
+        android:inputType="text"
+        android:layout_marginBottom="8dp"/>
+
+    <!-- Botón para realizar la búsqueda -->
+    <Button
+        android:id="@+id/btnBuscar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Buscar"
+        android:background="?android:attr/selectableItemBackground"
+        android:textColor="@android:color/white"
+        android:padding="12dp"
+        android:layout_marginTop="12dp"/>
+
+    <!-- Botón para cerrar el modal -->
+    <Button
+        android:id="@+id/btnCerrarFiltro"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Cerrar"
+        android:layout_marginTop="8dp"
+        android:background="?android:attr/selectableItemBackground"
+        android:textColor="@android:color/black"
+        android:padding="12dp"/>
+</LinearLayout>

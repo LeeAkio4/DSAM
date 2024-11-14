@@ -50,7 +50,7 @@ public class activity_pedidos extends AppCompatActivity {
         recyclerViewPedidos.setLayoutManager(new LinearLayoutManager(this));
 
         // Inicializar el adaptador
-        pedidoAdapter = new PedidoAdapter(new ArrayList<>()); // Asegúrate de pasar los datos si es necesario
+        pedidoAdapter = new PedidoAdapter(this, new ArrayList<>()); // Asegúrate de pasar los datos si es necesario
         recyclerViewPedidos.setAdapter(pedidoAdapter);
 
         // Cargar las tarjetas del usuario desde la base de datos
