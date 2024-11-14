@@ -69,6 +69,10 @@ public class PedidoAdapter extends RecyclerView.Adapter<PedidoAdapter.PedidoView
                 intent.putExtra("fecha_pedido", pedido.getFechaPed());
                 intent.putExtra("estado", pedido.getEstado());
                 intent.putExtra("total", pedido.getTotal());
+                intent.putExtra("nombre_prod", producto.getNombre());
+                intent.putExtra("placa_prod", producto.getPlaca());
+                intent.putExtra("marca_prod", producto.getMarca());
+                intent.putExtra("anio_prod", producto.getAnio());
                 v.getContext().startActivity(intent);
             }
         });

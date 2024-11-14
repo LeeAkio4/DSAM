@@ -42,64 +42,87 @@
                 android:orientation="vertical"
                 android:padding="10dp">
 
+                <!-- Datos del pedido -->
+
                 <TextView
-                    android:id="@+id/tvTituloProducto"
+                    android:id="@+id/tvCodigoPedido"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textColor="#FFFFFF"
-                    android:textSize="20sp"
-                    android:textStyle="bold"
-                    tools:text="Titulo del producto" />
+                    android:textSize="18sp"
+                    android:text="Código del Pedido" />
 
                 <TextView
-                    android:id="@+id/tvIdProducto"
+                    android:id="@+id/tvFechaPedido"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="ID del Producto"
                     android:textColor="#FFFFFF"
-                    android:textSize="15sp" />
+                    android:textSize="15sp"
+                    android:text="Fecha del Pedido" />
 
                 <TextView
-                    android:id="@+id/tvStock"
-                    android:layout_width="match_parent"
+                    android:id="@+id/tvEstado"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Cantidad del producto"
                     android:textColor="#FFFFFF"
-                    android:textSize="15sp" />
+                    android:textSize="15sp"
+                    android:text="Estado" />
+
+
+
+                <!-- Datos del producto -->
+                <Space
+                    android:layout_width="match_parent"
+                    android:layout_height="11dp" />
 
                 <TextView
-                    android:id="@+id/textView16"
-                    android:layout_width="match_parent"
+                    android:id="@+id/tvNombreProducto"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Precio Original"
-                    android:textColor="#FFFFFF" />
-
-                <TextView
-                    android:id="@+id/tvPrecioOrignal"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="10sp"
-                    android:text="S/. 12000.00"
                     android:textColor="#FFFFFF"
-                    android:textSize="20sp"
-                    android:textStyle="bold" />
+                    android:textSize="18sp"
+                    android:text="Producto" />
 
                 <TextView
-                    android:id="@+id/textView18"
-                    android:layout_width="match_parent"
+                    android:id="@+id/tvMarcaProducto"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Precio Oferta"
-                    android:textColor="#FFFFFF" />
-
-                <TextView
-                    android:id="@+id/tvSalePrice"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="10sp"
-                    android:text="S/. 12000.00"
                     android:textColor="#FFFFFF"
-                    android:textSize="20sp"
-                    android:textStyle="bold" />
+                    android:textSize="15sp"
+                    android:text="Marca del Producto" />
+
+                <TextView
+                    android:id="@+id/tvPlacaProducto"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="#FFFFFF"
+                    android:textSize="15sp"
+                    android:text="Placa del Producto" />
+
+
+                <TextView
+                    android:id="@+id/tvAnioProducto"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="#FFFFFF"
+                    android:textSize="15sp"
+                    android:text="Año del Producto" />
+
+                <Space
+                    android:layout_width="match_parent"
+                    android:layout_height="11dp" />
+
+                <TextView
+                    android:id="@+id/tvTotal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="#FFFFFF"
+                    android:textSize="18sp"
+                    android:text="Total" />
+
+                <Space
+                    android:layout_width="match_parent"
+                    android:layout_height="11dp" />
 
                 <Button
                     android:id="@+id/btnVerProducto"
