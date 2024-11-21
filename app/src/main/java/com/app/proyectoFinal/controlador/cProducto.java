@@ -35,7 +35,8 @@ public class cProducto extends conexion {
                     dato.getCilindros() + "', '" +
                     dato.getTransmision() + "', '" +
                     dato.getTipomotor() + "', '" +
-                    dato.getPlaca() + "');"
+                    dato.getPlaca() + "', '" +
+                    dato.getImagen() + "');"
             );
             database.close();
         }
@@ -56,7 +57,8 @@ public class cProducto extends conexion {
                     "cilindros = " + dato.getCilindros() + ", " +
                     "transmision = '" + dato.getTransmision() + "', " +
                     "tipomotor = '" + dato.getTipomotor() + "', " +
-                    "placa = '" + dato.getPlaca() + "' " +
+                    "placa = '" + dato.getPlaca() + "', " +
+                    "imagen = '" + dato.getImagen() + "' "+
                     "WHERE codigo_prod = " + dato.getCodigo_prod() + ";"
             );
             database.close();
@@ -79,7 +81,7 @@ public class cProducto extends conexion {
         try {
             conexion con = new cProducto(context);
             database = con.getWritableDatabase();
-            dato = database.rawQuery("SELECT codigo_prod, nombre, marca, descripcion, precio, stock, anio, color, cilindros, transmision, tipomotor, placa FROM " + tbProducto, null);
+            dato = database.rawQuery("SELECT codigo_prod, nombre, marca, descripcion, precio, stock, anio, color, cilindros, transmision, tipomotor, placa, imagen FROM " + tbProducto, null);
 
             if (dato.moveToFirst()) {
                 do {
@@ -95,7 +97,8 @@ public class cProducto extends conexion {
                             dato.getInt(8),      // cilindros
                             dato.getString(9),   // transmision
                             dato.getString(10),  // tipomotor
-                            dato.getString(11)  // placa
+                            dato.getString(11),// placa
+                            dato.getString(12)
                     ));
                 } while (dato.moveToNext());
             }
@@ -136,11 +139,13 @@ public class cProducto extends conexion {
                     cursor.getInt(8),       // cilindros
                     cursor.getString(9),    // transmision
                     cursor.getString(10),   // tipomotor
-                    cursor.getString(11)    // placa
+                    cursor.getString(11),    // placa
+                    cursor.getString(12)
             );
             cursor.close();
         }
         database.close();
         return producto;
     }
+
 }

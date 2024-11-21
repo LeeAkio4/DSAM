@@ -12,6 +12,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.app.proyectoFinal.controlador.cProducto;
 import com.app.proyectoFinal.modelo.Producto;
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.engine.DiskCacheStrategy;
 
 public class activity_detalle_pedido extends AppCompatActivity {
 
@@ -36,6 +38,7 @@ public class activity_detalle_pedido extends AppCompatActivity {
         String nombreProducto = getIntent().getStringExtra("nombre_prod");
         String placaProducto = getIntent().getStringExtra("placa_prod");
         String marcaProducto = getIntent().getStringExtra("marca_prod");
+        String imagenUrl = getIntent().getStringExtra("imagen");
         int anioProducto = getIntent().getIntExtra("anio_prod", -1);
 
         // Log de depuración
@@ -53,6 +56,7 @@ public class activity_detalle_pedido extends AppCompatActivity {
         tvAnioProducto = findViewById(R.id.tvAnioProducto);
         imagenProducto = findViewById(R.id.imagenProducto);
         btnVerProducto = findViewById(R.id.btnVerProducto);
+        imagenProducto = findViewById(R.id.imagenProducto);
 
         // Asignar los valores a los TextViews
         tvCodigoPedido.setText("Código del Pedido: " + codigoPedido);
@@ -65,10 +69,20 @@ public class activity_detalle_pedido extends AppCompatActivity {
         tvMarcaProducto.setText("Marca: " + marcaProducto);
         tvAnioProducto.setText("Año: " + anioProducto);
 
-        // Aquí deberías manejar la imagen del producto, usando la URL o recurso.
-        // Puedes usar Picasso, Glide, o asignar directamente una imagen.
-        // Ejemplo con Picasso (asegúrate de agregar la librería en tu build.gradle):
-        // Picasso.get().load("url_de_imagen_o_recurso").into(imagenProducto);
+        // Cargar la imagen del producto usando Glide
+        if (imagenUrl != null && !imagenUrl.isEmpty()) {
+            Log.d("ProductoURL", imagenUrl);
+            Glide.with(this)
+                    .load(imagenUrl)
+                    .diskCacheStrategy(DiskCacheStrategy.ALL)
+                    .placeholder(R.drawable.placeholder)
+                    .error(R.drawable.error_image)
+                    .override(400,400)
+                    .into(imagenProducto);
+        } else {
+            Log.d("ProductoURL", "URL de imagen no disponible");
+            imagenProducto.setImageResource(R.drawable.default_image); // Imagen por defecto si no hay URL
+        }
 
         // Configurar el listener para el botón
         btnVerProducto.setOnClickListener(view -> abrirMetodoDePago());

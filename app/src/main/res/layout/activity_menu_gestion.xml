@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/material_dynamic_neutral40"
-    tools:context=".activity_CrudProductos">
+    tools:context=".activity_menuGestion">
 
     <RelativeLayout
         android:id="@+id/relativeLayout"
@@ -43,62 +43,67 @@
 
     </RelativeLayout>
 
-    <ImageView
-        android:id="@+id/btnInsertarUsuario"
-        android:layout_width="55dp"
-        android:layout_height="51dp"
-        android:background="@color/material_dynamic_neutral60"
+    <Button
+        android:id="@+id/button"
+        android:layout_width="342dp"
+        android:layout_height="191dp"
+        android:backgroundTint="@color/material_dynamic_neutral60"
+        android:onClick="IrCrudUsua"
+        android:text="Usuarios"
+        android:textSize="34sp"
+        app:icon="@drawable/iconousuario"
+        app:iconSize="?attr/listPreferredItemHeightLarge"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.935"
+        app:layout_constraintHorizontal_bias="0.492"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.177"
-        app:srcCompat="@android:drawable/ic_input_add" />
+        app:layout_constraintVertical_bias="0.805" />
+
+    <Button
+        android:id="@+id/button4"
+        android:layout_width="342dp"
+        android:layout_height="191dp"
+        android:backgroundTint="@color/material_dynamic_neutral60"
+        android:onClick="IrCrudProd"
+        android:text="Productos"
+        android:textSize="34sp"
+        app:icon="@android:drawable/ic_menu_today"
+        app:iconSize="?attr/listPreferredItemHeightLarge"
+        app:iconTint="@color/design_default_color_background"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.492"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.394" />
 
     <TextView
-        android:id="@+id/textView5"
-        android:layout_width="184dp"
-        android:layout_height="66dp"
-        android:text="Gestion de productos"
-        android:textAlignment="center"
+        android:id="@+id/textView24"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Centro de Gestion"
         android:textColor="@color/white"
-        android:textSize="24sp"
+        android:textSize="34sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.546"
+        app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.169" />
+        app:layout_constraintVertical_bias="0.177" />
 
-    <EditText
-        android:id="@+id/txtmultilineUsuarios"
-        android:layout_width="363dp"
-        android:layout_height="508dp"
-        android:background="@color/material_dynamic_neutral80"
-        android:backgroundTint="@color/material_dynamic_neutral70"
-        android:ems="10"
-        android:gravity="start|top"
-        android:inputType="textMultiLine"
-        android:textColor="@color/black"
+    <Button
+        android:id="@+id/button5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/material_dynamic_neutral50"
+        android:onClick="atras45"
+        android:text="Volver"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.509"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/relativeLayout"
-        app:layout_constraintVertical_bias="0.867" />
-
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="61dp"
-        android:layout_height="60dp"
-        android:onClick="atras4"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.091"
+        app:layout_constraintHorizontal_bias="0.105"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.175"
-        app:srcCompat="@drawable/flecha_izquierda" />
+        app:layout_constraintVertical_bias="0.942" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

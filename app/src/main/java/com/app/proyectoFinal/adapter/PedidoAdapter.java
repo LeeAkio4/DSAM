@@ -73,6 +73,7 @@ public class PedidoAdapter extends RecyclerView.Adapter<PedidoAdapter.PedidoView
                 intent.putExtra("placa_prod", producto.getPlaca());
                 intent.putExtra("marca_prod", producto.getMarca());
                 intent.putExtra("anio_prod", producto.getAnio());
+                intent.putExtra("imagen",producto.getImagen());
                 v.getContext().startActivity(intent);
             }
         });

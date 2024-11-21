@@ -16,8 +16,8 @@ public class nProducto {
     }
 
     // Actualizamos el método insertar para incluir los nuevos campos del modelo Producto
-    public void insertar(int codigo_prod, String nombre, String marca, String descripcion, double precio, int stock, int cilindros, int anio, String color, String transmision, String tipomotor, String placa) {
-        x.insert(new Producto(codigo_prod, nombre, marca, descripcion, precio, stock, anio, color, cilindros, transmision, tipomotor, placa));
+    public void insertar(int codigo_prod, String nombre, String marca, String descripcion, double precio, int stock, int cilindros, int anio, String color, String transmision, String tipomotor, String placa, String imagen) {
+        x.insert(new Producto(codigo_prod, nombre, marca, descripcion, precio, stock, anio, color, cilindros, transmision, tipomotor, placa, imagen));
     }
 
     public ArrayList<Producto> seleccionar() {

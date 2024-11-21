@@ -10,6 +10,7 @@ import androidx.annotation.Nullable;
 
 import com.app.proyectoFinal.dao.conexion;
 import com.app.proyectoFinal.modelo.Pedido;
+import com.app.proyectoFinal.modelo.Producto;
 import com.app.proyectoFinal.modelo.Tarjeta;
 
 import java.util.ArrayList;
@@ -143,19 +144,115 @@ public class cPedido extends conexion {
     }
 
     public boolean actualizarEstadoPedido(int codigoPedido, String nuevoEstado) {
-        SQLiteDatabase db = this.getWritableDatabase();
-        ContentValues values = new ContentValues();
-        values.put("estado", nuevoEstado);  // Establecer el nuevo estado
+        SQLiteDatabase db = null;
+        try {
+            // Abrir la base de datos en modo escritura
+            db = this.getWritableDatabase();
 
-        int rowsAffected = db.update(
-                "pedido",  // Nombre de la tabla
-                values,  // Valores a actualizar
-                "codigo_pedido = ?",  // Condición para seleccionar el pedido
-                new String[]{String.valueOf(codigoPedido)}  // El código del pedido como parámetro
-        );
+            // Verificar si la base de datos está abierta antes de intentar realizar operaciones
+            if (db.isOpen()) {
+                // Obtener el pedido a actualizar
+                Pedido pedido = obtenerPedidoPorId(codigoPedido);
+                if (pedido == null) {
+                    Log.e("cPedido", "Pedido no encontrado para código: " + codigoPedido);
+                    return false;
+                }
 
-        db.close();
-        return rowsAffected > 0;  // Retorna true si al menos una fila fue actualizada
+                // Obtener el producto asociado con el pedido
+                cProducto productoController = new cProducto(context);
+                Producto producto = productoController.obtenerProductoPorCodigo(pedido.getCodigo_prod());
+
+                if (producto == null) {
+                    Log.e("cPedido", "Producto no encontrado para código: " + pedido.getCodigo_prod());
+                    return false;
+                }
+
+                // Verificar stock y actualizar si es necesario
+                int stockActual = producto.getStock();
+                if (stockActual > 0) {
+                    // Actualizar el stock
+                    producto.setStock(stockActual - 1);
+                    ContentValues values = new ContentValues();
+                    values.put("stock", producto.getStock());
+                    db.update("producto", values, "codigo_prod = ?", new String[]{String.valueOf(producto.getCodigo_prod())});
+                } else {
+                    Log.d("cPedido", "Stock insuficiente, no se actualiza el producto");
+                }
+
+                // Actualizar el estado del pedido
+                ContentValues pedidoValues = new ContentValues();
+                pedidoValues.put("estado", nuevoEstado);
+                db.update("pedido", pedidoValues, "codigo_pedido = ?", new String[]{String.valueOf(codigoPedido)});
+
+                return true;  // Si todo salió bien
+            } else {
+                Log.e("cPedido", "Base de datos no abierta");
+                return false;
+            }
+        } catch (Exception e) {
+            Log.e("cPedido", "Error al actualizar el pedido", e);
+            return false;
+        }
+    }
+
+
+
+    // Método para obtener pedidos filtrados por estado
+    public List<Pedido> obtenerPedidosPorEstado(String estado) {
+        List<Pedido> pedidos = new ArrayList<>();
+        SQLiteDatabase db = null;
+        Cursor cursor = null;
+        try {
+            db = getReadableDatabase();  // Abrir la base de datos de forma controlada
+            cursor = db.rawQuery("SELECT * FROM " + tbPedido + " WHERE estado = ?", new String[]{estado});
+
+            Log.d("cPedido", "Consultando con estado: " + estado);
+            if (cursor.moveToFirst()) {
+                do {
+                    Pedido pedido = new Pedido(
+                            cursor.getInt(cursor.getColumnIndexOrThrow("codigo_pedido")),
+                            cursor.getInt(cursor.getColumnIndexOrThrow("codigo_usuario")),
+                            cursor.getInt(cursor.getColumnIndexOrThrow("codigo_producto")),
+                            cursor.getString(cursor.getColumnIndexOrThrow("fecha_pedido")),
+                            cursor.getString(cursor.getColumnIndexOrThrow("estado")),
+                            cursor.getString(cursor.getColumnIndexOrThrow("total"))
+                    );
+                    pedidos.add(pedido);
+                } while (cursor.moveToNext());
+            }
+            Log.d("cPedido", "Número de pedidos encontrados con estado '" + estado + "': " + pedidos.size());
+        } catch (Exception e) {
+            Log.e("cPedido", "Error al obtener pedidos por estado", e);
+        }
+        return pedidos;
+    }
+
+    // Método para obtener un pedido por el código de pedido (ID)
+    public Pedido obtenerPedidoPorId(int codigoPedido) {
+        Pedido pedido = null;
+        SQLiteDatabase db = null;
+        Cursor cursor = null;
+        try {
+            db = getReadableDatabase();  // Abrir la base de datos de forma controlada
+            cursor = db.rawQuery("SELECT * FROM " + tbPedido + " WHERE codigo_pedido = ?", new String[]{String.valueOf(codigoPedido)});
+
+            Log.d("cPedido", "Consultando con codigo_pedido: " + codigoPedido);
+            if (cursor.moveToFirst()) {
+                pedido = new Pedido(
+                        cursor.getInt(cursor.getColumnIndexOrThrow("codigo_pedido")),
+                        cursor.getInt(cursor.getColumnIndexOrThrow("codigo_usuario")),
+                        cursor.getInt(cursor.getColumnIndexOrThrow("codigo_producto")),
+                        cursor.getString(cursor.getColumnIndexOrThrow("fecha_pedido")),
+                        cursor.getString(cursor.getColumnIndexOrThrow("estado")),
+                        cursor.getString(cursor.getColumnIndexOrThrow("total"))
+                );
+            } else {
+                Log.d("cPedido", "No se encontró un pedido con el código: " + codigoPedido);
+            }
+        } catch (Exception e) {
+            Log.e("cPedido", "Error al obtener el pedido por ID", e);
+        }
+        return pedido;
     }
 
 }

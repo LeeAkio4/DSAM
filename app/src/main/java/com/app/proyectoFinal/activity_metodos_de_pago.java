@@ -21,10 +21,12 @@ import androidx.core.view.WindowInsetsCompat;
 import com.app.proyectoFinal.controlador.cPedido;
 import com.app.proyectoFinal.controlador.cTarjeta;
 import com.app.proyectoFinal.dao.conexion;
+import com.app.proyectoFinal.modelo.Entradas;
 import com.app.proyectoFinal.modelo.Pedido;
 import com.app.proyectoFinal.modelo.Tarjeta;
 import com.app.proyectoFinal.modelo.Usuario;
 
+import java.sql.Timestamp;
 import java.util.List;
 
 public class activity_metodos_de_pago extends AppCompatActivity {
@@ -104,10 +106,11 @@ public class activity_metodos_de_pago extends AppCompatActivity {
         startActivity(x);
     }
 
-    public void RealizarCompra(View view){
+    public void RealizarCompra(View view) {
 
         int codigoPedido = getIntent().getIntExtra("codigoPedido", -1);
         Log.d("CodigoPedido", "Codigo del pedido: " + codigoPedido);
+
         // Verificar si el código del pedido es válido
         if (codigoPedido == -1) {
             Toast.makeText(this, "No se ha encontrado el pedido", Toast.LENGTH_SHORT).show();
@@ -118,16 +121,17 @@ public class activity_metodos_de_pago extends AppCompatActivity {
         cPedido dbPedido = new cPedido(this);
 
         // Actualizar el estado del pedido a "Pagado"
-        boolean exito = dbPedido.actualizarEstadoPedido(codigoPedido, "Pagado");
+        boolean exito = dbPedido.actualizarEstadoPedido(codigoPedido, "Pagado - En Camino");
 
         if (exito) {
             // Si el estado se actualizó correctamente, redirigir a la actividad de compra exitosa
             Intent intent = new Intent(this, activity_compra_exitosa.class);
-            startActivity(intent);
+            startActivity(intent);  // Asegúrate de iniciar la actividad
         } else {
             // Si hubo algún problema al actualizar el pedido, mostrar un mensaje
             Toast.makeText(this, "Error al actualizar el estado del pedido", Toast.LENGTH_SHORT).show();
         }
     }
+
 
 }

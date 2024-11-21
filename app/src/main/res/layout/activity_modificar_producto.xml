@@ -83,4 +83,11 @@
         android:hint="Stock"
         android:inputType="number"/>
 
+    <EditText
+        android:id="@+id/edtImagen"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Imagen"
+        android:inputType="text"/>
+
 </LinearLayout>

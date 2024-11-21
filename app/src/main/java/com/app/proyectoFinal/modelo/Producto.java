@@ -5,6 +5,7 @@ public class Producto {
     public int codigo_prod, stock, cilindros, anio;
     public String nombre, marca, descripcion, color, transmision, tipomotor, placa;
     public double precio;
+    public String imagen;
 
     public Producto(){
         this.codigo_prod = 0;
@@ -19,9 +20,10 @@ public class Producto {
         this.transmision ="";
         this.tipomotor = "";
         this.placa ="";
+        this.imagen = "";
     }
 
-    public Producto(int codigo_prod, String nombre, String marca, String descripcion, double precio,  int stock, int anio, String color, int cilindros, String transmision, String tipomotor, String placa) {
+    public Producto(int codigo_prod, String nombre, String marca, String descripcion, double precio,  int stock, int anio, String color, int cilindros, String transmision, String tipomotor, String placa, String imagen) {
         this.codigo_prod = codigo_prod;
         this.nombre = nombre;
         this.marca = marca;
@@ -34,6 +36,7 @@ public class Producto {
         this.transmision = transmision;
         this.tipomotor = tipomotor;
         this.placa = placa;
+        this.imagen = imagen;
     }
 
     public int getCodigo_prod() {
@@ -132,21 +135,26 @@ public class Producto {
         this.precio = precio;
     }
 
+    public String getImagen() { return imagen; }
+
+    public void setImagen(String imagen) { this.imagen = imagen;}
+
     @Override
     public String toString() {
         return "Producto{" +
-                "codigo_producto" + codigo_prod +
-                ", nombre" + nombre + '\n' +
-                ", marca" + marca + '\n' +
-                ", descripcion" + descripcion + '\n' +
-                ", precio" + precio + '\n' +
-                ", stock" + stock + '\n' +
-                ", anio" + anio + '\n' +
-                ", color" + color + '\n' +
-                ", cilindros" + cilindros + '\n' +
-                ", transmision" + transmision + '\n' +
-                ", tipomotor" + tipomotor + '\n' +
-                ", placa" + placa + '\n' +
+                "codigo_producto=" + codigo_prod +
+                ", nombre=" + nombre + '\n' +
+                ", marca=" + marca + '\n' +
+                ", descripcion=" + descripcion + '\n' +
+                ", precio=" + precio + '\n' +
+                ", stock=" + stock + '\n' +
+                ", anio=" + anio + '\n' +
+                ", color=" + color + '\n' +
+                ", cilindros=" + cilindros + '\n' +
+                ", transmision=" + transmision + '\n' +
+                ", tipomotor=" + tipomotor + '\n' +
+                ", placa=" + placa + '\n' +
+                ", imagen=" + imagen + '\n' +
                 "}";
     }
 }

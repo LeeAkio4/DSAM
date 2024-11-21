@@ -3,7 +3,6 @@ package com.app.proyectoFinal;
 import android.app.AlertDialog;
 import android.content.Intent;
 import android.graphics.Color;
-import android.media.Image;
 import android.os.Bundle;
 import android.text.SpannableStringBuilder;
 import android.text.Spanned;
@@ -13,23 +12,21 @@ import android.text.style.ClickableSpan;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ImageButton;
 import android.widget.ImageView;
-import android.widget.TextView;
 import android.widget.Toast;
 
-import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
 
+import com.app.proyectoFinal.controlador.cEntradas;
 import com.app.proyectoFinal.dao.conexion;
 import com.app.proyectoFinal.modelo.Producto;
+import com.app.proyectoFinal.modelo.Entradas;
 
-import java.util.ArrayList;
+import java.sql.Timestamp;
+
+import java.util.Date;
+
 import java.util.List;
 
 public class activity_CrudProductos extends AppCompatActivity {
@@ -37,20 +34,18 @@ public class activity_CrudProductos extends AppCompatActivity {
     private ImageView btnMostrarModal;
     private EditText txproductos;
     private conexion conexionDB;
-    private List<Producto> productosList;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_crud_productos);
 
-        // Inicializar vistas para lo del modal, el image button es un ImageView
-        btnMostrarModal = findViewById(R.id.btnInsertarProd);
-        txproductos = findViewById(R.id.txtmultiline);
-        productosList = new ArrayList<>();
-        // Inicializar la conexión con la base de datos
+
+        btnMostrarModal = findViewById(R.id.btnInsertarUsuario);
+        txproductos = findViewById(R.id.txtmultilineUsuarios);
+
         conexionDB = new conexion(this);
-        // Manejar el click del botón "Mostrar Modal"
         btnMostrarModal.setOnClickListener(v -> mostrarModalAgregarProducto());
         mostrarProductos();
     }
@@ -79,7 +74,8 @@ public class activity_CrudProductos extends AppCompatActivity {
                         "Transmisión: " + producto.getTransmision() + "\n" +
                         "Tipo de Motor: " + producto.getTipomotor() + "\n" +
                         "Placa: " + producto.getPlaca() + "\n" +
-                        "Stock: " + producto.getStock() + "\n\n";
+                        "Stock: " + producto.getStock() + "\n" +
+                        "Imagen: " + producto.getImagen() + "\n\n";
 
                 // Agregar este texto al SpannableStringBuilder
                 int start = spannableStringBuilder.length();
@@ -126,6 +122,7 @@ public class activity_CrudProductos extends AppCompatActivity {
         EditText edtTipoMotor = view.findViewById(R.id.edtTipoMotor);
         EditText edtPlaca = view.findViewById(R.id.edtPlaca);
         EditText edtStock = view.findViewById(R.id.edtStock);
+        EditText edtImagen = view.findViewById(R.id.edtImagen);
 
         // Rellenar los campos con los datos del producto seleccionado
 
@@ -140,6 +137,7 @@ public class activity_CrudProductos extends AppCompatActivity {
         edtTipoMotor.setText(producto.getTipomotor());
         edtPlaca.setText(producto.getPlaca());
         edtStock.setText(String.valueOf(producto.getStock()));
+        edtImagen.setText(producto.getImagen());
 
         // Crear el modal de diálogo con el layout inflado
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
@@ -159,6 +157,7 @@ public class activity_CrudProductos extends AppCompatActivity {
                     producto.setTipomotor(edtTipoMotor.getText().toString());
                     producto.setPlaca(edtPlaca.getText().toString());
                     producto.setStock(Integer.parseInt(edtStock.getText().toString()));
+                    producto.setImagen(edtImagen.getText().toString());
 
                     Log.d("ActualizarProducto", "Código del producto antes de la actualización: " + producto.getCodigo_prod());
                     conexionDB.actualizarProducto(producto);
@@ -198,6 +197,7 @@ public class activity_CrudProductos extends AppCompatActivity {
         EditText edtTipoMotor = modalView.findViewById(R.id.edtTipoMotor);
         EditText edtPlaca = modalView.findViewById(R.id.edtPlaca);
         EditText edtStock = modalView.findViewById(R.id.edtStock);
+        EditText edtImagen = modalView.findViewById(R.id.edtImagen);
 
         // Crear el AlertDialog
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
@@ -217,25 +217,46 @@ public class activity_CrudProductos extends AppCompatActivity {
                     nuevoProducto.setTipomotor(edtTipoMotor.getText().toString());
                     nuevoProducto.setPlaca(edtPlaca.getText().toString());
                     nuevoProducto.setStock(Integer.parseInt(edtStock.getText().toString()));
+                    nuevoProducto.setImagen(edtImagen.getText().toString());
 
-                    // Llamar a la función para añadir el producto a la base de datos
+                    /// Llamar a la función para añadir el producto a la base de datos
                     long idProducto = conexionDB.agregarProducto(nuevoProducto);
 
                     if (idProducto != -1) {
                         Toast.makeText(this, "Producto añadido exitosamente", Toast.LENGTH_SHORT).show();
+
+                        // Convertir idProducto de long a int
+                        int idProductoInt = (int) idProducto;
+
+                        // Crear una nueva entrada para el producto con el id generado
+                        Entradas nuevaEntrada = new Entradas(
+                                0,  // idEntrada, que será autoincrementable
+                                idProductoInt, // Usar el idProducto convertido a int
+                                nuevoProducto.getStock(), // cantidad
+                                nuevoProducto.getPrecio(), // costoUnitario
+                                nuevoProducto.getStock() * nuevoProducto.getPrecio(), // totalEntrada
+                                new Timestamp(System.currentTimeMillis()) // timestamp actual
+                        );
+
+                        // Insertar la nueva entrada en la base de datos
+                        cEntradas entradasController = new cEntradas(this);
+                        entradasController.insert(nuevaEntrada);
+
+                        // Actualizar la lista de productos mostrada en la interfaz
                         mostrarProductos();
                     } else {
                         Toast.makeText(this, "Error al añadir el producto", Toast.LENGTH_SHORT).show();
                     }
+
                 })
                 .setNegativeButton("Cancelar", (dialog, which) -> dialog.dismiss())
                 .show();
-
     }
+
 
     // Acción para volver a la pantalla anterior
     public void atras4(View view){
-        Intent x = new Intent(this, activity_MenuAdmin.class);
+        Intent x = new Intent(this, activity_menuGestion.class);
         startActivity(x);
         finish();
     }

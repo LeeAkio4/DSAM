@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 import android.util.Log;
@@ -12,6 +13,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.app.proyectoFinal.controlador.cPedido;
 import com.app.proyectoFinal.modelo.Pedido;
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.engine.DiskCacheStrategy;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -21,6 +24,7 @@ public class activity_compra extends AppCompatActivity {
 
     private TextView nombreTextView, descripcionTextView, precioTextView, stockTextView;
     private TextView marcaTextView, anioTextView, colorTextView, cilindrosTextView, transmisionTextView, tipoMotorTextView, placaTextView;
+    private ImageView imageView;
     private int codigoProducto;
     private int codigoUsuario;
     private double precioProducto;
@@ -42,6 +46,7 @@ public class activity_compra extends AppCompatActivity {
         transmisionTextView = findViewById(R.id.idTransmision);
         tipoMotorTextView = findViewById(R.id.idTipomotor);
         placaTextView = findViewById(R.id.idPlaca);
+        imageView = findViewById(R.id.imgProducto);
 
         // Obtener el código de usuario desde SharedPreferences
         SharedPreferences sharedPreferences = getSharedPreferences("UsuarioPrefs", MODE_PRIVATE);
@@ -65,9 +70,11 @@ public class activity_compra extends AppCompatActivity {
         String transmision = intent.getStringExtra("transmision");
         String tipoMotor = intent.getStringExtra("tipomotor");
         String placa = intent.getStringExtra("placa");
+        String imagenUrl = intent.getStringExtra("imagen");
         codigoProducto = intent.getIntExtra("codigoProducto", -1);
         precioProducto = intent.getDoubleExtra("precio", -1);
         int stock = intent.getIntExtra("stock", -1);
+
 
         // Validar los datos del producto
         if (codigoProducto == -1 || precioProducto == -1 || stock == -1 || nombre == null || descripcion == null) {
@@ -88,6 +95,20 @@ public class activity_compra extends AppCompatActivity {
         transmisionTextView.setText(transmision);
         tipoMotorTextView.setText(tipoMotor);
         placaTextView.setText(placa);
+        // Cargar la imagen del producto usando Glide
+        if (imagenUrl != null && !imagenUrl.isEmpty()) {
+            Log.d("ProductoURL", imagenUrl);
+            Glide.with(this)
+                    .load(imagenUrl)
+                    .diskCacheStrategy(DiskCacheStrategy.ALL)
+                    .placeholder(R.drawable.placeholder)
+                    .error(R.drawable.error_image)
+                    .override(600,600)
+                    .into(imageView);
+        } else {
+            Log.d("ProductoURL", "URL de imagen no disponible");
+            imageView.setImageResource(R.drawable.default_image); // Imagen por defecto si no hay URL
+        }
     }
 
     public void Pagar(View view) {

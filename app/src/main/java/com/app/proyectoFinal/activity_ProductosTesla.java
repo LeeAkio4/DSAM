@@ -130,7 +130,7 @@ public class activity_ProductosTesla extends AppCompatActivity {
                         intent.putExtra("transmision", producto.getTransmision());
                         intent.putExtra("tipomotor", producto.getTipomotor());
                         intent.putExtra("placa", producto.getPlaca());
-
+                        intent.putExtra("imagen",producto.getImagen());
                         v.getContext().startActivity(intent);
                     }
                 });

@@ -73,7 +73,7 @@
                     android:layout_height="48dp"
                     android:layout_weight="1"
                     android:onClick="IrCrudProductos"
-                    android:text="Productos"
+                    android:text="Centro de Gestion"
                     android:textColor="@color/white"
                     android:textSize="24sp" />
 
@@ -127,7 +127,7 @@
                     android:layout_width="314dp"
                     android:layout_height="48dp"
                     android:layout_weight="1"
-                    android:onClick="IrTarjeta"
+                    android:onClick="IrKardex"
                     android:text="Kardex"
                     android:textColor="@color/white"
                     android:textSize="24sp"
